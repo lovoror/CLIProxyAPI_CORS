@@ -17,6 +17,7 @@ import (
 	"sync/atomic"
 	"time"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/router-for-me/CLIProxyAPI/v6/internal/access"
 	managementHandlers "github.com/router-for-me/CLIProxyAPI/v6/internal/api/handlers/management"
@@ -219,7 +220,7 @@ func NewServer(cfg *config.Config, authManager *auth.Manager, accessManager *sdk
 		}
 	}
 
-	engine.Use(corsMiddleware())
+	engine.Use(corsMiddleware(&cfg.CORS))
 	wd, err := os.Getwd()
 	if err != nil {
 		wd = configFilePath
@@ -764,21 +765,56 @@ func (s *Server) Stop(ctx context.Context) error {
 // corsMiddleware returns a Gin middleware handler that adds CORS headers
 // to every response, allowing cross-origin requests.
 //
+// Parameters:
+//   - cfg: The CORS configuration
+//
 // Returns:
 //   - gin.HandlerFunc: The CORS middleware handler
-func corsMiddleware() gin.HandlerFunc {
-	return func(c *gin.Context) {
-		c.Header("Access-Control-Allow-Origin", "*")
-		c.Header("Access-Control-Allow-Methods", "GET, POST, PUT, PATCH, DELETE, OPTIONS")
-		c.Header("Access-Control-Allow-Headers", "*")
-
-		if c.Request.Method == "OPTIONS" {
-			c.AbortWithStatus(http.StatusNoContent)
-			return
-		}
-
-		c.Next()
+func corsMiddleware(cfg *config.CORSConfig) gin.HandlerFunc {
+	corsCfg := cors.Config{
+		AllowMethods:     []string{"GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"},
+		AllowHeaders:     []string{"Origin", "Content-Type", "Accept", "Authorization", "X-Requested-With"},
+		ExposeHeaders:    []string{"Content-Length"},
+		AllowCredentials: true,
+		MaxAge:           12 * time.Hour,
 	}
+
+	if len(cfg.AllowOrigins) > 0 {
+		corsCfg.AllowOrigins = cfg.AllowOrigins
+		// If "*" is specified, we must disable AllowCredentials unless we use AllowOriginFunc
+		for _, origin := range cfg.AllowOrigins {
+			if origin == "*" {
+				corsCfg.AllowAllOrigins = true
+				corsCfg.AllowOrigins = nil
+				corsCfg.AllowCredentials = false
+				break
+			}
+		}
+	} else {
+		corsCfg.AllowAllOrigins = true
+		corsCfg.AllowCredentials = false
+	}
+
+	if len(cfg.AllowMethods) > 0 {
+		corsCfg.AllowMethods = cfg.AllowMethods
+	}
+
+	if len(cfg.AllowHeaders) > 0 {
+		corsCfg.AllowHeaders = cfg.AllowHeaders
+	}
+
+	if cfg.AllowCredentials {
+		// Only allow credentials if we are not allowing all origins
+		if !corsCfg.AllowAllOrigins {
+			corsCfg.AllowCredentials = true
+		}
+	}
+
+	if cfg.MaxAge > 0 {
+		corsCfg.MaxAge = time.Duration(cfg.MaxAge) * time.Second
+	}
+
+	return cors.New(corsCfg)
 }
 
 func (s *Server) applyAccessConfig(oldCfg, newCfg *config.Config) {

@@ -29,8 +29,8 @@ import (
 const (
 	codeAssistEndpoint      = "https://cloudcode-pa.googleapis.com"
 	codeAssistVersion       = "v1internal"
-	geminiOauthClientID     = "681255809395-oo8ft2oprdrnp9e3aqf6av3hmdib135j.apps.googleusercontent.com"
-	geminiOauthClientSecret = "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"
+	geminiOauthClientID     = "" // TODO: Set via environment variable or config
+	geminiOauthClientSecret = "" // TODO: Set via environment variable or config
 )
 
 var geminiOauthScopes = []string{

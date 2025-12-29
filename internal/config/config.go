@@ -96,6 +96,24 @@ type Config struct {
 
 	// OAuthExcludedModels defines per-provider global model exclusions applied to OAuth/file-backed auth entries.
 	OAuthExcludedModels map[string][]string `yaml:"oauth-excluded-models,omitempty" json:"oauth-excluded-models,omitempty"`
+
+	// CORS defines Cross-Origin Resource Sharing (CORS) settings for the API server.
+	CORS CORSConfig `yaml:"cors" json:"cors"`
+}
+
+// CORSConfig represents Cross-Origin Resource Sharing (CORS) settings.
+type CORSConfig struct {
+	// AllowOrigins is a list of origins that are allowed to access the API.
+	// Use ["*"] to allow all origins.
+	AllowOrigins []string `yaml:"allow-origins" json:"allow-origins"`
+	// AllowMethods is a list of HTTP methods that are allowed for cross-origin requests.
+	AllowMethods []string `yaml:"allow-methods" json:"allow-methods"`
+	// AllowHeaders is a list of HTTP headers that are allowed for cross-origin requests.
+	AllowHeaders []string `yaml:"allow-headers" json:"allow-headers"`
+	// AllowCredentials indicates whether the request can include user credentials like cookies.
+	AllowCredentials bool `yaml:"allow-credentials" json:"allow-credentials"`
+	// MaxAge is the maximum amount of time (in seconds) that the results of a preflight request can be cached.
+	MaxAge int `yaml:"max-age" json:"max-age"`
 }
 
 // TLSConfig holds HTTPS server settings.
