@@ -28,12 +28,19 @@ func Walk(value gjson.Result, path, field string, paths *[]string) {
 		// For JSON objects and arrays, iterate through each child
 		value.ForEach(func(key, val gjson.Result) bool {
 			var childPath string
+			// Escape special characters for gjson/sjson path syntax
+			// . -> \.
+			// * -> \*
+			// ? -> \?
+			keyStr := key.String()
+			safeKey := escapeGJSONPathKey(keyStr)
+
 			if path == "" {
-				childPath = key.String()
+				childPath = safeKey
 			} else {
-				childPath = path + "." + key.String()
+				childPath = path + "." + safeKey
 			}
-			if key.String() == field {
+			if keyStr == field {
 				*paths = append(*paths, childPath)
 			}
 			Walk(val, childPath, field, paths)

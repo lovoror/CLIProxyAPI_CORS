@@ -1,0 +1,26 @@
+data: {"choices":[{"delta":{"role":"assistant"},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"reasoning_content":"User asks \"1+1=?\". Simple arithmetic. Answer: 2. Could also consider context?"},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"reasoning_content":" It's trivial. Ensure correct output: \"2\". The user might want a short answer. Provide answer.\n\nBut"},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"reasoning_content":" be careful: The system includes a note that the current date is 2026-02-1"},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"reasoning_content":"1. But no effect. The question is trivial arithmetic. Should answer: 2.\n\nHowever, we need to"},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"reasoning_content":" verify that it's not a test for hidden content. Possibly the user wants the answer as part of some puzzle?"},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"reasoning_content":" Could be trivial. But we answer straightforward.\n\nWe should not use any tool, just answer.\n\nThus final answer:"},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"reasoning_content":" 2.\n\nBut check guidelines: Provide a concise answer. Ok.\n\nWe need to consider if any tool usage needed"},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"reasoning_content":"? No.\n\nThus reply: 2.\n\nGiven the system instructions: we have to be direct, no extra text"},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"reasoning_content":"? The question is simple, answer just \"2\". Possibly include an explanation? The instruction says we should answer."},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"content":"\n\n2","reasoning_content":" I'd say \"2\".\n\nThus final.\n"},"finish_reason":null,"index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{},"finish_reason":"stop","index":0}],"created":1770806456,"id":"chatcmpl-1770806456911852100","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: [DONE]
+

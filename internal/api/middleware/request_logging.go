@@ -8,6 +8,7 @@ import (
 	"io"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/gin-gonic/gin"
 	"github.com/router-for-me/CLIProxyAPI/v6/internal/logging"
@@ -98,10 +99,12 @@ func captureRequestInfo(c *gin.Context) (*RequestInfo, error) {
 	}
 
 	return &RequestInfo{
-		URL:     url,
-		Method:  method,
-		Headers: headers,
-		Body:    body,
+		URL:       url,
+		Method:    method,
+		Headers:   headers,
+		Body:      body,
+		RequestID: logging.GetGinRequestID(c),
+		Timestamp: time.Now(),
 	}, nil
 }
 
@@ -112,5 +115,10 @@ func shouldLogRequest(path string) bool {
 	if strings.HasPrefix(path, "/v0/management") || strings.HasPrefix(path, "/management") {
 		return false
 	}
+
+	if strings.HasPrefix(path, "/api") {
+		return strings.HasPrefix(path, "/api/provider")
+	}
+
 	return true
 }

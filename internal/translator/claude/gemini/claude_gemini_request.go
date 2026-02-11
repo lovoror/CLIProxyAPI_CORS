@@ -6,7 +6,6 @@
 package gemini
 
 import (
-	"bytes"
 	"crypto/rand"
 	"crypto/sha256"
 	"encoding/hex"
@@ -15,6 +14,7 @@ import (
 	"strings"
 
 	"github.com/google/uuid"
+	"github.com/router-for-me/CLIProxyAPI/v6/internal/thinking"
 	"github.com/router-for-me/CLIProxyAPI/v6/internal/util"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
@@ -45,7 +45,7 @@ var (
 // Returns:
 //   - []byte: The transformed request data in Claude Code API format
 func ConvertGeminiRequestToClaude(modelName string, inputRawJSON []byte, stream bool) []byte {
-	rawJSON := bytes.Clone(inputRawJSON)
+	rawJSON := inputRawJSON
 
 	if account == "" {
 		u, _ := uuid.NewRandom()
@@ -97,9 +97,8 @@ func ConvertGeminiRequestToClaude(modelName string, inputRawJSON []byte, stream 
 		// Temperature setting for controlling response randomness
 		if temp := genConfig.Get("temperature"); temp.Exists() {
 			out, _ = sjson.Set(out, "temperature", temp.Float())
-		}
-		// Top P setting for nucleus sampling
-		if topP := genConfig.Get("topP"); topP.Exists() {
+		} else if topP := genConfig.Get("topP"); topP.Exists() {
+			// Top P setting for nucleus sampling (filtered out if temperature is set)
 			out, _ = sjson.Set(out, "top_p", topP.Float())
 		}
 		// Stop sequences configuration for custom termination conditions
@@ -114,13 +113,50 @@ func ConvertGeminiRequestToClaude(modelName string, inputRawJSON []byte, stream 
 			}
 		}
 		// Include thoughts configuration for reasoning process visibility
+		// Translator only does format conversion, ApplyThinking handles model capability validation.
 		if thinkingConfig := genConfig.Get("thinkingConfig"); thinkingConfig.Exists() && thinkingConfig.IsObject() {
-			if includeThoughts := thinkingConfig.Get("include_thoughts"); includeThoughts.Exists() {
-				if includeThoughts.Type == gjson.True {
+			thinkingLevel := thinkingConfig.Get("thinkingLevel")
+			if !thinkingLevel.Exists() {
+				thinkingLevel = thinkingConfig.Get("thinking_level")
+			}
+			if thinkingLevel.Exists() {
+				level := strings.ToLower(strings.TrimSpace(thinkingLevel.String()))
+				switch level {
+				case "":
+				case "none":
+					out, _ = sjson.Set(out, "thinking.type", "disabled")
+					out, _ = sjson.Delete(out, "thinking.budget_tokens")
+				case "auto":
 					out, _ = sjson.Set(out, "thinking.type", "enabled")
-					if thinkingBudget := thinkingConfig.Get("thinkingBudget"); thinkingBudget.Exists() {
-						out, _ = sjson.Set(out, "thinking.budget_tokens", thinkingBudget.Int())
+					out, _ = sjson.Delete(out, "thinking.budget_tokens")
+				default:
+					if budget, ok := thinking.ConvertLevelToBudget(level); ok {
+						out, _ = sjson.Set(out, "thinking.type", "enabled")
+						out, _ = sjson.Set(out, "thinking.budget_tokens", budget)
 					}
+				}
+			} else {
+				thinkingBudget := thinkingConfig.Get("thinkingBudget")
+				if !thinkingBudget.Exists() {
+					thinkingBudget = thinkingConfig.Get("thinking_budget")
+				}
+				if thinkingBudget.Exists() {
+					budget := int(thinkingBudget.Int())
+					switch budget {
+					case 0:
+						out, _ = sjson.Set(out, "thinking.type", "disabled")
+						out, _ = sjson.Delete(out, "thinking.budget_tokens")
+					case -1:
+						out, _ = sjson.Set(out, "thinking.type", "enabled")
+						out, _ = sjson.Delete(out, "thinking.budget_tokens")
+					default:
+						out, _ = sjson.Set(out, "thinking.type", "enabled")
+						out, _ = sjson.Set(out, "thinking.budget_tokens", budget)
+					}
+				} else if includeThoughts := thinkingConfig.Get("includeThoughts"); includeThoughts.Exists() && includeThoughts.Type == gjson.True {
+					out, _ = sjson.Set(out, "thinking.type", "enabled")
+				} else if includeThoughts := thinkingConfig.Get("include_thoughts"); includeThoughts.Exists() && includeThoughts.Type == gjson.True {
+					out, _ = sjson.Set(out, "thinking.type", "enabled")
 				}
 			}
 		}
@@ -192,7 +228,7 @@ func ConvertGeminiRequestToClaude(modelName string, inputRawJSON []byte, stream 
 						if name := fc.Get("name"); name.Exists() {
 							toolUse, _ = sjson.Set(toolUse, "name", name.String())
 						}
-						if args := fc.Get("args"); args.Exists() {
+						if args := fc.Get("args"); args.Exists() && args.IsObject() {
 							toolUse, _ = sjson.SetRaw(toolUse, "input", args.Raw)
 						}
 						msg, _ = sjson.SetRaw(msg, "content.-1", toolUse)
@@ -312,11 +348,11 @@ func ConvertGeminiRequestToClaude(modelName string, inputRawJSON []byte, stream 
 			if mode := funcCalling.Get("mode"); mode.Exists() {
 				switch mode.String() {
 				case "AUTO":
-					out, _ = sjson.Set(out, "tool_choice", map[string]interface{}{"type": "auto"})
+					out, _ = sjson.SetRaw(out, "tool_choice", `{"type":"auto"}`)
 				case "NONE":
-					out, _ = sjson.Set(out, "tool_choice", map[string]interface{}{"type": "none"})
+					out, _ = sjson.SetRaw(out, "tool_choice", `{"type":"none"}`)
 				case "ANY":
-					out, _ = sjson.Set(out, "tool_choice", map[string]interface{}{"type": "any"})
+					out, _ = sjson.SetRaw(out, "tool_choice", `{"type":"any"}`)
 				}
 			}
 		}

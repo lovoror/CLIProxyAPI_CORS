@@ -6,12 +6,11 @@
 package claude
 
 import (
-	"bytes"
 	"fmt"
 	"strconv"
 	"strings"
 
-	"github.com/router-for-me/CLIProxyAPI/v6/internal/misc"
+	"github.com/router-for-me/CLIProxyAPI/v6/internal/thinking"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 )
@@ -20,12 +19,12 @@ import (
 // It extracts the model name, system instruction, message contents, and tool declarations
 // from the raw JSON request and returns them in the format expected by the internal client.
 // The function performs the following transformations:
-// 1. Sets up a template with the model name and Codex instructions
-// 2. Processes system messages and converts them to input content
-// 3. Transforms message contents (text, tool_use, tool_result) to appropriate formats
+// 1. Sets up a template with the model name and empty instructions field
+// 2. Processes system messages and converts them to developer input content
+// 3. Transforms message contents (text, image, tool_use, tool_result) to appropriate formats
 // 4. Converts tools declarations to the expected format
 // 5. Adds additional configuration parameters for the Codex API
-// 6. Prepends a special instruction message to override system instructions
+// 6. Maps Claude thinking configuration to Codex reasoning settings
 //
 // Parameters:
 //   - modelName: The name of the model to use for the request
@@ -35,12 +34,9 @@ import (
 // Returns:
 //   - []byte: The transformed request data in internal client format
 func ConvertClaudeRequestToCodex(modelName string, inputRawJSON []byte, _ bool) []byte {
-	rawJSON := bytes.Clone(inputRawJSON)
+	rawJSON := inputRawJSON
 
 	template := `{"model":"","instructions":"","input":[]}`
-
-	_, instructions := misc.CodexInstructionsForModel(modelName, "")
-	template, _ = sjson.Set(template, "instructions", instructions)
 
 	rootResult := gjson.ParseBytes(rawJSON)
 	template, _ = sjson.Set(template, "model", modelName)
@@ -49,7 +45,7 @@ func ConvertClaudeRequestToCodex(modelName string, inputRawJSON []byte, _ bool) 
 	systemsResult := rootResult.Get("system")
 	if systemsResult.IsArray() {
 		systemResults := systemsResult.Array()
-		message := `{"type":"message","role":"user","content":[]}`
+		message := `{"type":"message","role":"developer","content":[]}`
 		for i := 0; i < len(systemResults); i++ {
 			systemResult := systemResults[i]
 			systemTypeResult := systemResult.Get("type")
@@ -214,29 +210,33 @@ func ConvertClaudeRequestToCodex(modelName string, inputRawJSON []byte, _ bool) 
 
 	// Add additional configuration parameters for the Codex API.
 	template, _ = sjson.Set(template, "parallel_tool_calls", true)
-	template, _ = sjson.Set(template, "reasoning.effort", "low")
+
+	// Convert thinking.budget_tokens to reasoning.effort.
+	reasoningEffort := "medium"
+	if thinkingConfig := rootResult.Get("thinking"); thinkingConfig.Exists() && thinkingConfig.IsObject() {
+		switch thinkingConfig.Get("type").String() {
+		case "enabled":
+			if budgetTokens := thinkingConfig.Get("budget_tokens"); budgetTokens.Exists() {
+				budget := int(budgetTokens.Int())
+				if effort, ok := thinking.ConvertBudgetToLevel(budget); ok && effort != "" {
+					reasoningEffort = effort
+				}
+			}
+		case "adaptive":
+			// Claude adaptive means "enable with max capacity"; keep it as highest level
+			// and let ApplyThinking normalize per target model capability.
+			reasoningEffort = string(thinking.LevelXHigh)
+		case "disabled":
+			if effort, ok := thinking.ConvertBudgetToLevel(0); ok && effort != "" {
+				reasoningEffort = effort
+			}
+		}
+	}
+	template, _ = sjson.Set(template, "reasoning.effort", reasoningEffort)
 	template, _ = sjson.Set(template, "reasoning.summary", "auto")
 	template, _ = sjson.Set(template, "stream", true)
 	template, _ = sjson.Set(template, "store", false)
 	template, _ = sjson.Set(template, "include", []string{"reasoning.encrypted_content"})
-
-	// Add a first message to ignore system instructions and ensure proper execution.
-	inputResult := gjson.Get(template, "input")
-	if inputResult.Exists() && inputResult.IsArray() {
-		inputResults := inputResult.Array()
-		newInput := "[]"
-		for i := 0; i < len(inputResults); i++ {
-			if i == 0 {
-				firstText := inputResults[i].Get("content.0.text")
-				firstInstructions := "EXECUTE ACCORDING TO THE FOLLOWING INSTRUCTIONS!!!"
-				if firstText.Exists() && firstText.String() != firstInstructions {
-					newInput, _ = sjson.SetRaw(newInput, "-1", `{"type":"message","role":"user","content":[{"type":"input_text","text":"EXECUTE ACCORDING TO THE FOLLOWING INSTRUCTIONS!!!"}]}`)
-				}
-			}
-			newInput, _ = sjson.SetRaw(newInput, "-1", inputResults[i].Raw)
-		}
-		template, _ = sjson.SetRaw(template, "input", newInput)
-	}
 
 	return []byte(template)
 }

@@ -14,6 +14,7 @@ import (
 	"bytes"
 	"context"
 	"errors"
+	"fmt"
 	"io"
 	"net/http"
 	"net/url"
@@ -23,13 +24,13 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
-	"github.com/router-for-me/CLIProxyAPI/v6/internal/api"
-	"github.com/router-for-me/CLIProxyAPI/v6/internal/config"
-	"github.com/router-for-me/CLIProxyAPI/v6/internal/logging"
+	"github.com/router-for-me/CLIProxyAPI/v6/sdk/api"
 	sdkAuth "github.com/router-for-me/CLIProxyAPI/v6/sdk/auth"
 	"github.com/router-for-me/CLIProxyAPI/v6/sdk/cliproxy"
 	coreauth "github.com/router-for-me/CLIProxyAPI/v6/sdk/cliproxy/auth"
 	clipexec "github.com/router-for-me/CLIProxyAPI/v6/sdk/cliproxy/executor"
+	"github.com/router-for-me/CLIProxyAPI/v6/sdk/config"
+	"github.com/router-for-me/CLIProxyAPI/v6/sdk/logging"
 	sdktr "github.com/router-for-me/CLIProxyAPI/v6/sdk/translator"
 )
 
@@ -122,7 +123,9 @@ func (MyExecutor) Execute(ctx context.Context, a *coreauth.Auth, req clipexec.Re
 	httpReq.Header.Set("Content-Type", "application/json")
 
 	// Inject credentials via PrepareRequest hook.
-	_ = (MyExecutor{}).PrepareRequest(httpReq, a)
+	if errPrep := (MyExecutor{}).PrepareRequest(httpReq, a); errPrep != nil {
+		return clipexec.Response{}, errPrep
+	}
 
 	resp, errDo := client.Do(httpReq)
 	if errDo != nil {
@@ -130,11 +133,26 @@ func (MyExecutor) Execute(ctx context.Context, a *coreauth.Auth, req clipexec.Re
 	}
 	defer func() {
 		if errClose := resp.Body.Close(); errClose != nil {
-			// Best-effort close; log if needed in real projects.
+			fmt.Fprintf(os.Stderr, "close response body error: %v\n", errClose)
 		}
 	}()
 	body, _ := io.ReadAll(resp.Body)
 	return clipexec.Response{Payload: body}, nil
+}
+
+func (MyExecutor) HttpRequest(ctx context.Context, a *coreauth.Auth, req *http.Request) (*http.Response, error) {
+	if req == nil {
+		return nil, fmt.Errorf("myprov executor: request is nil")
+	}
+	if ctx == nil {
+		ctx = req.Context()
+	}
+	httpReq := req.WithContext(ctx)
+	if errPrep := (MyExecutor{}).PrepareRequest(httpReq, a); errPrep != nil {
+		return nil, errPrep
+	}
+	client := buildHTTPClient(a)
+	return client.Do(httpReq)
 }
 
 func (MyExecutor) CountTokens(context.Context, *coreauth.Auth, clipexec.Request, clipexec.Options) (clipexec.Response, error) {
@@ -187,7 +205,7 @@ func main() {
 			// Optional: add a simple middleware + custom request logger
 			api.WithMiddleware(func(c *gin.Context) { c.Header("X-Example", "custom-provider"); c.Next() }),
 			api.WithRequestLoggerFactory(func(cfg *config.Config, cfgPath string) logging.RequestLogger {
-				return logging.NewFileRequestLogger(true, "logs", filepath.Dir(cfgPath))
+				return logging.NewFileRequestLoggerWithOptions(true, "logs", filepath.Dir(cfgPath), cfg.ErrorLogsMaxFiles)
 			}),
 		).
 		WithHooks(hooks).
@@ -199,8 +217,8 @@ func main() {
 	ctx, cancel := context.WithCancel(context.Background())
 	defer cancel()
 
-	if err := svc.Run(ctx); err != nil && !errors.Is(err, context.Canceled) {
-		panic(err)
+	if errRun := svc.Run(ctx); errRun != nil && !errors.Is(errRun, context.Canceled) {
+		panic(errRun)
 	}
 	_ = os.Stderr // keep os import used (demo only)
 	_ = time.Second

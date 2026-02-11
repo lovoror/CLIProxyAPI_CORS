@@ -6,16 +6,15 @@
 package chat_completions
 
 import (
-	"bytes"
 	"crypto/rand"
 	"crypto/sha256"
 	"encoding/hex"
-	"encoding/json"
 	"fmt"
 	"math/big"
 	"strings"
 
 	"github.com/google/uuid"
+	"github.com/router-for-me/CLIProxyAPI/v6/internal/thinking"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 )
@@ -44,7 +43,7 @@ var (
 // Returns:
 //   - []byte: The transformed request data in Claude Code API format
 func ConvertOpenAIRequestToClaude(modelName string, inputRawJSON []byte, stream bool) []byte {
-	rawJSON := bytes.Clone(inputRawJSON)
+	rawJSON := inputRawJSON
 
 	if account == "" {
 		u, _ := uuid.NewRandom()
@@ -65,18 +64,24 @@ func ConvertOpenAIRequestToClaude(modelName string, inputRawJSON []byte, stream 
 
 	root := gjson.ParseBytes(rawJSON)
 
+	// Convert OpenAI reasoning_effort to Claude thinking config.
 	if v := root.Get("reasoning_effort"); v.Exists() {
-		out, _ = sjson.Set(out, "thinking.type", "enabled")
-
-		switch v.String() {
-		case "none":
-			out, _ = sjson.Set(out, "thinking.type", "disabled")
-		case "low":
-			out, _ = sjson.Set(out, "thinking.budget_tokens", 1024)
-		case "medium":
-			out, _ = sjson.Set(out, "thinking.budget_tokens", 8192)
-		case "high":
-			out, _ = sjson.Set(out, "thinking.budget_tokens", 24576)
+		effort := strings.ToLower(strings.TrimSpace(v.String()))
+		if effort != "" {
+			budget, ok := thinking.ConvertLevelToBudget(effort)
+			if ok {
+				switch budget {
+				case 0:
+					out, _ = sjson.Set(out, "thinking.type", "disabled")
+				case -1:
+					out, _ = sjson.Set(out, "thinking.type", "enabled")
+				default:
+					if budget > 0 {
+						out, _ = sjson.Set(out, "thinking.type", "enabled")
+						out, _ = sjson.Set(out, "thinking.budget_tokens", budget)
+					}
+				}
+			}
 		}
 	}
 
@@ -104,10 +109,8 @@ func ConvertOpenAIRequestToClaude(modelName string, inputRawJSON []byte, stream 
 	// Temperature setting for controlling response randomness
 	if temp := root.Get("temperature"); temp.Exists() {
 		out, _ = sjson.Set(out, "temperature", temp.Float())
-	}
-
-	// Top P setting for nucleus sampling
-	if topP := root.Get("top_p"); topP.Exists() {
+	} else if topP := root.Get("top_p"); topP.Exists() {
+		// Top P setting for nucleus sampling (filtered out if temperature is set)
 		out, _ = sjson.Set(out, "top_p", topP.Float())
 	}
 
@@ -131,48 +134,53 @@ func ConvertOpenAIRequestToClaude(modelName string, inputRawJSON []byte, stream 
 	out, _ = sjson.Set(out, "stream", stream)
 
 	// Process messages and transform them to Claude Code format
-	var anthropicMessages []interface{}
-	var toolCallIDs []string // Track tool call IDs for matching with tool results
-
 	if messages := root.Get("messages"); messages.Exists() && messages.IsArray() {
+		messageIndex := 0
+		systemMessageIndex := -1
 		messages.ForEach(func(_, message gjson.Result) bool {
 			role := message.Get("role").String()
 			contentResult := message.Get("content")
 
 			switch role {
-			case "system", "user", "assistant":
-				// Create Claude Code message with appropriate role mapping
-				if role == "system" {
-					role = "user"
+			case "system":
+				if systemMessageIndex == -1 {
+					systemMsg := `{"role":"user","content":[]}`
+					out, _ = sjson.SetRaw(out, "messages.-1", systemMsg)
+					systemMessageIndex = messageIndex
+					messageIndex++
 				}
-
-				msg := map[string]interface{}{
-					"role":    role,
-					"content": []interface{}{},
+				if contentResult.Exists() && contentResult.Type == gjson.String && contentResult.String() != "" {
+					textPart := `{"type":"text","text":""}`
+					textPart, _ = sjson.Set(textPart, "text", contentResult.String())
+					out, _ = sjson.SetRaw(out, fmt.Sprintf("messages.%d.content.-1", systemMessageIndex), textPart)
+				} else if contentResult.Exists() && contentResult.IsArray() {
+					contentResult.ForEach(func(_, part gjson.Result) bool {
+						if part.Get("type").String() == "text" {
+							textPart := `{"type":"text","text":""}`
+							textPart, _ = sjson.Set(textPart, "text", part.Get("text").String())
+							out, _ = sjson.SetRaw(out, fmt.Sprintf("messages.%d.content.-1", systemMessageIndex), textPart)
+						}
+						return true
+					})
 				}
+			case "user", "assistant":
+				msg := `{"role":"","content":[]}`
+				msg, _ = sjson.Set(msg, "role", role)
 
 				// Handle content based on its type (string or array)
 				if contentResult.Exists() && contentResult.Type == gjson.String && contentResult.String() != "" {
-					// Simple text content conversion
-					msg["content"] = []interface{}{
-						map[string]interface{}{
-							"type": "text",
-							"text": contentResult.String(),
-						},
-					}
+					part := `{"type":"text","text":""}`
+					part, _ = sjson.Set(part, "text", contentResult.String())
+					msg, _ = sjson.SetRaw(msg, "content.-1", part)
 				} else if contentResult.Exists() && contentResult.IsArray() {
-					// Array of content parts processing
-					var contentParts []interface{}
 					contentResult.ForEach(func(_, part gjson.Result) bool {
 						partType := part.Get("type").String()
 
 						switch partType {
 						case "text":
-							// Text part conversion
-							contentParts = append(contentParts, map[string]interface{}{
-								"type": "text",
-								"text": part.Get("text").String(),
-							})
+							textPart := `{"type":"text","text":""}`
+							textPart, _ = sjson.Set(textPart, "text", part.Get("text").String())
+							msg, _ = sjson.SetRaw(msg, "content.-1", textPart)
 
 						case "image_url":
 							// Convert OpenAI image format to Claude Code format
@@ -185,132 +193,97 @@ func ConvertOpenAIRequestToClaude(modelName string, inputRawJSON []byte, stream 
 									mediaType := strings.TrimPrefix(mediaTypePart, "data:")
 									data := parts[1]
 
-									contentParts = append(contentParts, map[string]interface{}{
-										"type": "image",
-										"source": map[string]interface{}{
-											"type":       "base64",
-											"media_type": mediaType,
-											"data":       data,
-										},
-									})
+									imagePart := `{"type":"image","source":{"type":"base64","media_type":"","data":""}}`
+									imagePart, _ = sjson.Set(imagePart, "source.media_type", mediaType)
+									imagePart, _ = sjson.Set(imagePart, "source.data", data)
+									msg, _ = sjson.SetRaw(msg, "content.-1", imagePart)
 								}
 							}
 						}
 						return true
 					})
-					if len(contentParts) > 0 {
-						msg["content"] = contentParts
-					}
-				} else {
-					// Initialize empty content array for tool calls
-					msg["content"] = []interface{}{}
 				}
 
 				// Handle tool calls (for assistant messages)
 				if toolCalls := message.Get("tool_calls"); toolCalls.Exists() && toolCalls.IsArray() && role == "assistant" {
-					var contentParts []interface{}
-
-					// Add existing text content if any
-					if existingContent, ok := msg["content"].([]interface{}); ok {
-						contentParts = existingContent
-					}
-
 					toolCalls.ForEach(func(_, toolCall gjson.Result) bool {
 						if toolCall.Get("type").String() == "function" {
 							toolCallID := toolCall.Get("id").String()
 							if toolCallID == "" {
 								toolCallID = genToolCallID()
 							}
-							toolCallIDs = append(toolCallIDs, toolCallID)
 
 							function := toolCall.Get("function")
-							toolUse := map[string]interface{}{
-								"type": "tool_use",
-								"id":   toolCallID,
-								"name": function.Get("name").String(),
-							}
+							toolUse := `{"type":"tool_use","id":"","name":"","input":{}}`
+							toolUse, _ = sjson.Set(toolUse, "id", toolCallID)
+							toolUse, _ = sjson.Set(toolUse, "name", function.Get("name").String())
 
 							// Parse arguments for the tool call
 							if args := function.Get("arguments"); args.Exists() {
 								argsStr := args.String()
-								if argsStr != "" {
-									var argsMap map[string]interface{}
-									if err := json.Unmarshal([]byte(argsStr), &argsMap); err == nil {
-										toolUse["input"] = argsMap
+								if argsStr != "" && gjson.Valid(argsStr) {
+									argsJSON := gjson.Parse(argsStr)
+									if argsJSON.IsObject() {
+										toolUse, _ = sjson.SetRaw(toolUse, "input", argsJSON.Raw)
 									} else {
-										toolUse["input"] = map[string]interface{}{}
+										toolUse, _ = sjson.SetRaw(toolUse, "input", "{}")
 									}
 								} else {
-									toolUse["input"] = map[string]interface{}{}
+									toolUse, _ = sjson.SetRaw(toolUse, "input", "{}")
 								}
 							} else {
-								toolUse["input"] = map[string]interface{}{}
+								toolUse, _ = sjson.SetRaw(toolUse, "input", "{}")
 							}
 
-							contentParts = append(contentParts, toolUse)
+							msg, _ = sjson.SetRaw(msg, "content.-1", toolUse)
 						}
 						return true
 					})
-					msg["content"] = contentParts
 				}
 
-				anthropicMessages = append(anthropicMessages, msg)
+				out, _ = sjson.SetRaw(out, "messages.-1", msg)
+				messageIndex++
 
 			case "tool":
 				// Handle tool result messages conversion
 				toolCallID := message.Get("tool_call_id").String()
 				content := message.Get("content").String()
 
-				// Create tool result message in Claude Code format
-				msg := map[string]interface{}{
-					"role": "user",
-					"content": []interface{}{
-						map[string]interface{}{
-							"type":        "tool_result",
-							"tool_use_id": toolCallID,
-							"content":     content,
-						},
-					},
-				}
-
-				anthropicMessages = append(anthropicMessages, msg)
+				msg := `{"role":"user","content":[{"type":"tool_result","tool_use_id":"","content":""}]}`
+				msg, _ = sjson.Set(msg, "content.0.tool_use_id", toolCallID)
+				msg, _ = sjson.Set(msg, "content.0.content", content)
+				out, _ = sjson.SetRaw(out, "messages.-1", msg)
+				messageIndex++
 			}
 			return true
 		})
-	}
-
-	// Set messages in the output template
-	if len(anthropicMessages) > 0 {
-		messagesJSON, _ := json.Marshal(anthropicMessages)
-		out, _ = sjson.SetRaw(out, "messages", string(messagesJSON))
 	}
 
 	// Tools mapping: OpenAI tools -> Claude Code tools
 	if tools := root.Get("tools"); tools.Exists() && tools.IsArray() && len(tools.Array()) > 0 {
-		var anthropicTools []interface{}
+		hasAnthropicTools := false
 		tools.ForEach(func(_, tool gjson.Result) bool {
 			if tool.Get("type").String() == "function" {
 				function := tool.Get("function")
-				anthropicTool := map[string]interface{}{
-					"name":        function.Get("name").String(),
-					"description": function.Get("description").String(),
-				}
+				anthropicTool := `{"name":"","description":""}`
+				anthropicTool, _ = sjson.Set(anthropicTool, "name", function.Get("name").String())
+				anthropicTool, _ = sjson.Set(anthropicTool, "description", function.Get("description").String())
 
 				// Convert parameters schema for the tool
 				if parameters := function.Get("parameters"); parameters.Exists() {
-					anthropicTool["input_schema"] = parameters.Value()
-				} else if parameters = function.Get("parametersJsonSchema"); parameters.Exists() {
-					anthropicTool["input_schema"] = parameters.Value()
+					anthropicTool, _ = sjson.SetRaw(anthropicTool, "input_schema", parameters.Raw)
+				} else if parameters := function.Get("parametersJsonSchema"); parameters.Exists() {
+					anthropicTool, _ = sjson.SetRaw(anthropicTool, "input_schema", parameters.Raw)
 				}
 
-				anthropicTools = append(anthropicTools, anthropicTool)
+				out, _ = sjson.SetRaw(out, "tools.-1", anthropicTool)
+				hasAnthropicTools = true
 			}
 			return true
 		})
 
-		if len(anthropicTools) > 0 {
-			toolsJSON, _ := json.Marshal(anthropicTools)
-			out, _ = sjson.SetRaw(out, "tools", string(toolsJSON))
+		if !hasAnthropicTools {
+			out, _ = sjson.Delete(out, "tools")
 		}
 	}
 
@@ -323,18 +296,17 @@ func ConvertOpenAIRequestToClaude(modelName string, inputRawJSON []byte, stream 
 			case "none":
 				// Don't set tool_choice, Claude Code will not use tools
 			case "auto":
-				out, _ = sjson.Set(out, "tool_choice", map[string]interface{}{"type": "auto"})
+				out, _ = sjson.SetRaw(out, "tool_choice", `{"type":"auto"}`)
 			case "required":
-				out, _ = sjson.Set(out, "tool_choice", map[string]interface{}{"type": "any"})
+				out, _ = sjson.SetRaw(out, "tool_choice", `{"type":"any"}`)
 			}
 		case gjson.JSON:
 			// Specific tool choice mapping
 			if toolChoice.Get("type").String() == "function" {
 				functionName := toolChoice.Get("function.name").String()
-				out, _ = sjson.Set(out, "tool_choice", map[string]interface{}{
-					"type": "tool",
-					"name": functionName,
-				})
+				toolChoiceJSON := `{"type":"tool","name":""}`
+				toolChoiceJSON, _ = sjson.Set(toolChoiceJSON, "name", functionName)
+				out, _ = sjson.SetRaw(out, "tool_choice", toolChoiceJSON)
 			}
 		default:
 		}

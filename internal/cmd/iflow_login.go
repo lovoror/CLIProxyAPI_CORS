@@ -20,19 +20,14 @@ func DoIFlowLogin(cfg *config.Config, options *LoginOptions) {
 
 	promptFn := options.Prompt
 	if promptFn == nil {
-		promptFn = func(prompt string) (string, error) {
-			fmt.Println()
-			fmt.Println(prompt)
-			var value string
-			_, err := fmt.Scanln(&value)
-			return value, err
-		}
+		promptFn = defaultProjectPrompt()
 	}
 
 	authOpts := &sdkAuth.LoginOptions{
-		NoBrowser: options.NoBrowser,
-		Metadata:  map[string]string{},
-		Prompt:    promptFn,
+		NoBrowser:    options.NoBrowser,
+		CallbackPort: options.CallbackPort,
+		Metadata:     map[string]string{},
+		Prompt:       promptFn,
 	}
 
 	_, savedPath, err := manager.Login(context.Background(), "iflow", cfg, authOpts)

@@ -1,11 +1,9 @@
 package responses
 
 import (
-	"bytes"
 	"strings"
 
 	"github.com/router-for-me/CLIProxyAPI/v6/internal/translator/gemini/common"
-	"github.com/router-for-me/CLIProxyAPI/v6/internal/util"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 )
@@ -13,7 +11,7 @@ import (
 const geminiResponsesThoughtSignature = "skip_thought_signature_validator"
 
 func ConvertOpenAIResponsesRequestToGemini(modelName string, inputRawJSON []byte, stream bool) []byte {
-	rawJSON := bytes.Clone(inputRawJSON)
+	rawJSON := inputRawJSON
 
 	// Note: modelName and stream parameters are part of the fixed method signature
 	_ = modelName // Unused but required by interface
@@ -249,6 +247,7 @@ func ConvertOpenAIResponsesRequestToGemini(modelName string, inputRawJSON []byte
 				functionCall := `{"functionCall":{"name":"","args":{}}}`
 				functionCall, _ = sjson.Set(functionCall, "functionCall.name", name)
 				functionCall, _ = sjson.Set(functionCall, "thoughtSignature", geminiResponsesThoughtSignature)
+				functionCall, _ = sjson.Set(functionCall, "functionCall.id", item.Get("call_id").String())
 
 				// Parse arguments JSON string and set as args object
 				if arguments != "" {
@@ -285,6 +284,7 @@ func ConvertOpenAIResponsesRequestToGemini(modelName string, inputRawJSON []byte
 				}
 
 				functionResponse, _ = sjson.Set(functionResponse, "functionResponse.name", functionName)
+				functionResponse, _ = sjson.Set(functionResponse, "functionResponse.id", callID)
 
 				// Set the raw JSON output directly (preserves string encoding)
 				if outputRaw != "" && outputRaw != "null" {
@@ -297,6 +297,15 @@ func ConvertOpenAIResponsesRequestToGemini(modelName string, inputRawJSON []byte
 				}
 				functionContent, _ = sjson.SetRaw(functionContent, "parts.-1", functionResponse)
 				out, _ = sjson.SetRaw(out, "contents.-1", functionContent)
+
+			case "reasoning":
+				thoughtContent := `{"role":"model","parts":[]}`
+				thought := `{"text":"","thoughtSignature":"","thought":true}`
+				thought, _ = sjson.Set(thought, "text", item.Get("summary.0.text").String())
+				thought, _ = sjson.Set(thought, "thoughtSignature", item.Get("encrypted_content").String())
+
+				thoughtContent, _ = sjson.SetRaw(thoughtContent, "parts.-1", thought)
+				out, _ = sjson.SetRaw(out, "contents.-1", thoughtContent)
 			}
 		}
 	} else if input.Exists() && input.Type == gjson.String {
@@ -386,63 +395,21 @@ func ConvertOpenAIResponsesRequestToGemini(modelName string, inputRawJSON []byte
 		out, _ = sjson.Set(out, "generationConfig.stopSequences", sequences)
 	}
 
-	// OpenAI official reasoning fields take precedence
-	hasOfficialThinking := root.Get("reasoning.effort").Exists()
-	if hasOfficialThinking && util.ModelSupportsThinking(modelName) {
-		reasoningEffort := root.Get("reasoning.effort")
-		switch reasoningEffort.String() {
-		case "none":
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.include_thoughts", false)
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.thinkingBudget", 0)
-		case "auto":
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.thinkingBudget", -1)
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.include_thoughts", true)
-		case "minimal":
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.thinkingBudget", util.NormalizeThinkingBudget(modelName, 1024))
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.include_thoughts", true)
-		case "low":
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.thinkingBudget", util.NormalizeThinkingBudget(modelName, 4096))
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.include_thoughts", true)
-		case "medium":
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.thinkingBudget", util.NormalizeThinkingBudget(modelName, 8192))
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.include_thoughts", true)
-		case "high":
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.thinkingBudget", util.NormalizeThinkingBudget(modelName, 32768))
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.include_thoughts", true)
-		default:
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.thinkingBudget", -1)
-			out, _ = sjson.Set(out, "generationConfig.thinkingConfig.include_thoughts", true)
-		}
-	}
-
-	// Cherry Studio extension (applies only when official fields are missing)
-	if !hasOfficialThinking && util.ModelSupportsThinking(modelName) {
-		if tc := root.Get("extra_body.google.thinking_config"); tc.Exists() && tc.IsObject() {
-			var setBudget bool
-			var normalized int
-			if v := tc.Get("thinking_budget"); v.Exists() {
-				normalized = util.NormalizeThinkingBudget(modelName, int(v.Int()))
-				out, _ = sjson.Set(out, "generationConfig.thinkingConfig.thinkingBudget", normalized)
-				setBudget = true
-			}
-			if v := tc.Get("include_thoughts"); v.Exists() {
-				out, _ = sjson.Set(out, "generationConfig.thinkingConfig.include_thoughts", v.Bool())
-			} else if setBudget {
-				if normalized != 0 {
-					out, _ = sjson.Set(out, "generationConfig.thinkingConfig.include_thoughts", true)
-				}
+	// Apply thinking configuration: convert OpenAI Responses API reasoning.effort to Gemini thinkingConfig.
+	// Inline translation-only mapping; capability checks happen later in ApplyThinking.
+	re := root.Get("reasoning.effort")
+	if re.Exists() {
+		effort := strings.ToLower(strings.TrimSpace(re.String()))
+		if effort != "" {
+			thinkingPath := "generationConfig.thinkingConfig"
+			if effort == "auto" {
+				out, _ = sjson.Set(out, thinkingPath+".thinkingBudget", -1)
+				out, _ = sjson.Set(out, thinkingPath+".includeThoughts", true)
+			} else {
+				out, _ = sjson.Set(out, thinkingPath+".thinkingLevel", effort)
+				out, _ = sjson.Set(out, thinkingPath+".includeThoughts", effort != "none")
 			}
 		}
-	}
-
-	// For gemini-3-pro-preview, always send default thinkingConfig when none specified.
-	// This matches the official Gemini CLI behavior which always sends:
-	// { thinkingBudget: -1, includeThoughts: true }
-	// See: ai-gemini-cli/packages/core/src/config/defaultModelConfigs.ts
-	if !gjson.Get(out, "generationConfig.thinkingConfig").Exists() && modelName == "gemini-3-pro-preview" {
-		out, _ = sjson.Set(out, "generationConfig.thinkingConfig.thinkingBudget", -1)
-		out, _ = sjson.Set(out, "generationConfig.thinkingConfig.include_thoughts", true)
-		// log.Debugf("Applied default thinkingConfig for gemini-3-pro-preview (matches Gemini CLI): thinkingBudget=-1, include_thoughts=true")
 	}
 
 	result := []byte(out)

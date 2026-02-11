@@ -19,6 +19,9 @@ type LoginOptions struct {
 	// NoBrowser indicates whether to skip opening the browser automatically.
 	NoBrowser bool
 
+	// CallbackPort overrides the local OAuth callback port when set (>0).
+	CallbackPort int
+
 	// Prompt allows the caller to provide interactive input when needed.
 	Prompt func(prompt string) (string, error)
 }
@@ -35,12 +38,18 @@ func DoCodexLogin(cfg *config.Config, options *LoginOptions) {
 		options = &LoginOptions{}
 	}
 
+	promptFn := options.Prompt
+	if promptFn == nil {
+		promptFn = defaultProjectPrompt()
+	}
+
 	manager := newAuthManager()
 
 	authOpts := &sdkAuth.LoginOptions{
-		NoBrowser: options.NoBrowser,
-		Metadata:  map[string]string{},
-		Prompt:    options.Prompt,
+		NoBrowser:    options.NoBrowser,
+		CallbackPort: options.CallbackPort,
+		Metadata:     map[string]string{},
+		Prompt:       promptFn,
 	}
 
 	_, savedPath, err := manager.Login(context.Background(), "codex", cfg, authOpts)

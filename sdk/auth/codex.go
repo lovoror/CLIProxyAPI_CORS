@@ -2,6 +2,8 @@ package auth
 
 import (
 	"context"
+	"crypto/sha256"
+	"encoding/hex"
 	"fmt"
 	"net/http"
 	"strings"
@@ -47,6 +49,11 @@ func (a *CodexAuthenticator) Login(ctx context.Context, cfg *config.Config, opts
 		opts = &LoginOptions{}
 	}
 
+	callbackPort := a.CallbackPort
+	if opts.CallbackPort > 0 {
+		callbackPort = opts.CallbackPort
+	}
+
 	pkceCodes, err := codex.GeneratePKCECodes()
 	if err != nil {
 		return nil, fmt.Errorf("codex pkce generation failed: %w", err)
@@ -57,7 +64,7 @@ func (a *CodexAuthenticator) Login(ctx context.Context, cfg *config.Config, opts
 		return nil, fmt.Errorf("codex state generation failed: %w", err)
 	}
 
-	oauthServer := codex.NewOAuthServer(a.CallbackPort)
+	oauthServer := codex.NewOAuthServer(callbackPort)
 	if err = oauthServer.Start(); err != nil {
 		if strings.Contains(err.Error(), "already in use") {
 			return nil, codex.NewAuthenticationError(codex.ErrPortInUse, err)
@@ -83,30 +90,90 @@ func (a *CodexAuthenticator) Login(ctx context.Context, cfg *config.Config, opts
 		fmt.Println("Opening browser for Codex authentication")
 		if !browser.IsAvailable() {
 			log.Warn("No browser available; please open the URL manually")
-			util.PrintSSHTunnelInstructions(a.CallbackPort)
+			util.PrintSSHTunnelInstructions(callbackPort)
 			fmt.Printf("Visit the following URL to continue authentication:\n%s\n", authURL)
 		} else if err = browser.OpenURL(authURL); err != nil {
 			log.Warnf("Failed to open browser automatically: %v", err)
-			util.PrintSSHTunnelInstructions(a.CallbackPort)
+			util.PrintSSHTunnelInstructions(callbackPort)
 			fmt.Printf("Visit the following URL to continue authentication:\n%s\n", authURL)
 		}
 	} else {
-		util.PrintSSHTunnelInstructions(a.CallbackPort)
+		util.PrintSSHTunnelInstructions(callbackPort)
 		fmt.Printf("Visit the following URL to continue authentication:\n%s\n", authURL)
 	}
 
 	fmt.Println("Waiting for Codex authentication callback...")
 
-	result, err := oauthServer.WaitForCallback(5 * time.Minute)
-	if err != nil {
-		if strings.Contains(err.Error(), "timeout") {
-			return nil, codex.NewAuthenticationError(codex.ErrCallbackTimeout, err)
+	callbackCh := make(chan *codex.OAuthResult, 1)
+	callbackErrCh := make(chan error, 1)
+	manualDescription := ""
+
+	go func() {
+		result, errWait := oauthServer.WaitForCallback(5 * time.Minute)
+		if errWait != nil {
+			callbackErrCh <- errWait
+			return
 		}
-		return nil, err
+		callbackCh <- result
+	}()
+
+	var result *codex.OAuthResult
+	var manualPromptTimer *time.Timer
+	var manualPromptC <-chan time.Time
+	if opts.Prompt != nil {
+		manualPromptTimer = time.NewTimer(15 * time.Second)
+		manualPromptC = manualPromptTimer.C
+		defer manualPromptTimer.Stop()
+	}
+
+waitForCallback:
+	for {
+		select {
+		case result = <-callbackCh:
+			break waitForCallback
+		case err = <-callbackErrCh:
+			if strings.Contains(err.Error(), "timeout") {
+				return nil, codex.NewAuthenticationError(codex.ErrCallbackTimeout, err)
+			}
+			return nil, err
+		case <-manualPromptC:
+			manualPromptC = nil
+			if manualPromptTimer != nil {
+				manualPromptTimer.Stop()
+			}
+			select {
+			case result = <-callbackCh:
+				break waitForCallback
+			case err = <-callbackErrCh:
+				if strings.Contains(err.Error(), "timeout") {
+					return nil, codex.NewAuthenticationError(codex.ErrCallbackTimeout, err)
+				}
+				return nil, err
+			default:
+			}
+			input, errPrompt := opts.Prompt("Paste the Codex callback URL (or press Enter to keep waiting): ")
+			if errPrompt != nil {
+				return nil, errPrompt
+			}
+			parsed, errParse := misc.ParseOAuthCallback(input)
+			if errParse != nil {
+				return nil, errParse
+			}
+			if parsed == nil {
+				continue
+			}
+			manualDescription = parsed.ErrorDescription
+			result = &codex.OAuthResult{
+				Code:  parsed.Code,
+				State: parsed.State,
+				Error: parsed.Error,
+			}
+			break waitForCallback
+		}
 	}
 
 	if result.Error != "" {
-		return nil, codex.NewOAuthError(result.Error, "", http.StatusBadRequest)
+		return nil, codex.NewOAuthError(result.Error, manualDescription, http.StatusBadRequest)
 	}
 
 	if result.State != state {
@@ -126,7 +193,19 @@ func (a *CodexAuthenticator) Login(ctx context.Context, cfg *config.Config, opts
 		return nil, fmt.Errorf("codex token storage missing account information")
 	}
 
-	fileName := fmt.Sprintf("codex-%s.json", tokenStorage.Email)
+	planType := ""
+	hashAccountID := ""
+	if tokenStorage.IDToken != "" {
+		if claims, errParse := codex.ParseJWTToken(tokenStorage.IDToken); errParse == nil && claims != nil {
+			planType = strings.TrimSpace(claims.CodexAuthInfo.ChatgptPlanType)
+			accountID := strings.TrimSpace(claims.CodexAuthInfo.ChatgptAccountID)
+			if accountID != "" {
+				digest := sha256.Sum256([]byte(accountID))
+				hashAccountID = hex.EncodeToString(digest[:])[:8]
+			}
+		}
+	}
+	fileName := codex.CredentialFileName(tokenStorage.Email, planType, hashAccountID, true)
 	metadata := map[string]any{
 		"email": tokenStorage.Email,
 	}

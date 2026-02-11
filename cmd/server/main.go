@@ -61,7 +61,10 @@ func main() {
 	var iflowLogin bool
 	var iflowCookie bool
 	var noBrowser bool
+	var oauthCallbackPort int
 	var antigravityLogin bool
+	var kimiLogin bool
+	var miromindLogin bool
 	var projectID string
 	var vertexImport string
 	var configPath string
@@ -75,7 +78,10 @@ func main() {
 	flag.BoolVar(&iflowLogin, "iflow-login", false, "Login to iFlow using OAuth")
 	flag.BoolVar(&iflowCookie, "iflow-cookie", false, "Login to iFlow using Cookie")
 	flag.BoolVar(&noBrowser, "no-browser", false, "Don't open browser automatically for OAuth")
+	flag.IntVar(&oauthCallbackPort, "oauth-callback-port", 0, "Override OAuth callback port (defaults to provider-specific port)")
 	flag.BoolVar(&antigravityLogin, "antigravity-login", false, "Login to Antigravity using OAuth")
+	flag.BoolVar(&kimiLogin, "kimi-login", false, "Login to Kimi using OAuth")
+	flag.BoolVar(&miromindLogin, "miromind-login", false, "Login to MiroMind using Session Token")
 	flag.StringVar(&projectID, "project_id", "", "Project ID (Gemini only, not required)")
 	flag.StringVar(&configPath, "config", DefaultConfigPath, "Configure File Path")
 	flag.StringVar(&vertexImport, "vertex-import", "", "Import Vertex service account key JSON file")
@@ -139,7 +145,8 @@ func main() {
 
 	wd, err := os.Getwd()
 	if err != nil {
-		log.Fatalf("failed to get working directory: %v", err)
+		log.Errorf("failed to get working directory: %v", err)
+		return
 	}
 
 	// Load environment variables from .env if present.
@@ -233,13 +240,15 @@ func main() {
 		})
 		cancel()
 		if err != nil {
-			log.Fatalf("failed to initialize postgres token store: %v", err)
+			log.Errorf("failed to initialize postgres token store: %v", err)
+			return
 		}
 		examplePath := filepath.Join(wd, "config.example.yaml")
 		ctx, cancel = context.WithTimeout(context.Background(), 30*time.Second)
 		if errBootstrap := pgStoreInst.Bootstrap(ctx, examplePath); errBootstrap != nil {
 			cancel()
-			log.Fatalf("failed to bootstrap postgres-backed config: %v", errBootstrap)
+			log.Errorf("failed to bootstrap postgres-backed config: %v", errBootstrap)
+			return
 		}
 		cancel()
 		configFilePath = pgStoreInst.ConfigPath()
@@ -262,7 +271,8 @@ func main() {
 		if strings.Contains(resolvedEndpoint, "://") {
 			parsed, errParse := url.Parse(resolvedEndpoint)
 			if errParse != nil {
-				log.Fatalf("failed to parse object store endpoint %q: %v", objectStoreEndpoint, errParse)
+				log.Errorf("failed to parse object store endpoint %q: %v", objectStoreEndpoint, errParse)
+				return
 			}
 			switch strings.ToLower(parsed.Scheme) {
 			case "http":
@@ -270,10 +280,12 @@ func main() {
 			case "https":
 				useSSL = true
 			default:
-				log.Fatalf("unsupported object store scheme %q (only http and https are allowed)", parsed.Scheme)
+				log.Errorf("unsupported object store scheme %q (only http and https are allowed)", parsed.Scheme)
+				return
 			}
 			if parsed.Host == "" {
-				log.Fatalf("object store endpoint %q is missing host information", objectStoreEndpoint)
+				log.Errorf("object store endpoint %q is missing host information", objectStoreEndpoint)
+				return
 			}
 			resolvedEndpoint = parsed.Host
 			if parsed.Path != "" && parsed.Path != "/" {
@@ -292,13 +304,15 @@ func main() {
 		}
 		objectStoreInst, err = store.NewObjectTokenStore(objCfg)
 		if err != nil {
-			log.Fatalf("failed to initialize object token store: %v", err)
+			log.Errorf("failed to initialize object token store: %v", err)
+			return
 		}
 		examplePath := filepath.Join(wd, "config.example.yaml")
 		ctx, cancel := context.WithTimeout(context.Background(), 30*time.Second)
 		if errBootstrap := objectStoreInst.Bootstrap(ctx, examplePath); errBootstrap != nil {
 			cancel()
-			log.Fatalf("failed to bootstrap object-backed config: %v", errBootstrap)
+			log.Errorf("failed to bootstrap object-backed config: %v", errBootstrap)
+			return
 		}
 		cancel()
 		configFilePath = objectStoreInst.ConfigPath()
@@ -323,7 +337,8 @@ func main() {
 		gitStoreInst = store.NewGitTokenStore(gitStoreRemoteURL, gitStoreUser, gitStorePassword)
 		gitStoreInst.SetBaseDir(authDir)
 		if errRepo := gitStoreInst.EnsureRepository(); errRepo != nil {
-			log.Fatalf("failed to prepare git token store: %v", errRepo)
+			log.Errorf("failed to prepare git token store: %v", errRepo)
+			return
 		}
 		configFilePath = gitStoreInst.ConfigPath()
 		if configFilePath == "" {
@@ -332,17 +347,21 @@ func main() {
 		if _, statErr := os.Stat(configFilePath); errors.Is(statErr, fs.ErrNotExist) {
 			examplePath := filepath.Join(wd, "config.example.yaml")
 			if _, errExample := os.Stat(examplePath); errExample != nil {
-				log.Fatalf("failed to find template config file: %v", errExample)
+				log.Errorf("failed to find template config file: %v", errExample)
+				return
 			}
 			if errCopy := misc.CopyConfigTemplate(examplePath, configFilePath); errCopy != nil {
-				log.Fatalf("failed to bootstrap git-backed config: %v", errCopy)
+				log.Errorf("failed to bootstrap git-backed config: %v", errCopy)
+				return
 			}
 			if errCommit := gitStoreInst.PersistConfig(context.Background()); errCommit != nil {
-				log.Fatalf("failed to commit initial git-backed config: %v", errCommit)
+				log.Errorf("failed to commit initial git-backed config: %v", errCommit)
+				return
 			}
 			log.Infof("git-backed config initialized from template: %s", configFilePath)
 		} else if statErr != nil {
-			log.Fatalf("failed to inspect git-backed config: %v", statErr)
+			log.Errorf("failed to inspect git-backed config: %v", statErr)
+			return
 		}
 		cfg, err = config.LoadConfigOptional(configFilePath, isCloudDeploy)
 		if err == nil {
@@ -355,13 +374,15 @@ func main() {
 	} else {
 		wd, err = os.Getwd()
 		if err != nil {
-			log.Fatalf("failed to get working directory: %v", err)
+			log.Errorf("failed to get working directory: %v", err)
+			return
 		}
 		configFilePath = filepath.Join(wd, "config.yaml")
 		cfg, err = config.LoadConfigOptional(configFilePath, isCloudDeploy)
 	}
 	if err != nil {
-		log.Fatalf("failed to load config: %v", err)
+		log.Errorf("failed to load config: %v", err)
+		return
 	}
 	if cfg == nil {
 		cfg = &config.Config{}
@@ -390,8 +411,9 @@ func main() {
 	usage.SetStatisticsEnabled(cfg.UsageStatisticsEnabled)
 	coreauth.SetQuotaCooldownDisabled(cfg.DisableCooling)
 
-	if err = logging.ConfigureLogOutput(cfg.LoggingToFile); err != nil {
-		log.Fatalf("failed to configure log output: %v", err)
+	if err = logging.ConfigureLogOutput(cfg); err != nil {
+		log.Errorf("failed to configure log output: %v", err)
+		return
 	}
 
 	log.Infof("CLIProxyAPI Version: %s, Commit: %s, BuiltAt: %s", buildinfo.Version, buildinfo.Commit, buildinfo.BuildDate)
@@ -400,7 +422,8 @@ func main() {
 	util.SetLogLevel(cfg)
 
 	if resolvedAuthDir, errResolveAuthDir := util.ResolveAuthDir(cfg.AuthDir); errResolveAuthDir != nil {
-		log.Fatalf("failed to resolve auth directory: %v", errResolveAuthDir)
+		log.Errorf("failed to resolve auth directory: %v", errResolveAuthDir)
+		return
 	} else {
 		cfg.AuthDir = resolvedAuthDir
 	}
@@ -408,7 +431,8 @@ func main() {
 
 	// Create login options to be used in authentication flows.
 	options := &cmd.LoginOptions{
-		NoBrowser: noBrowser,
+		NoBrowser:    noBrowser,
+		CallbackPort: oauthCallbackPort,
 	}
 
 	// Register the shared token store once so all components use the same persistence backend.
@@ -423,7 +447,7 @@ func main() {
 	}
 
 	// Register built-in access providers before constructing services.
-	configaccess.Register()
+	configaccess.Register(&cfg.SDKConfig)
 
 	// Handle different command modes based on the provided flags.
 
@@ -448,6 +472,10 @@ func main() {
 		cmd.DoIFlowLogin(cfg, options)
 	} else if iflowCookie {
 		cmd.DoIFlowCookieAuth(cfg, options)
+	} else if kimiLogin {
+		cmd.DoKimiLogin(cfg, options)
+	} else if miromindLogin {
+		cmd.DoMiroMindLogin(cfg, options)
 	} else {
 		// In cloud deploy mode without config file, just wait for shutdown signals
 		if isCloudDeploy && !configFileExists {

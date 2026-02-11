@@ -1,72 +1,45 @@
 package executor
 
 import (
+	"encoding/json"
 	"strings"
 
 	"github.com/router-for-me/CLIProxyAPI/v6/internal/config"
-	"github.com/router-for-me/CLIProxyAPI/v6/internal/util"
+	"github.com/router-for-me/CLIProxyAPI/v6/internal/thinking"
+	cliproxyexecutor "github.com/router-for-me/CLIProxyAPI/v6/sdk/cliproxy/executor"
 	"github.com/tidwall/gjson"
 	"github.com/tidwall/sjson"
 )
 
-// applyThinkingMetadata applies thinking config from model suffix metadata (e.g., -reasoning, -thinking-N)
-// for standard Gemini format payloads. It normalizes the budget when the model supports thinking.
-func applyThinkingMetadata(payload []byte, metadata map[string]any, model string) []byte {
-	budgetOverride, includeOverride, ok := util.GeminiThinkingFromMetadata(metadata)
-	if !ok {
-		return payload
-	}
-	if !util.ModelSupportsThinking(model) {
-		return payload
-	}
-	if budgetOverride != nil {
-		norm := util.NormalizeThinkingBudget(model, *budgetOverride)
-		budgetOverride = &norm
-	}
-	return util.ApplyGeminiThinkingConfig(payload, budgetOverride, includeOverride)
-}
-
-// applyThinkingMetadataCLI applies thinking config from model suffix metadata (e.g., -reasoning, -thinking-N)
-// for Gemini CLI format payloads (nested under "request"). It normalizes the budget when the model supports thinking.
-func applyThinkingMetadataCLI(payload []byte, metadata map[string]any, model string) []byte {
-	budgetOverride, includeOverride, ok := util.GeminiThinkingFromMetadata(metadata)
-	if !ok {
-		return payload
-	}
-	if budgetOverride != nil && util.ModelSupportsThinking(model) {
-		norm := util.NormalizeThinkingBudget(model, *budgetOverride)
-		budgetOverride = &norm
-	}
-	return util.ApplyGeminiCLIThinkingConfig(payload, budgetOverride, includeOverride)
-}
-
-// applyPayloadConfig applies payload default and override rules from configuration
-// to the given JSON payload for the specified model.
-// Defaults only fill missing fields, while overrides always overwrite existing values.
-func applyPayloadConfig(cfg *config.Config, model string, payload []byte) []byte {
-	return applyPayloadConfigWithRoot(cfg, model, "", "", payload)
-}
-
 // applyPayloadConfigWithRoot behaves like applyPayloadConfig but treats all parameter
 // paths as relative to the provided root path (for example, "request" for Gemini CLI)
-// and restricts matches to the given protocol when supplied.
-func applyPayloadConfigWithRoot(cfg *config.Config, model, protocol, root string, payload []byte) []byte {
+// and restricts matches to the given protocol when supplied. Defaults are checked
+// against the original payload when provided. requestedModel carries the client-visible
+// model name before alias resolution so payload rules can target aliases precisely.
+func applyPayloadConfigWithRoot(cfg *config.Config, model, protocol, root string, payload, original []byte, requestedModel string) []byte {
 	if cfg == nil || len(payload) == 0 {
 		return payload
 	}
 	rules := cfg.Payload
-	if len(rules.Default) == 0 && len(rules.Override) == 0 {
+	if len(rules.Default) == 0 && len(rules.DefaultRaw) == 0 && len(rules.Override) == 0 && len(rules.OverrideRaw) == 0 && len(rules.Filter) == 0 {
 		return payload
 	}
 	model = strings.TrimSpace(model)
-	if model == "" {
+	requestedModel = strings.TrimSpace(requestedModel)
+	if model == "" && requestedModel == "" {
 		return payload
 	}
+	candidates := payloadModelCandidates(model, requestedModel)
 	out := payload
+	source := original
+	if len(source) == 0 {
+		source = payload
+	}
+	appliedDefaults := make(map[string]struct{})
 	// Apply default rules: first write wins per field across all matching rules.
 	for i := range rules.Default {
 		rule := &rules.Default[i]
-		if !payloadRuleMatchesModel(rule, model, protocol) {
+		if !payloadModelRulesMatch(rule.Models, protocol, candidates) {
 			continue
 		}
 		for path, value := range rule.Params {
@@ -74,7 +47,58 @@ func applyPayloadConfigWithRoot(cfg *config.Config, model, protocol, root string
 			if fullPath == "" {
 				continue
 			}
-			if gjson.GetBytes(out, fullPath).Exists() {
+			if gjson.GetBytes(source, fullPath).Exists() {
+				continue
+			}
+			if _, ok := appliedDefaults[fullPath]; ok {
+				continue
+			}
+			updated, errSet := sjson.SetBytes(out, fullPath, value)
+			if errSet != nil {
+				continue
+			}
+			out = updated
+			appliedDefaults[fullPath] = struct{}{}
+		}
+	}
+	// Apply default raw rules: first write wins per field across all matching rules.
+	for i := range rules.DefaultRaw {
+		rule := &rules.DefaultRaw[i]
+		if !payloadModelRulesMatch(rule.Models, protocol, candidates) {
+			continue
+		}
+		for path, value := range rule.Params {
+			fullPath := buildPayloadPath(root, path)
+			if fullPath == "" {
+				continue
+			}
+			if gjson.GetBytes(source, fullPath).Exists() {
+				continue
+			}
+			if _, ok := appliedDefaults[fullPath]; ok {
+				continue
+			}
+			rawValue, ok := payloadRawValue(value)
+			if !ok {
+				continue
+			}
+			updated, errSet := sjson.SetRawBytes(out, fullPath, rawValue)
+			if errSet != nil {
+				continue
+			}
+			out = updated
+			appliedDefaults[fullPath] = struct{}{}
+		}
+	}
+	// Apply override rules: last write wins per field across all matching rules.
+	for i := range rules.Override {
+		rule := &rules.Override[i]
+		if !payloadModelRulesMatch(rule.Models, protocol, candidates) {
+			continue
+		}
+		for path, value := range rule.Params {
+			fullPath := buildPayloadPath(root, path)
+			if fullPath == "" {
 				continue
 			}
 			updated, errSet := sjson.SetBytes(out, fullPath, value)
@@ -84,10 +108,10 @@ func applyPayloadConfigWithRoot(cfg *config.Config, model, protocol, root string
 			out = updated
 		}
 	}
-	// Apply override rules: last write wins per field across all matching rules.
-	for i := range rules.Override {
-		rule := &rules.Override[i]
-		if !payloadRuleMatchesModel(rule, model, protocol) {
+	// Apply override raw rules: last write wins per field across all matching rules.
+	for i := range rules.OverrideRaw {
+		rule := &rules.OverrideRaw[i]
+		if !payloadModelRulesMatch(rule.Models, protocol, candidates) {
 			continue
 		}
 		for path, value := range rule.Params {
@@ -95,8 +119,30 @@ func applyPayloadConfigWithRoot(cfg *config.Config, model, protocol, root string
 			if fullPath == "" {
 				continue
 			}
-			updated, errSet := sjson.SetBytes(out, fullPath, value)
+			rawValue, ok := payloadRawValue(value)
+			if !ok {
+				continue
+			}
+			updated, errSet := sjson.SetRawBytes(out, fullPath, rawValue)
 			if errSet != nil {
+				continue
+			}
+			out = updated
+		}
+	}
+	// Apply filter rules: remove matching paths from payload.
+	for i := range rules.Filter {
+		rule := &rules.Filter[i]
+		if !payloadModelRulesMatch(rule.Models, protocol, candidates) {
+			continue
+		}
+		for _, path := range rule.Params {
+			fullPath := buildPayloadPath(root, path)
+			if fullPath == "" {
+				continue
+			}
+			updated, errDel := sjson.DeleteBytes(out, fullPath)
+			if errDel != nil {
 				continue
 			}
 			out = updated
@@ -105,26 +151,61 @@ func applyPayloadConfigWithRoot(cfg *config.Config, model, protocol, root string
 	return out
 }
 
-func payloadRuleMatchesModel(rule *config.PayloadRule, model, protocol string) bool {
-	if rule == nil {
+func payloadModelRulesMatch(rules []config.PayloadModelRule, protocol string, models []string) bool {
+	if len(rules) == 0 || len(models) == 0 {
 		return false
 	}
-	if len(rule.Models) == 0 {
-		return false
-	}
-	for _, entry := range rule.Models {
-		name := strings.TrimSpace(entry.Name)
-		if name == "" {
-			continue
-		}
-		if ep := strings.TrimSpace(entry.Protocol); ep != "" && protocol != "" && !strings.EqualFold(ep, protocol) {
-			continue
-		}
-		if matchModelPattern(name, model) {
-			return true
+	for _, model := range models {
+		for _, entry := range rules {
+			name := strings.TrimSpace(entry.Name)
+			if name == "" {
+				continue
+			}
+			if ep := strings.TrimSpace(entry.Protocol); ep != "" && protocol != "" && !strings.EqualFold(ep, protocol) {
+				continue
+			}
+			if matchModelPattern(name, model) {
+				return true
+			}
 		}
 	}
 	return false
+}
+
+func payloadModelCandidates(model, requestedModel string) []string {
+	model = strings.TrimSpace(model)
+	requestedModel = strings.TrimSpace(requestedModel)
+	if model == "" && requestedModel == "" {
+		return nil
+	}
+	candidates := make([]string, 0, 3)
+	seen := make(map[string]struct{}, 3)
+	addCandidate := func(value string) {
+		value = strings.TrimSpace(value)
+		if value == "" {
+			return
+		}
+		key := strings.ToLower(value)
+		if _, ok := seen[key]; ok {
+			return
+		}
+		seen[key] = struct{}{}
+		candidates = append(candidates, value)
+	}
+	if model != "" {
+		addCandidate(model)
+	}
+	if requestedModel != "" {
+		parsed := thinking.ParseSuffix(requestedModel)
+		base := strings.TrimSpace(parsed.ModelName)
+		if base != "" {
+			addCandidate(base)
+		}
+		if parsed.HasSuffix {
+			addCandidate(requestedModel)
+		}
+	}
+	return candidates
 }
 
 // buildPayloadPath combines an optional root path with a relative parameter path.
@@ -143,6 +224,53 @@ func buildPayloadPath(root, path string) string {
 		p = p[1:]
 	}
 	return r + "." + p
+}
+
+func payloadRawValue(value any) ([]byte, bool) {
+	if value == nil {
+		return nil, false
+	}
+	switch typed := value.(type) {
+	case string:
+		return []byte(typed), true
+	case []byte:
+		return typed, true
+	default:
+		raw, errMarshal := json.Marshal(typed)
+		if errMarshal != nil {
+			return nil, false
+		}
+		return raw, true
+	}
+}
+
+func payloadRequestedModel(opts cliproxyexecutor.Options, fallback string) string {
+	fallback = strings.TrimSpace(fallback)
+	if len(opts.Metadata) == 0 {
+		return fallback
+	}
+	raw, ok := opts.Metadata[cliproxyexecutor.RequestedModelMetadataKey]
+	if !ok || raw == nil {
+		return fallback
+	}
+	switch v := raw.(type) {
+	case string:
+		if strings.TrimSpace(v) == "" {
+			return fallback
+		}
+		return strings.TrimSpace(v)
+	case []byte:
+		if len(v) == 0 {
+			return fallback
+		}
+		trimmed := strings.TrimSpace(string(v))
+		if trimmed == "" {
+			return fallback
+		}
+		return trimmed
+	default:
+		return fallback
+	}
 }
 
 // matchModelPattern performs simple wildcard matching where '*' matches zero or more characters.

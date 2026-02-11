@@ -1,0 +1,10 @@
+data: {"choices":[{"delta":{"role":"assistant"},"finish_reason":null,"index":0}],"created":1770804310,"id":"chatcmpl-1770804310725440900","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"content":"<think>\nThe user asks: \"1+1=?\" This is a trivial arithmetic question. Answer: 2.\n"},"finish_reason":null,"index":0}],"created":1770804310,"id":"chatcmpl-1770804310725440900","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{"content":"</think>\n\n1 + 1 = 2."},"finish_reason":null,"index":0}],"created":1770804310,"id":"chatcmpl-1770804310725440900","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: {"choices":[{"delta":{},"finish_reason":"stop","index":0}],"created":1770804310,"id":"chatcmpl-1770804310725440900","model":"miromind-fast","object":"chat.completion.chunk"}
+
+data: [DONE]
+

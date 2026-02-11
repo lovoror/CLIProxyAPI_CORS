@@ -4,7 +4,6 @@
 package gemini
 
 import (
-	"bytes"
 	"fmt"
 
 	"github.com/router-for-me/CLIProxyAPI/v6/internal/translator/gemini/common"
@@ -19,7 +18,7 @@ import (
 //
 // It keeps the payload otherwise unchanged.
 func ConvertGeminiRequestToGemini(_ string, inputRawJSON []byte, _ bool) []byte {
-	rawJSON := bytes.Clone(inputRawJSON)
+	rawJSON := inputRawJSON
 	// Fast path: if no contents field, only attach safety settings
 	contents := gjson.GetBytes(rawJSON, "contents")
 	if !contents.Exists() {
@@ -90,6 +89,11 @@ func ConvertGeminiRequestToGemini(_ string, inputRawJSON []byte, _ bool) []byte 
 		}
 		return true
 	})
+
+	if gjson.GetBytes(rawJSON, "generationConfig.responseSchema").Exists() {
+		strJson, _ := util.RenameKey(string(out), "generationConfig.responseSchema", "generationConfig.responseJsonSchema")
+		out = []byte(strJson)
+	}
 
 	out = common.AttachDefaultSafetySettings(out, "safetySettings")
 	return out

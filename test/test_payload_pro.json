@@ -1,0 +1,10 @@
+{
+    "model": "miromind-pro",
+    "messages": [
+        {
+            "role": "user",
+            "content": "hi"
+        }
+    ],
+    "stream": true
+}
