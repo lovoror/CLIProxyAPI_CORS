@@ -1,0 +1,2215 @@
+event: history
+data: {"history": [{"id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10", "role": "user", "content": "请问：颈动脉斑块有哪些治疗方法？", "type": "text"}, {"id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10_resp", "role": "assistant", "type": "workflow", "content": {"workflow": {"id": "f9820237-ad50-40eb-9373-182a466cf511", "name": "请问：颈动脉斑块有哪些治疗方法？", "steps": [{"type": "agentic", "id": "aa56efbf-9895-4427-962e-019563644620", "agentName": "main", "agentId": "38649d10-dee8-4b35-9a85-73c6ac5f15df", "displayName": null, "tasks": [{"id": "ea063be1-e7f8-4247-a00b-a10382f87fce", "type": "tool_call", "state": "pending", "payload": {"input": {"text": "<think>\n用户询问\"颈动脉斑块有哪些治疗方法？\"这是一个医学问题。我需要提供关于颈动脉斑块治疗的全面信息，包括生活方式干预、药物治疗、手术治疗等方面。\n\n我应该使用搜索工具来获取最新、最准确的信息，因为医学知识在不断更新。让我搜索一下颈动脉斑块的治疗方法。\n</think>\n\n"}, "toolName": "show_text"}, "timestamp": 1770868868386}, {"id": "37b94a68-ad74-4293-9ecc-ec2752c0664a", "type": "tool_call", "state": "pending", "payload": {"input": {"q": "颈动脉斑块治疗方法 2024 2025", "num": 10, "hl": "zh", "result": "{\"organic\": [{\"title\": \"颈动脉斑块治疗新方法\", \"link\": \"https://m.youlai.cn/a/sjbarticle/C3550Fg8qPs.html\"}, {\"title\": \"颈部动脉斑块的治疗方法有哪些\", \"link\": \"https://m.cndzys.com/xshcore/quanwei_ztartnew/1es_3549290.html\"}, {\"title\": \"颈部动脉斑块的治疗方式\", \"link\": \"https://m.youlai.cn/a/audio/52ACC1MaxA0.html\"}, {\"title\": \"颈动脉有斑块怎么办 - 民福康\", \"link\": \"https://www.mfk.com/ask/16201796.shtml\"}, {\"title\": \"颈动脉有斑块怎么办_视频频道_医联媒体\", \"link\": \"https://www.yilianmeiti.com/video/d/166939.html\"}, {\"title\": \"颈动脉斑块如何治疗_视频频道_医联媒体\", \"link\": \"https://www.yilianmeiti.com/video/d/166940.html\"}, {\"title\": \"颈动脉血管有斑块怎么办_医联媒体\", \"link\": \"https://www.yilianmeiti.com/audio/1167484.html\"}, {\"title\": \"颈动脉斑块最佳消除方法是什么-三知健康\", \"link\": \"http://www.3zhijk.com/kpar/question/7025887856642019328.html\"}, {\"title\": \"桂枝茯苓丸合参三散治疗颈动脉斑块\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_45767de303694552\"}, {\"title\": \"治疗颈动脉斑块有几种办法-三知健康\", \"link\": \"http://www.3zhijk.com/kpar/question/7025882028522392576.html\"}, {\"title\": \"颈动脉有斑块怎样治疗_民福康\", \"link\": \"https://www.mfk.com/ask/yinpin/2144475.shtml\"}, {\"title\": \"发现颈动脉斑块怎么办? - 民福康\", \"link\": \"https://www.mfk.com/ask/16851105.shtml\"}, {\"title\": \"颈部动脉有斑块怎么办_民福康\", \"link\": \"https://www.mfk.com/ask/yinpin/1994466.shtml\"}, {\"title\": \"颈动脉斑块怎么治疗\", \"link\": \"https://www.chaonei.com/news_14543558\"}, {\"title\": \"颈动脉斑块怎么办_医联媒体\", \"link\": \"https://www.yilianmeiti.com/audio/339164.html\"}, {\"title\": \"颈动脉有斑块怎么治疗_民福康\", \"link\": \"https://www.mfk.com/ask/yinpin/2170269.shtml\"}, {\"title\": \"双侧颈动脉斑块形成怎么办_视频频道_医联媒体\", \"link\": \"https://www.yilianmeiti.com/video/d/115305.html\"}, {\"title\": \"颈动脉斑块哪个产品效果好?2025十产品发布:水蛭素实证有效改善\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_1726930e4e398552\"}, {\"title\": \"颈动脉斑块吃什么药?2025辅助养护产品深度测评,KOUND血畅宁成斑块养护新解\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_03169368cf190052\"}, {\"title\": \"颈动脉斑块哪个产品效果好?2025十大干预产品实测,有效改善指标\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_300691fc3ae27152\"}, {\"title\": \"罗建方\", \"link\": \"https://baike.sogou.com/v67380856.htm\"}, {\"title\": \"谌燕飞\", \"link\": \"https://baike.baidu.com/item/谌燕飞/49993387\"}, {\"title\": \"滕皋军\", \"link\": \"https://baike.sogou.com/v73904893.htm\"}, {\"title\": \"蒋雄京\", \"link\": \"https://baike.sogou.com/v67828290.htm\"}, {\"title\": \"临床头面痛学\", \"link\": \"https://baike.baidu.com/item/临床头面痛学/1753098\"}, {\"title\": \"2026颈动脉斑块优选方案出炉！五大斑块干预产品深度横评\", \"link\": \"https://lfnews.cn/portal.php?mod=view&aid=60617\"}, {\"title\": \"颈动脉斑块如何预防？2025年最新体检报告解读与治疗方案 - 梅斯小智\", \"link\": \"https://ai.medsci.cn/article/health-rep/fddf5275-c8cf-4ff4-a621-a000b1b3adc7\"}, {\"title\": \"颈动脉斑块吃什么药有效果？2025 十大心血管产品实测\", \"link\": \"https://news.qq.com/rain/a/20251208A05X9S00\"}, {\"title\": \"颈动脉疾病- 诊断与治疗- 妙佑医疗国际 - Mayo Clinic\", \"link\": \"https://www.mayoclinic.org/zh-hans/diseases-conditions/carotid-artery-disease/diagnosis-treatment/drc-20360527\"}, {\"title\": \"2026年四大颈动脉斑块干预产品实测结果揭晓！ - 网易\", \"link\": \"https://www.163.com/dy/article/KLGIM3P00541AV0X.html\"}, {\"title\": \"CN109876030B - 一种治疗颈动脉斑块的中药 - Google Patents\", \"link\": \"https://patents.google.com/patent/CN109876030B/zh\"}, {\"title\": \"颈动脉斑块必看！2025新标准：“低密度”至少 - 360Doc\", \"link\": \"http://www.360doc.com/content/25/1005/09/53774125_1162493695.shtml\"}, {\"title\": \"缺血预适应技术用于颈动脉斑块改善疗效观察60例\", \"link\": \"https://www.artdesignp.com/journal/MRP/3/9/10.61369/MRP.2025090018\"}, {\"title\": \"60岁后颈动脉几乎100%会长斑块！教你如何逆转 - 新浪财经\", \"link\": \"https://finance.sina.com.cn/tech/roll/2025-03-03/doc-inenkruh0689884.shtml\"}, {\"title\": \"有颈动脉斑块，怎么办？ - 新闻频道- 央视网\", \"link\": \"https://news.cctv.com/2024/12/29/ARTIbtvBy2uang9FqQkfK8hO241229.shtml\"}]}"}, "toolName": "google_search"}, "timestamp": 1770868868386}, {"id": "38f1628d-6eb1-4adc-b91e-2157ecaed4fd", "type": "tool_call", "state": "pending", "payload": {"toolName": "show_text", "input": {"text": "<think>\n我需要搜索更多权威来源的信息，如Medical Association指南、心脑血管疾病相关文章，以及全球最新指南。考虑搜索中文的权威医学资源。\n</think>\n\n"}}, "timestamp": 1770868868386}, {"id": "1e49d257-376e-4a5b-b9b1-82a9e6008078", "type": "tool_call", "state": "pending", "payload": {"input": {"q": "颈动脉斑块治疗指南 2024 指南", "num": 10, "hl": "zh", "gl": "cn", "result": "{\"organic\": [{\"title\": \"颈动脉斑块如何治疗\", \"link\": \"https://m.youlai.cn/a/sjbarticle/E19CEDMFaFA.html\"}, {\"title\": \"颈动脉斑块最佳治疗方法\", \"link\": \"https://m.youlai.cn/a/sjbarticle/F65752MFPkt.html\"}, {\"title\": \"如何治疗颈动脉斑块\", \"link\": \"https://m.xinglinpukang.com/smip/article/41238152.html\"}, {\"title\": \"颈部动脉有斑块应该怎么治疗_杏林普康\", \"link\": \"https://www.xinglinpukang.com/detail/94270927.html\"}, {\"title\": \"颈椎动脉有斑块怎么办_杏林普康\", \"link\": \"https://www.xinglinpukang.com/detail/25571271.html\"}, {\"title\": \"怎样消除颈动脉斑块_医联媒体\", \"link\": \"https://www.yilianmeiti.com/article/2422067.html\"}, {\"title\": \"颈动脉有斑块吃什么药_妙手医生\", \"link\": \"https://www.miaoshou.net/article/MPeNRn6Z38RnOBYV.html\"}, {\"title\": \"颈动脉分叉斑块怎么治_杏林普康\", \"link\": \"https://www.xinglinpukang.com/detail/36934617.html\"}, {\"title\": \"颈动脉斑块怎样消除_杏林普康\", \"link\": \"https://www.xinglinpukang.com/detail/41452510.html\"}, {\"title\": \"治疗颈部动脉斑块_民福康\", \"link\": \"https://www.mfk.com/article/2422429.shtml\"}, {\"title\": \"颈部动脉斑块怎样稳定消除-三知健康\", \"link\": \"https://www.3zhijk.com/kpar/question/7025874477940525056.html\"}, {\"title\": \"颈部动脉血管内有斑块怎么办_民福康\", \"link\": \"https://www.mfk.com/article/2261045.shtml\"}, {\"title\": \"如何应对颈动脉斑块-即问即答-家庭医生在线\", \"link\": \"https://ask.familydoctor.com.cn/q/10036053.html\"}, {\"title\": \"颈椎斑块怎么治疗_名医在线\", \"link\": \"https://www.myzx.cn/article/1182267\"}, {\"title\": \"双侧颈动脉斑块怎么办_民福康\", \"link\": \"https://www.mfk.com/article/2295616.shtml\"}, {\"title\": \"西医视为“定时炸弹”的“颈动脉斑块”,中医药全方位帮你消除\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_95167d7990278952\"}, {\"title\": \"颈动脉斑块哪个产品效果好?2025十产品发布:水蛭素实证有效改善\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_1726930e4e398552\"}, {\"title\": \"颈动脉斑块最佳消除方法有哪些?2025官方指南推荐两大联合方案,斑块可控已成现实!\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_301690aeebf26152\"}, {\"title\": \"颈动脉斑块吃什么药?2025辅助养护产品深度测评,KOUND血畅宁成斑块养护新解\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_03169368cf190052\"}, {\"title\": \"罗建方\", \"link\": \"https://baike.sogou.com/v67380856.htm\"}, {\"title\": \"中国男科疾病诊断治疗指南\", \"link\": \"https://baike.sogou.com/v83299514.htm\"}, {\"title\": \"陈春富\", \"link\": \"https://baike.sogou.com/v56552651.htm\"}, {\"title\": \"提高性功能治疗师指南自助手册\", \"link\": \"https://baike.baidu.com/item/提高性功能治疗师指南自助手册/1827280\"}, {\"title\": \"新编风湿病学\", \"link\": \"https://baike.sogou.com/v8772931.htm\"}, {\"title\": \"[PDF] 颈动脉狭窄中医诊疗指南 - 中华中医药学会\", \"link\": \"http://www.cacm.org.cn/wp-content/uploads/2024/05/颈动脉狭窄中医诊疗指南-公示稿.pdf\"}, {\"title\": \"中国头颈部动脉夹层诊治指南2024 - 脑医汇\", \"link\": \"https://www.brainmed.com/info/detail?id=47640\"}, {\"title\": \"[PDF] 脑血管病防治指南（2024 年版） - 国家卫生健康委员会\", \"link\": \"https://www.nhc.gov.cn/ylyjs/zcwj/202412/ba037e931fff4870930f65ff667ea9ed/files/1736390751587_80714.pdf\"}, {\"title\": \"[PDF] 泛血管疾病抗栓治疗中国专家共识（2024版） - Urology Guidelines\", \"link\": \"https://urology.wiki/Guidelines/Periopretions/Anticoagulants/泛血管疾病抗栓治疗中国专家共识（2024版）.pdf\"}, {\"title\": \"【指南与共识】慢性颈内动脉闭塞评估及治疗中国专家共识 - 宣武医院\", \"link\": \"https://www.xwhosp.com.cn/Html/News/Articles/10013487.html\"}, {\"title\": \"《中国头颈部动脉夹层诊治指南（2024版）》发布，推荐意见一览\", \"link\": \"https://apps.medtrib.cn/media/phone/post/app/eff4f80d-35d8-4ef3-b214-6b21459dfb3b.html\"}, {\"title\": \"体检发现颈动脉斑块要不要吃药 - 北京清华长庚医院\", \"link\": \"https://www.btch.edu.cn/ksdh/nkb/sjnk/ksdt_sjnk/cd9f8eca907743d5a8e73c12d803fdb6.htm\"}, {\"title\": \"[PDF] 超声检查高血压心血管重构和功能临床应用指南(2024版)\", \"link\": \"https://www.hbusqcc.com/attachment/20240920//80/cd8ea3f0271c94118d6ba308056df8.pdf\"}, {\"title\": \"[PDF] 泛血管疾病代谢异常管理专家共识（2024版）\", \"link\": \"http://cvjc.org.cn/Uploads/avatar/2025-01/7df28a1a2f3b73e43a576f7eb788a91e.pdf\"}, {\"title\": \"临床诊疗指南查询工具 - 指南-MedSci.cn\", \"link\": \"https://www.medsci.cn/guideline/search?keyword=颈内动脉闭塞&page=1\"}]}"}, "toolName": "google_search"}, "timestamp": 1770868868386}, {"id": "9abe56f5-e3fd-4f7c-9666-7dbe6d258dec", "type": "tool_call", "state": "pending", "payload": {"toolName": "show_text", "input": {"text": "<think>\n搜索结果显示了大量中文信息来源。然而，我需要验证这些信息的准确性和权威性。许多结果似乎来自医疗博客或内容聚合平台，而不是临床指南。我需要优先选择权威医学来源，如PubMed、Cochrane、美国心脏协会/美国卒中学会（AHA/ASA）指南、中国指南或专业医学网站。\n\n让我搜索更权威的来源，如美国心脏协会（AHA）、美国卒中学会（ASA）或中国心血管疾病领域的专业医学指南。\n</think>\n\n"}}, "timestamp": 1770868868386}, {"id": "d5183d30-2ee2-4f42-b931-789a70e2035e", "type": "tool_call", "state": "pending", "payload": {"input": {"q": "American Heart Association guidelines carotid artery disease 2024", "num": 10, "hl": "en", "result": "{\"organic\": [{\"title\": \"2024 AHA/ACC/ACS/ASNC/HRS/SCA/SCCT/SCMR/SVM Guideline ...\", \"link\": \"https://www.ahajournals.org/doi/10.1161/CIR.0000000000001285\"}, {\"title\": \"[PDF] 2024 AHA/ACC Peripheral Artery Disease Guideline\", \"link\": \"https://professional.heart.org/-/media/PHD-Files-2/Science-News/2/2024/2024-PAD-guideline-slide-set.pdf?sc_lang=en\"}, {\"title\": \"[PDF] Carotid artery stenosis: diagnosis and guidelines for management\", \"link\": \"https://www.jksgn.org/upload/pdf/jksgn-2024-00080.pdf\"}, {\"title\": \"2024 Peripheral Arterial and Aortic Diseases\", \"link\": \"https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/peripheral-arterial-and-aortic-diseases/\"}, {\"title\": \"2024 ACC/AHA/AACVPR/APMA/ABC/SCAI/SVM/SVN/SVS/SIR ...\", \"link\": \"https://www.ahajournals.org/doi/10.1161/CIR.0000000000001251\"}, {\"title\": \"2024 ACC/AHA guideline on perioperative cardiovascular ...\", \"link\": \"https://www.ccjm.org/content/92/4/213\"}, {\"title\": \"[PDF] 2024 Guideline for the Primary Prevention of Stroke\", \"link\": \"https://www.portailvasculaire.fr/sites/default/files/docs/bushnell-et-al-2024-2024-guideline-for-the-primary-prevention-of-stroke-a-guideline-from-the-american-heart-association.pdf\"}, {\"title\": \"What Is the Role for Carotid Artery Stenting in 2024?∗ | JACC\", \"link\": \"https://www.jacc.org/doi/10.1016/j.jcin.2024.04.002\"}, {\"title\": \"Managing atherosclerotic carotid disease: treatment essentials\", \"link\": \"https://www.scielo.org.mx/scielo.php?pid=S1665-50442025000100005&script=sci_arttext&tlng=en\"}, {\"title\": \"What You Should Know About the 2024 AHA/ACC Guideline on the ...\", \"link\": \"https://www.hmpgloballearningnetwork.com/site/cathlab/what-you-should-know-about-2024-ahaacc-guideline-management-lower-extremity-peripheral\"}]}"}, "toolName": "google_search"}, "timestamp": 1770868868386}, {"id": "d4e19446-9497-4d83-9cb1-9f0b1048cc6d", "type": "tool_call", "state": "pending", "payload": {"toolName": "show_text", "input": {"text": "<think>\n我需要查找具体关于颈动脉斑块治疗的AHA/ASA指南。搜索可能更专业的关键词，如\"carotid stenosis\"和\"consensus\".\n</think>\n\n"}}, "timestamp": 1770868868386}, {"id": "e49b9836-eca3-46bb-b465-a0b7bced3e45", "type": "tool_call", "state": "pending", "payload": {"input": {"q": "carotid stenosis AHA/ASA guideline 2024 treatment", "num": 10, "hl": "en", "result": "{\"organic\": [{\"title\": \"2024 Guideline for the Primary Prevention of Stroke\", \"link\": \"https://www.ahajournals.org/doi/10.1161/STR.0000000000000475\"}, {\"title\": \"Management of asymptomatic carotid stenosis | STROKE MANUAL\", \"link\": \"https://www.stroke-manual.com/asymptomatic-carotid-stenosis/\"}, {\"title\": \"[PDF] Carotid artery stenosis: diagnosis and guidelines for management\", \"link\": \"https://www.jksgn.org/upload/pdf/jksgn-2024-00080.pdf\"}, {\"title\": \"2024 AHA/ASA Guideline for the Primary Prevention of Stroke\", \"link\": \"https://pcmedproject.com/neurology/2024-aha-asa-guideline-for-the-primary-prevention-of-stroke/\"}, {\"title\": \"[PDF] AHA/ASA GUIDELINES - American Heart Association\", \"link\": \"https://www.heart.org/-/media/Files/Professional/Quality-Improvement/Get-With-the-Guidelines/Get-With-The-Guidelines-Stroke/2019UpdateAHAASAAISGuidelineSlideDeckrevisedADL12919.pdf\"}, {\"title\": \"Optimal Medical Management of Asymptomatic Carotid Stenosis\", \"link\": \"https://www.ahajournals.org/doi/10.1161/STROKEAHA.120.033994\"}, {\"title\": \"AHA/ASA Primary Stroke Prevention Guidelines 2024\", \"link\": \"https://www.guidelinecentral.com/guideline/7082\"}, {\"title\": \"American and European Guideline Comparison for Ischemic Stroke ...\", \"link\": \"https://www.acc.org/Latest-in-Cardiology/ten-points-to-remember/2024/09/18/13/32/comparison-of-american\"}, {\"title\": \"Stroke Primary Prevention: AHA/ASA 2024 Guideline Summary\", \"link\": \"https://reference.medscape.com/cc2/p10/guideline-essentials-2024-aha-asa-recommendations-primary-2025a1000cor\"}, {\"title\": \"[PDF] 2024 Guideline for the Primary Prevention of Stroke\", \"link\": \"http://cprv.fr/stroke-aha-2024.pdf\"}]}"}, "toolName": "google_search"}, "timestamp": 1770868868386}, {"id": "19414d86-6783-4e4a-9454-538663e26733", "type": "tool_call", "state": "pending", "payload": {"toolName": "show_text", "input": {"text": "<think>\n看起来搜索结果中包含中文网站和少量英文结果，但有些信息不够直接。我需要更精确地搜索关于颈动脉疾病（carotid artery disease）的指南。\n</think>\n\n"}}, "timestamp": 1770868868387}]}]}}}], "status": "pending", "chatId": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+id: 1770868868597-0
+event: tool_call
+data: {"tool_call_id": "98ccd204-062f-4224-980d-c2ca0cd77267", "tool_name": "google_search", "tool_input": {"q": "carotid artery disease management guideline 2024", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868869599}
+
+id: 1770868870400-0
+event: heartbeat
+data: {"timestamp": 1770868870.400695, "workflow_id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10:4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+id: 1770868870521-0
+event: tool_call
+data: {"tool_call_id": "98ccd204-062f-4224-980d-c2ca0cd77267", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"The 2024 ESC guidelines for the management of peripheral arterial ...\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/40631504/\"}, {\"title\": \"[PDF] 2024 ESC Guidelines for the management of peripheral arterial and ...\", \"link\": \"https://www.portailvasculaire.fr/sites/default/files/docs/2024_esc_guidelines_pad_0.pdf\"}, {\"title\": \"2024 Peripheral Arterial and Aortic Diseases\", \"link\": \"https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/peripheral-arterial-and-aortic-diseases/\"}, {\"title\": \"The 2024 ESC guidelines for the management of peripheral arterial ...\", \"link\": \"https://journals.lww.com/jcardiovascularmedicine/_layouts/15/oaks.journals/downloadpdf.aspx?an=01244665-990000000-00298\"}, {\"title\": \"[PDF] Carotid artery stenosis: diagnosis and guidelines for management\", \"link\": \"https://www.jksgn.org/upload/pdf/jksgn-2024-00080.pdf\"}, {\"title\": \"Carotid Artery Disease: Then and Now | Stroke\", \"link\": \"https://www.ahajournals.org/doi/10.1161/SVIN.123.001076\"}, {\"title\": \"Appropriateness of care: Asymptomatic carotid stenosis including ...\", \"link\": \"https://www.sciencedirect.com/science/article/abs/pii/S0895796724000152\"}, {\"title\": \"What Is the Role for Carotid Artery Stenting in 2024?∗ | JACC\", \"link\": \"https://www.jacc.org/doi/10.1016/j.jcin.2024.04.002\"}, {\"title\": \"Asymptomatic carotid artery stenosis: a summary of current state of ...\", \"link\": \"https://jnis.bmj.com/content/15/7/717\"}, {\"title\": \"2024 ESC Guidelines: Peripheral arterial and aortic diseases\", \"link\": \"https://www.pcronline.com/News/Whats-new-on-PCRonline/2024/ESC/2024-ESC-Guidelines-Peripheral-arterial-and-aortic-diseases-Focus-on-Peripheral-Arterial-Diseases\"}]}"}}
+
+id: 1770868870522-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868870910-0
+event: tool_call
+data: {"tool_call_id": "f346d897-5cac-43f5-8aae-2c27140761a0", "tool_name": "show_text", "delta_input": {"text": "<think>\n我意识到我需要从多个来源确认信息。由于这个问题具有临床性质，我应该优先"}}
+
+id: 1770868871013-0
+event: tool_call
+data: {"tool_call_id": "f346d897-5cac-43f5-8aae-2c27140761a0", "tool_name": "show_text", "delta_input": {"text": "考虑权威的医学资源，例如:\n\n1. 美国心脏协会/美国卒"}}
+
+id: 1770868871116-0
+event: tool_call
+data: {"tool_call_id": "f346d897-5cac-43f5-8aae-2c27140761a0", "tool_name": "show_text", "delta_input": {"text": "中学会(AHA/ASA)指南\n2. 欧洲心脏病学会(ESC"}}
+
+id: 1770868871219-0
+event: tool_call
+data: {"tool_call_id": "f346d897-5cac-43f5-8aae-2c27140761a0", "tool_name": "show_text", "delta_input": {"text": ")指南\n3. 国家卫生健康委员会发布的指南\n4. 专业医学数据库"}}
+
+id: 1770868871322-0
+event: tool_call
+data: {"tool_call_id": "f346d897-5cac-43f5-8aae-2c27140761a0", "tool_name": "show_text", "delta_input": {"text": "如PubMed\n5. 可能包括一些综述文章\n\n让我尝试搜索\"car"}}
+
+id: 1770868871427-0
+event: tool_call
+data: {"tool_call_id": "f346d897-5cac-43f5-8aae-2c27140761a0", "tool_name": "show_text", "delta_input": {"text": "otid artery stenosis treatment 202"}}
+
+id: 1770868871530-0
+event: tool_call
+data: {"tool_call_id": "f346d897-5cac-43f5-8aae-2c27140761a0", "tool_name": "show_text", "delta_input": {"text": "4 systematic review\"\n</think>\n\n"}}
+
+id: 1770868871920-0
+event: tool_call
+data: {"tool_call_id": "e3a5b5af-b860-43f5-b08d-5bfcc4fdb3b5", "tool_name": "google_search", "tool_input": {"q": "carotid artery stenosis treatment 2024 systematic review", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868872922}
+
+event: ping
+data: {"timestamp": 1770868873923}
+
+id: 1770868873936-0
+event: tool_call
+data: {"tool_call_id": "e3a5b5af-b860-43f5-b08d-5bfcc4fdb3b5", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"Systematic Review of the Discrepancies Between Guideline ...\", \"link\": \"https://www.ahajournals.org/doi/10.1161/SVIN.125.001844\"}, {\"title\": \"Comparative safety and efficacy of invasive therapies for carotid ...\", \"link\": \"https://jnis.bmj.com/content/early/2025/08/24/jnis-2025-023900\"}, {\"title\": \"Recent advances and controversial issues in the optimal ... - PMC\", \"link\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC12728507/\"}, {\"title\": \"Major Clinical Outcomes in Patients With Carotid Artery Stenosis ...\", \"link\": \"https://www.ajconline.org/article/S0002-9149(25)00555-7/fulltext\"}, {\"title\": \"Appropriateness of care: Asymptomatic carotid stenosis including ...\", \"link\": \"https://www.sciencedirect.com/science/article/abs/pii/S0895796724000152\"}, {\"title\": \"Management and Treatment of Carotid Stenosis - PMC - NIH\", \"link\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC12249439/\"}, {\"title\": \"[PDF] Carotid artery stenosis: diagnosis and guidelines for management\", \"link\": \"https://www.jksgn.org/upload/pdf/jksgn-2024-00080.pdf\"}, {\"title\": \"Management of Severe Bilateral Symptomatic Internal Carotid Artery ...\", \"link\": \"https://www.mdpi.com/2075-4426/14/9/893\"}, {\"title\": \"a systematic review and network meta-analysis\", \"link\": \"https://jnis.bmj.com/content/neurintsurg/early/2025/08/24/jnis-2025-023900.full.pdf\"}, {\"title\": \"Systematic review and meta-analysis of the diagnostic value of ...\", \"link\": \"https://link.springer.com/article/10.1186/s12880-024-01390-6\"}]}"}}
+
+id: 1770868873937-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868874195-0
+event: tool_call
+data: {"tool_call_id": "d3f15723-6960-43f9-a7d3-bc8313f7999a", "tool_name": "show_text", "delta_input": {"text": "<think>\n现在我需要分析这些搜索结果。一些看起来更可信的来源包括：\n1."}}
+
+id: 1770868874299-0
+event: tool_call
+data: {"tool_call_id": "d3f15723-6960-43f9-a7d3-bc8313f7999a", "tool_name": "show_text", "delta_input": {"text": " PubMed/PMC文章\n2. AHA/ASA相关指南\n3. ESC指南\n"}}
+
+id: 1770868874402-0
+event: tool_call
+data: {"tool_call_id": "d3f15723-6960-43f9-a7d3-bc8313f7999a", "tool_name": "show_text", "delta_input": {"text": "4. 大学医院或医学中心发布的指南\n\n让我直接访问PubMed上的相关信息。\n"}}
+
+id: 1770868874506-0
+event: tool_call
+data: {"tool_call_id": "d3f15723-6960-43f9-a7d3-bc8313f7999a", "tool_name": "show_text", "delta_input": {"text": "</think>\n\n"}}
+
+id: 1770868874834-0
+event: tool_call
+data: {"tool_call_id": "242e20a6-9b45-4bce-875e-13a33210ef06", "tool_name": "google_search", "tool_input": {"q": "PubMed 2024 carotid endarterectomy guidelines", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868875836}
+
+id: 1770868876400-0
+event: tool_call
+data: {"tool_call_id": "242e20a6-9b45-4bce-875e-13a33210ef06", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"Carotid Endarterectomy - StatPearls - NCBI Bookshelf - NIH\", \"link\": \"https://www.ncbi.nlm.nih.gov/books/NBK470582/\"}, {\"title\": \"Best Medical Therapy for Asymptomatic Carotid Stenosis - PubMed\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/39353486/\"}, {\"title\": \"Systematic Review of the Discrepancies Between Guideline ...\", \"link\": \"https://www.ahajournals.org/doi/10.1161/SVIN.125.001844\"}, {\"title\": \"Carotid Endarterectomy Should Not Be Recommended to ... - PubMed\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/37914071/\"}, {\"title\": \"[Advisability of carotid endarterectomy in asymptomatic patients]\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/38477243/\"}, {\"title\": \"Carotid endarterectomy versus stenting in patients with carotid artery ...\", \"link\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC12542706/\"}, {\"title\": \"Selective Screening for Asymptomatic Carotid Artery Stenosis\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/39547462/\"}, {\"title\": \"Asymptomatic Carotid Artery Stenosis - StatPearls - NCBI Bookshelf\", \"link\": \"https://www.ncbi.nlm.nih.gov/books/NBK615139/\"}, {\"title\": \"William M. Feinberg Lecture: Asymptomatic Carotid Stenosis - PMC\", \"link\": \"https://pmc.ncbi.nlm.nih.gov/articles/PMC11331494/\"}, {\"title\": \"Carotid Artery Stenting - StatPearls - NCBI Bookshelf\", \"link\": \"https://www.ncbi.nlm.nih.gov/sites/books/NBK470541/\"}]}"}}
+
+id: 1770868876400-1
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868876674-0
+event: tool_call
+data: {"tool_call_id": "ae85e92a-a415-4b13-8efb-cca39b12279b", "tool_name": "show_text", "delta_input": {"text": "<think>\nPubMed的查询结果似乎不准确。我需要更精确地搜索\"2024"}}
+
+id: 1770868876778-0
+event: tool_call
+data: {"tool_call_id": "ae85e92a-a415-4b13-8efb-cca39b12279b", "tool_name": "show_text", "delta_input": {"text": " guidelines carotid artery disease\"并指定\"AHA/ACC\".\n</think>\n\n"}}
+
+id: 1770868877266-0
+event: tool_call
+data: {"tool_call_id": "550302b6-f87c-4ed6-b0b5-7debe46003ed", "tool_name": "google_search", "tool_input": {"q": "2024 AHA guideline carotid artery disease", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868878268}
+
+id: 1770868879116-0
+event: tool_call
+data: {"tool_call_id": "550302b6-f87c-4ed6-b0b5-7debe46003ed", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"2024 AHA/ACC/ACS/ASNC/HRS/SCA/SCCT/SCMR/SVM Guideline ...\", \"link\": \"https://www.ahajournals.org/doi/10.1161/CIR.0000000000001285\"}, {\"title\": \"2024 ACC/AHA guideline on perioperative cardiovascular ...\", \"link\": \"https://www.ccjm.org/content/92/4/213\"}, {\"title\": \"[PDF] 2024 AHA/ACC Peripheral Artery Disease Guideline\", \"link\": \"https://professional.heart.org/-/media/PHD-Files-2/Science-News/2/2024/2024-PAD-guideline-slide-set.pdf?sc_lang=en\"}, {\"title\": \"Asymptomatic Carotid Artery Stenosis - StatPearls - NCBI Bookshelf\", \"link\": \"https://www.ncbi.nlm.nih.gov/books/NBK615139/\"}, {\"title\": \"[PDF] 2024 Guideline for the Primary Prevention of Stroke\", \"link\": \"https://www.portailvasculaire.fr/sites/default/files/docs/bushnell-et-al-2024-2024-guideline-for-the-primary-prevention-of-stroke-a-guideline-from-the-american-heart-association.pdf\"}, {\"title\": \"Carotid Artery Disease: Then and Now | Stroke\", \"link\": \"https://www.ahajournals.org/doi/10.1161/SVIN.123.001076\"}, {\"title\": \"Interventions for Carotid Stenosis: Where Do We Stand in 2024?\", \"link\": \"https://www.youtube.com/watch?v=E9ktv4o-U6Y\"}, {\"title\": \"Guideline Hub | Extracranial Carotid and Vertebral Artery Disease\", \"link\": \"https://www.acc.org/guidelines/hubs/extracranial-carotid-and-vertebral-artery-disease\"}, {\"title\": \"What You Should Know About the 2024 AHA/ACC Guideline on the ...\", \"link\": \"https://www.hmpgloballearningnetwork.com/site/cathlab/what-you-should-know-about-2024-ahaacc-guideline-management-lower-extremity-peripheral\"}, {\"title\": \"What Is the Role for Carotid Artery Stenting in 2024?∗ | JACC\", \"link\": \"https://www.jacc.org/doi/10.1016/j.jcin.2024.04.002\"}]}"}}
+
+id: 1770868879117-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868879388-0
+event: tool_call
+data: {"tool_call_id": "1d3f6a58-7001-430f-9786-017f51f4dc5f", "tool_name": "show_text", "delta_input": {"text": "<think>\n让我直接搜索\"2024 ESC guidelines carotid artery\".\n</think>\n\n"}}
+
+id: 1770868879736-0
+event: tool_call
+data: {"tool_call_id": "597dfd8e-7375-4850-afb6-69c3a76bf987", "tool_name": "google_search", "tool_input": {"q": "2024 ESC guidelines carotid artery disease", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868880738}
+
+id: 1770868881353-0
+event: tool_call
+data: {"tool_call_id": "597dfd8e-7375-4850-afb6-69c3a76bf987", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"2024 Peripheral Arterial and Aortic Diseases\", \"link\": \"https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/peripheral-arterial-and-aortic-diseases/\"}, {\"title\": \"2024 ESC Guidelines for the management of peripheral arterial and ...\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/39210722/\"}, {\"title\": \"[PDF] 2024 ESC Guidelines for the management of peripheral arterial and ...\", \"link\": \"https://www.portailvasculaire.fr/sites/default/files/docs/2024_esc_guidelines_pad_0.pdf\"}, {\"title\": \"The 2024 ESC guidelines for the management of peripheral arterial ...\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/40631504/\"}, {\"title\": \"Selective Screening for Asymptomatic Carotid Artery Stenosis\", \"link\": \"https://www.amjmed.com/article/S0002-9343(24)00698-3/abstract\"}, {\"title\": \"Pocket Guidelines on Peripheral Arterial and Aortic Diseases (PAAD)\", \"link\": \"https://www.escardio.org/guidelines/clinical-practice-guidelines/pocket-guidelines/peripheral-arterial-and-aortic-diseases/\"}, {\"title\": \"2024 ESC Guidelines: Peripheral arterial and aortic diseases\", \"link\": \"https://www.pcronline.com/News/Whats-new-on-PCRonline/2024/ESC/2024-ESC-Guidelines-Peripheral-arterial-and-aortic-diseases-Focus-on-Peripheral-Arterial-Diseases\"}, {\"title\": \"The 2024 ESC guidelines for the management of peripheral arterial ...\", \"link\": \"https://journals.lww.com/jcardiovascularmedicine/_layouts/15/oaks.journals/downloadpdf.aspx?an=01244665-990000000-00298\"}, {\"title\": \"The new ESC 2024 guidelines on the management of peripheral ...\", \"link\": \"https://www.ejinme.com/article/S0953-6205(24)00446-1/abstract\"}, {\"title\": \"Insights from the 2024 ESC guidelines on peripheral arterial and ...\", \"link\": \"http://www.hvt-journal.com/articles/art530\"}]}"}}
+
+id: 1770868881354-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868881631-0
+event: tool_call
+data: {"tool_call_id": "2d0d6028-9905-4827-87c8-f195e046ee53", "tool_name": "show_text", "delta_input": {"text": "<think>\n现在我需要从这些权威来源中提取具体信息。由于直接访问PDF可能不太方便，我"}}
+
+id: 1770868881730-0
+event: tool_call
+data: {"tool_call_id": "2d0d6028-9905-4827-87c8-f195e046ee53", "tool_name": "show_text", "delta_input": {"text": "应该寻找更易读的总结。让我搜索\"2024 guidelines for management of carot"}}
+
+id: 1770868881860-0
+event: tool_call
+data: {"tool_call_id": "2d0d6028-9905-4827-87c8-f195e046ee53", "tool_name": "show_text", "delta_input": {"text": "id artery disease summary\".\n</think>\n\n"}}
+
+id: 1770868882201-0
+event: tool_call
+data: {"tool_call_id": "a2b45131-7c39-4cfd-8e2e-be6cdace44cc", "tool_name": "google_search", "tool_input": {"q": "2024 guidelines carotid artery disease summary", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868883203}
+
+id: 1770868883849-0
+event: tool_call
+data: {"tool_call_id": "a2b45131-7c39-4cfd-8e2e-be6cdace44cc", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"Asymptomatic Carotid Artery Stenosis - StatPearls - NCBI Bookshelf\", \"link\": \"https://www.ncbi.nlm.nih.gov/books/NBK615139/\"}, {\"title\": \"Carotid Artery Disease: Then and Now | Stroke\", \"link\": \"https://www.ahajournals.org/doi/10.1161/SVIN.123.001076\"}, {\"title\": \"What Is the Role for Carotid Artery Stenting in 2024?∗ | JACC\", \"link\": \"https://www.jacc.org/doi/10.1016/j.jcin.2024.04.002\"}, {\"title\": \"2024 Peripheral Arterial and Aortic Diseases\", \"link\": \"https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/peripheral-arterial-and-aortic-diseases/\"}, {\"title\": \"Asymptomatic carotid artery stenosis: a summary of current state of ...\", \"link\": \"https://jnis.bmj.com/content/15/7/717\"}, {\"title\": \"[PDF] Carotid artery stenosis: diagnosis and guidelines for management\", \"link\": \"https://www.jksgn.org/upload/pdf/jksgn-2024-00080.pdf\"}, {\"title\": \"An analysis of the recommendations of the 2022 Society for ...\", \"link\": \"https://www.sciencedirect.com/science/article/pii/S0741521423024424\"}, {\"title\": \"2024 ESC Guidelines: Peripheral arterial and aortic diseases\", \"link\": \"https://www.pcronline.com/News/Whats-new-on-PCRonline/2024/ESC/2024-ESC-Guidelines-Peripheral-arterial-and-aortic-diseases-Focus-on-Peripheral-Arterial-Diseases\"}, {\"title\": \"Interventions for Carotid Stenosis: Where Do We Stand in 2024?\", \"link\": \"https://www.youtube.com/watch?v=E9ktv4o-U6Y\"}, {\"title\": \"Atherosclerotic Disease of the Carotid Artery Guidelines\", \"link\": \"https://emedicine.medscape.com/article/463147-guidelines\"}]}"}}
+
+id: 1770868883850-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868884138-0
+event: tool_call
+data: {"tool_call_id": "c0b93c28-f9aa-4055-bfec-b8eb15d207c5", "tool_name": "show_text", "delta_input": {"text": "<think>\n我应该访问StatPearls的文章，因为它通常是总结性的，并且属于NCBI Bookshelf，这是一个"}}
+
+id: 1770868884238-0
+event: tool_call
+data: {"tool_call_id": "c0b93c28-f9aa-4055-bfec-b8eb15d207c5", "tool_name": "show_text", "delta_input": {"text": "权威的医学资源。\n</think>\n\n"}}
+
+id: 1770868884754-0
+event: tool_call
+data: {"tool_call_id": "9e281dac-7365-498b-b25d-3bae5663f144", "tool_name": "scrape_and_extract_info", "tool_input": {"url": "https://www.ncbi.nlm.nih.gov/books/NBK615139/", "info_to_extract": "Provide a concise summary of treatment guidelines for carotid artery stenosis, including medication, procedures, and recommendations for asymptomatic vs symptomatic cases."}}
+
+id: 1770868885456-0
+event: heartbeat
+data: {"timestamp": 1770868885.4565935, "workflow_id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10:4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+event: ping
+data: {"timestamp": 1770868886458}
+
+event: ping
+data: {"timestamp": 1770868887459}
+
+event: ping
+data: {"timestamp": 1770868888460}
+
+event: ping
+data: {"timestamp": 1770868889461}
+
+event: ping
+data: {"timestamp": 1770868890463}
+
+event: ping
+data: {"timestamp": 1770868891464}
+
+event: ping
+data: {"timestamp": 1770868892465}
+
+event: ping
+data: {"timestamp": 1770868893466}
+
+event: ping
+data: {"timestamp": 1770868894467}
+
+event: ping
+data: {"timestamp": 1770868895468}
+
+event: ping
+data: {"timestamp": 1770868896469}
+
+event: ping
+data: {"timestamp": 1770868897470}
+
+event: ping
+data: {"timestamp": 1770868898471}
+
+event: ping
+data: {"timestamp": 1770868899472}
+
+event: ping
+data: {"timestamp": 1770868900473}
+
+id: 1770868900485-0
+event: heartbeat
+data: {"timestamp": 1770868900.4857593, "workflow_id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10:4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+event: ping
+data: {"timestamp": 1770868901487}
+
+event: ping
+data: {"timestamp": 1770868902488}
+
+event: ping
+data: {"timestamp": 1770868903489}
+
+event: ping
+data: {"timestamp": 1770868904490}
+
+event: ping
+data: {"timestamp": 1770868905491}
+
+event: ping
+data: {"timestamp": 1770868906493}
+
+event: ping
+data: {"timestamp": 1770868907494}
+
+event: ping
+data: {"timestamp": 1770868908495}
+
+event: ping
+data: {"timestamp": 1770868909496}
+
+event: ping
+data: {"timestamp": 1770868910497}
+
+event: ping
+data: {"timestamp": 1770868911498}
+
+event: ping
+data: {"timestamp": 1770868912499}
+
+id: 1770868913229-0
+event: tool_call
+data: {"tool_call_id": "9e281dac-7365-498b-b25d-3bae5663f144", "tool_name": "scrape_and_extract_info", "tool_input": {"result": "{\n  \"success\": true,\n  \"url\": \"https://www.ncbi.nlm.nih.gov/books/NBK615139/\",\n  \"extracted_info\": \"Concise treatment guidelines for carotid artery stenosis (focus on asymptomatic cases, with contrasts to symptomatic where noted)\\n\\n1) General principle\\n- Best medical therapy (BMT) is first-line for asymptomatic carotid stenosis.\\n- Asymptomatic status lowers immediate need for revascularization; ongoing risk is tied to generalized atherosclerotic disease.\\n- Symptomatic status (recent TIA/stroke in ipsilateral territory) drives more immediate, clearer revascularization decisions.\\n\\n2) Medications and risk-factor management (part of BMT)\\n- Antiplatelet therapy: Aspirin recommended for stroke prevention in asymptomatic stenosis.\\n- Lipid management: Statins (lipid-lowering therapy) to reduce ischemic risk.\\n- Blood pressure and glucose control: Strict BP and glycemic control.\\n- Lifestyle: Smoking cessation; weight management; regular exercise; heart-healthy diet.\\n- Follow-up: Regular clinical follow-up to assess therapy adherence and risk-factor modification.\\n\\n3) Revascularization considerations (asymptomatic vs symptomatic)\\n- General stance for asymptomatic stenosis:\\n  - Revascularization (carotid endarterectomy [CEA] or carotid artery stenting [CAS]) is now limited to selected high-risk individuals due to substantially improved outcomes with BMT alone.\\n  - Best medical therapy alone can reduce the annual ipsilateral stroke risk to about 1%.\\n\\n- When to consider CEA/CAS in asymptomatic stenosis:\\n  - European guidelines (ESVS context): Consider CEA in patients with 60%–99% stenosis, surgical risk ≤3%, and life expectancy >5 years if they have one or more high-risk features.\\n  - General threshold cited by guidelines: 70% or greater stenosis with low surgical risk (<3%) as an asylum for considering surgical intervention.\\n  - High-risk imaging/clinical features that may tilt toward revascularization in asymptomatic patients:\\n    - Microemboli on transcranial Doppler\\n    - Echolucent plaque on duplex ultrasound\\n    - Silent embolic infarcts on brain CT/MRI\\n    - Documented progression of stenosis\\n    - Decreased cerebrovascular reserve\\n    - Increasing juxta-luminal hypoechoic area\\n    - Plaque ulceration\\n    - Intraplaque hemorrhage on MRI\\n\\n- When to consider CAS/CEA in asymptomatic stenosis (high-risk features present or anatomy/need for other procedures):\\n  - If high-risk features are present and patient is deemed low surgical risk, CEA or CAS may be considered per guidelines.\\n  - In patients with neck radiation, unfavorable anatomy, dissection, or prior surgeries, stenting may be considered on a case-by-case basis.\\n\\n- Special procedural considerations:\\n  - Transcarotid artery revascularization (TCAR) may have lower stroke and mortality rates compared to transfemoral stenting in some analyses.\\n  - For patients requiring concomitant coronary artery bypass grafting (CABG) or with coexisting coronary disease, no consensus on timing; options include simultaneous, staged, or hybrid approaches. ACCF/AHA class IIb guidance exists for certain bilateral/unilateral severe stenosis scenarios in the CABG setting.\\n\\n- Thresholds for when revascularization is more commonly recommended (in asymptomatic patients):\\n  - 60%–99% stenosis with favorable surgical risk and life expectancy >5 years, particularly if high-risk plaque features are present.\\n  - 70% or greater stenosis with low surgical risk (<3%) as a practical consideration in asymptomatic patients with high-risk features.\\n\\n4) Imaging and surveillance\\n- Initial evaluation: Carotid duplex ultrasound (lower-cost, noninvasive).\\n- Further imaging: CT angiography, MR angiography, and digital subtraction angiography as needed to characterize plaque features and brain reserve.\\n- High-risk plaque features that may prompt consideration of intervention: microemboli on TCD, echolucent plaques, plaque ulceration, intraplaque hemorrhage, silent embolic infarcts on CT/MRI, progression of stenosis, reduced cerebrovascular reserve.\\n\\n5) Special scenarios\\n- Prior neck radiation, unfavorable neck anatomy, dissection, or prior neck surgeries: Stenting may be considered on a case-by-case basis; TCAR is an option with some evidence of favorable outcomes.\\n- Coexisting coronary artery disease: Some patients may require concurrent or staged carotid/cardiac procedures; no universal timing consensus.\\n\\n6) Prognosis and outcomes\\n- With BMT, annual risk of ipsilateral ischemic stroke is about 1% in asymptomatic stenosis.\\n- Overall prognosis improves with aggressive risk-factor modification and statin/antiplatelet therapy.\\n- If surgical or endovascular intervention is pursued, risks include myocardial infarction, stroke, TIA, nerve injury, bleeding, dysphagia, restenosis, and procedural mortality/morbidity, variably by technique and patient factors.\\n\\n7) Screening and referrals\\n- General population screening for asymptomatic carotid stenosis is not recommended.\\n- Screen asymptomatic patients at increased risk only if they would be willing to undergo intervention if significant stenosis is found.\\n- Referral: High-risk imaging features or stenosis >70% in asymptomatic patients should prompt referral to vascular or neurosurgery for discussion of intervention; cardiology referral reasonable if there is evidence of coronary disease.\\n\\n8) Summary of key numerical guidelines\\n- Best medical therapy can reduce ipsilateral stroke risk to ~1% per year.\\n- ACAS (5-year ipsilateral stroke risk in asymptomatic with medical therapy) ~11%; ACST-1 (5-year risk) ~3.6%.\\n- Contemporary data suggest decreasing stroke/TIA rates with aggressive medical therapy; revascularization benefits are more limited in truly asymptomatic patients except in selected high-risk groups.\\n- CEA/CAS consideration in asymptomatic stenosis: 60–99% stenosis with low surgical risk and >5-year life expectancy if high-risk features are present; 70%+ stenosis often cited as a threshold for considering intervention in low-risk patients.\\n\\nNote: The above reflects the content and thresholds described in the analyzed source, including guidelines and high-risk features cited therein.\",\n  \"error\": \"\",\n  \"scrape_stats\": {\n    \"line_count\": 296,\n    \"char_count\": 45141,\n    \"last_char_line\": 296,\n    \"all_content_displayed\": true\n  },\n  \"model_used\": \"gpt-5-nano\",\n  \"tokens_used\": 15224\n}"}}
+
+id: 1770868913230-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "scrape_and_extract_info"}}
+
+id: 1770868913528-0
+event: tool_call
+data: {"tool_call_id": "19f6f9cb-fe8e-4c8f-9cf5-217d96da0cb9", "tool_name": "show_text", "delta_input": {"text": "<think>\nStatPearls已经提供了摘要。我应该也查找中国指南，因为用户可能"}}
+
+id: 1770868913634-0
+event: tool_call
+data: {"tool_call_id": "19f6f9cb-fe8e-4c8f-9cf5-217d96da0cb9", "tool_name": "show_text", "delta_input": {"text": "关注本地化建议。\n</think>\n\n"}}
+
+id: 1770868914046-0
+event: tool_call
+data: {"tool_call_id": "0df63ef2-89cd-44fc-9832-9a332a1caa0f", "tool_name": "google_search", "tool_input": {"q": "中国 颈动脉斑块 治疗指南 2024", "num": 10, "hl": "zh"}}
+
+event: ping
+data: {"timestamp": 1770868915048}
+
+id: 1770868915549-0
+event: heartbeat
+data: {"timestamp": 1770868915.5489173, "workflow_id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10:4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+event: ping
+data: {"timestamp": 1770868916551}
+
+id: 1770868916777-0
+event: tool_call
+data: {"tool_call_id": "0df63ef2-89cd-44fc-9832-9a332a1caa0f", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"颈动脉斑块如何治疗\", \"link\": \"https://m.youlai.cn/a/sjbarticle/E19CEDMFaFA.html\"}, {\"title\": \"颈动脉斑块怎么治疗方法\", \"link\": \"http://m.39.net/askar/sg_11252456.html\"}, {\"title\": \"颈动脉斑块治疗方法\", \"link\": \"https://m.youlai.cn/a/sjbarticle/2AC17AMFm5m.html\"}, {\"title\": \"颈动脉斑块治疗方法有什么_杏林普康\", \"link\": \"https://m.xinglinpukang.com/detail/77134294.html\"}, {\"title\": \"颈动脉斑块怎么办_杏林普康\", \"link\": \"https://m.xinglinpukang.com/mip/detail/63945696.html\"}, {\"title\": \"颈动脉斑块怎么治-专家文章-复禾健康\", \"link\": \"https://article.fh21.com.cn/view/91893.html\"}, {\"title\": \"治疗颈部动脉斑块_民福康\", \"link\": \"https://www.mfk.com/article/2422429.shtml\"}, {\"title\": \"颈动脉斑块的治疗方法是什么_民福康\", \"link\": \"https://www.mfk.com/shipin/1705554.shtml\"}, {\"title\": \"治疗颈动脉斑块有几种办法-三知健康\", \"link\": \"http://www.3zhijk.com/kpar/question/7025882028522392576.html\"}, {\"title\": \"颈部动脉血管内有斑块怎么办_民福康\", \"link\": \"https://www.mfk.com/article/2261045.shtml\"}, {\"title\": \"颈动脉斑块如何调理 - 九松健康\", \"link\": \"https://www.jiusongjiankang.com/health/news/5630034.html\"}, {\"title\": \"颈动脉斑块形成原因和处理-专家说\", \"link\": \"https://m.zjshuo.com/medical/zfinal/aa5tsr6um.html\"}, {\"title\": \"颈动脉彩超斑块怎么办_杏林普康\", \"link\": \"https://m.xinglinpukang.com/smip/ask/35890490.html\"}, {\"title\": \"西医视为“定时炸弹”的“颈动脉斑块”,中医药全方位帮你消除\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_95167d7990278952\"}, {\"title\": \"2026颈动脉斑块改善产品测评:基于效果安全双维度优选\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_4076989f17f97352\"}, {\"title\": \" 颈动脉狭窄中医诊疗指南(2024版) - 道客巴巴 \", \"link\": \"https://www.doc88.com/p-66219791535045.html\"}, {\"title\": \"颈动脉斑块最佳消除方法有哪些?2025官方指南推荐两大联合方案,斑块可控已成现实!\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_301690aeebf26152\"}, {\"title\": \"颈动脉斑块吃什么药?2025辅助养护产品深度测评,KOUND血畅宁成斑块养护新解\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_03169368cf190052\"}, {\"title\": \"颈动脉狭窄中医诊疗指南(2024版)-指南&解读指南-MedSci.cn\", \"link\": \"https://www.medsci.cn/guideline/show_article.do?id=88fdb1c00a14326a\"}, {\"title\": \"中国糖尿病医学营养治疗指南\", \"link\": \"https://baike.baidu.com/item/中国糖尿病医学营养治疗指南/4121806\"}, {\"title\": \"李慎茂\", \"link\": \"https://baike.baidu.com/item/李慎茂/142610\"}, {\"title\": \"2007版中国泌尿外科疾病诊断治疗指南\", \"link\": \"https://baike.baidu.com/item/2007版中国泌尿外科疾病诊断治疗指南/1566143\"}, {\"title\": \"提高性功能治疗师指南自助手册\", \"link\": \"https://baike.baidu.com/item/提高性功能治疗师指南自助手册/1827280\"}, {\"title\": \"中国1型糖尿病诊治指南\", \"link\": \"https://baike.baidu.com/item/中国1型糖尿病诊治指南/15867901\"}, {\"title\": \"[PDF] 颈动脉狭窄中医诊疗指南 - 中华中医药学会\", \"link\": \"http://www.cacm.org.cn/wp-content/uploads/2024/05/颈动脉狭窄中医诊疗指南-公示稿.pdf\"}, {\"title\": \"颈动脉狭窄中医诊疗指南(2024版)-维普期刊中文期刊服务平台\", \"link\": \"http://dianda.cqvip.com/Qikan/Article/Detail?id=7200239178\"}, {\"title\": \"中国头颈部动脉夹层诊治指南2024 - 脑医汇\", \"link\": \"https://www.brainmed.com/info/detail?id=47640\"}, {\"title\": \"[PDF] 泛血管疾病抗栓治疗中国专家共识（2024版） - Urology Guidelines\", \"link\": \"https://urology.wiki/Guidelines/Periopretions/Anticoagulants/泛血管疾病抗栓治疗中国专家共识（2024版）.pdf\"}, {\"title\": \"颈动脉体瘤外科手术规范专家共识 - 指南-MedSci.cn\", \"link\": \"https://www.medsci.cn/guideline/search?keyword=症状性颈动脉斑块&page=1\"}, {\"title\": \"【指南与共识】慢性颈内动脉闭塞评估及治疗中国专家共识 - 宣武医院\", \"link\": \"https://www.xwhosp.com.cn/Html/News/Articles/10013487.html\"}, {\"title\": \"颈动脉斑块有何危险，如何治疗？专家带你一文读懂 - 央广网\", \"link\": \"http://m.cnr.cn/chanjing/health/20240712/t20240712_526789442.html\"}, {\"title\": \"[PDF] 中国头颈部动脉粥样硬化诊治共识 - 斑块视界\", \"link\": \"http://img.vpdchina.com/ueditor_20180315_5aa9da21d0a2c.pdf\"}, {\"title\": \"[PDF] 超声检查高血压心血管重构和功能临床应用指南(2024版)\", \"link\": \"https://www.hbusqcc.com/attachment/20240920//80/cd8ea3f0271c94118d6ba308056df8.pdf\"}, {\"title\": \"体检发现颈动脉斑块要不要吃药 - 北京清华长庚医院\", \"link\": \"https://www.btch.edu.cn/ksdh/nkb/sjnk/ksdt_sjnk/cd9f8eca907743d5a8e73c12d803fdb6.htm\"}]}"}}
+
+id: 1770868916777-1
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868916778-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "sougou_search"}}
+
+id: 1770868917215-0
+event: tool_call
+data: {"tool_call_id": "f889ef5a-7161-4021-93f6-d8099ea81ddc", "tool_name": "show_text", "delta_input": {"text": "<think>\n这些结果多来自医疗博客，而非正式的指南。我需要搜索更权威的来源，"}}
+
+id: 1770868917319-0
+event: tool_call
+data: {"tool_call_id": "f889ef5a-7161-4021-93f6-d8099ea81ddc", "tool_name": "show_text", "delta_input": {"text": "如中华医学会、中国心血管病学会等。\n\n让我直接搜索\"中华医学会 颈"}}
+
+id: 1770868917423-0
+event: tool_call
+data: {"tool_call_id": "f889ef5a-7161-4021-93f6-d8099ea81ddc", "tool_name": "show_text", "delta_input": {"text": "动脉斑块 临床指南 2024\".\n</think>\n\n"}}
+
+id: 1770868917797-0
+event: tool_call
+data: {"tool_call_id": "78a3c494-21e8-46a9-b787-df43296d3345", "tool_name": "google_search", "tool_input": {"q": "中华医学会 颈动脉斑块 指南 2024", "num": 10, "hl": "zh"}}
+
+event: ping
+data: {"timestamp": 1770868918799}
+
+event: ping
+data: {"timestamp": 1770868919800}
+
+id: 1770868920653-0
+event: tool_call
+data: {"tool_call_id": "78a3c494-21e8-46a9-b787-df43296d3345", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"治疗颈动脉斑块的好方法\", \"link\": \"https://m.youlai.cn/a/sjbarticle/1E1933Mlzzl.html\"}, {\"title\": \"颈部动脉斑块的治疗方法有哪些\", \"link\": \"https://m.cndzys.com/xshcore/quanwei_ztartnew/1es_3549290.html\"}, {\"title\": \"颈动脉斑块\", \"link\": \"https://m.youlai.cn/a/sjbarticle/E978DDgPgTE.html\"}, {\"title\": \"2024颈动脉斑块知识.pdf - 人人文库\", \"link\": \"https://www.renrendoc.com/paper/373437188.html\"}, {\"title\": \"预防颈动脉斑块-20240314.pptx - 人人文库\", \"link\": \"https://www.renrendoc.com/paper/317952756.html\"}, {\"title\": \"颈部动脉有斑块怎么办_陈添华的语音问答-普乐云康\", \"link\": \"https://www.pule.com/voice/1108641\"}, {\"title\": \"颈动脉斑块讲稿-20240222.pptx - 人人文库\", \"link\": \"https://www.renrendoc.com/paper/312818851.html\"}, {\"title\": \" 中国头颈部动脉夹层诊治指南2024(全文) - 道客巴巴 \", \"link\": \"https://www.doc88.com/p-18868417922919.html\"}, {\"title\": \"中国头颈部动脉夹层诊治指南2024血管栓塞颅外动脉瘤植入术_网易订阅\", \"link\": \"https://www.163.com/dy/article/J9MOU78U0532C8QK.html\"}, {\"title\": \"中国头颈部动脉夹层诊治指南2024,速览推荐意见!_治疗_证据_抗凝\", \"link\": \"https://www.sohu.com/a/807517882_121123713\"}, {\"title\": \"2026颈动脉斑块改善产品测评:基于效果安全双维度优选\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_4076989f17f97352\"}, {\"title\": \" 中国头颈部动脉夹层诊治指南2024 - 道客巴巴 \", \"link\": \"https://www.doc88.com/p-29020524700292.html\"}, {\"title\": \" 中国头颈部动脉夹层诊治指南 2024 - 道客巴巴 \", \"link\": \"https://www.doc88.com/p-81768474104109.html\"}, {\"title\": \" 中国头颈部动脉夹层诊治指南 2024 - 道客巴巴 \", \"link\": \"https://www.doc88.com/p-98939557038614.html\"}, {\"title\": \"颈动脉斑块最佳消除方法有哪些?2025官方指南推荐两大联合方案,斑块可控已成现实!\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_301690aeebf26152\"}, {\"title\": \"颈动脉斑块吃什么药?2025科学辅助方案深度解析,KOUND血畅宁实现多通路干预\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_48269368cef99052\"}, {\"title\": \"外科学分册-临床诊疗指南\", \"link\": \"https://baike.baidu.com/item/外科学分册-临床诊疗指南/12259988\"}, {\"title\": \"三类人颈动脉爱长斑块,要提高警惕!\", \"link\": \"https://so.html5.qq.com/page/real/search_news?docid=70000021_31767df335b75952\"}, {\"title\": \"经营者反垄断合规指南\", \"link\": \"https://baike.baidu.com/item/经营者反垄断合规指南/53847488\"}, {\"title\": \"慢性乙型肝炎防治指南\", \"link\": \"https://baike.baidu.com/item/慢性乙型肝炎防治指南/6643927\"}, {\"title\": \"玉堂春暖餐厅\", \"link\": \"https://baike.baidu.com/item/玉堂春暖餐厅/58311573\"}, {\"title\": \"孔垂泽\", \"link\": \"https://baike.sogou.com/v10931625.htm\"}, {\"title\": \"[PDF] 颈动脉粥样硬化斑块合并缺血性卒中的中医药治疗\", \"link\": \"https://guidelines-registry.org/pp/uploads/2026/01/12/颈动脉粥样硬化斑块合并缺血性卒中指南260107_NbNV6Yv.pdf\"}, {\"title\": \"[PDF] 颈动脉狭窄中医诊疗指南 - 中华中医药学会\", \"link\": \"http://www.cacm.org.cn/wp-content/uploads/2024/05/颈动脉狭窄中医诊疗指南-公示稿.pdf\"}, {\"title\": \"中国头颈部动脉夹层诊治指南2024 - 脑医汇\", \"link\": \"https://www.brainmed.com/info/detail?id=47640\"}, {\"title\": \"千万级中国人体检数据解读2024：揭示全国颈动脉斑块的地域差异与 ...\", \"link\": \"https://cardiology.medsci.cn/article/show_article.do?id=93689001423b\"}, {\"title\": \"中国头颈部动脉夹层诊治指南2024 | PDF - Scribd\", \"link\": \"https://www.scribd.com/document/793294899/中国头颈部动脉夹层诊治指南-2024\"}, {\"title\": \"[PDF] 泛血管疾病抗栓治疗中国专家共识（2024版） - Urology Guidelines\", \"link\": \"https://urology.wiki/Guidelines/Periopretions/Anticoagulants/泛血管疾病抗栓治疗中国专家共识（2024版）.pdf\"}, {\"title\": \"颈动脉粥样硬化斑块超声规范化操作及报告专家共识（2025，上海）\", \"link\": \"https://chaosheng.cma-cmc.com.cn/CN/10.3877/cma.j.issn.1672-6448.2025.06.002\"}, {\"title\": \"《中国头颈部动脉夹层诊治指南（2024版）》发布，推荐意见一览\", \"link\": \"https://apps.medtrib.cn/media/phone/post/app/eff4f80d-35d8-4ef3-b214-6b21459dfb3b.html\"}, {\"title\": \"中国头颈部动脉夹层诊治指南2024 - 中国生物医学文献服务系统\", \"link\": \"https://www.sinomed.ac.cn/article.do?ui=2024419811\"}, {\"title\": \"脑卒中高危人群颈动脉斑块形成的影响因素分析 - 预防医学\", \"link\": \"https://www.zjyfyxzz.com/CN/10.19485/j.cnki.issn2096-5087.2024.12.016\"}]}"}}
+
+id: 1770868920654-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868920654-1
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "sougou_search"}}
+
+id: 1770868921113-0
+event: tool_call
+data: {"tool_call_id": "11000889-a8cc-4abb-96ee-c02481163942", "tool_name": "show_text", "delta_input": {"text": "<think>\n看起来中文权威指南搜索效果不佳。我需要转向更专业的医学数据库或学术"}}
+
+id: 1770868921216-0
+event: tool_call
+data: {"tool_call_id": "11000889-a8cc-4abb-96ee-c02481163942", "tool_name": "show_text", "delta_input": {"text": "资源。\n\n让我搜索\"European Society of Cardiology carotid artery disease guideline "}}
+
+id: 1770868921318-0
+event: tool_call
+data: {"tool_call_id": "11000889-a8cc-4abb-96ee-c02481163942", "tool_name": "show_text", "delta_input": {"text": "2024\"\n</think>\n\n"}}
+
+id: 1770868921750-0
+event: tool_call
+data: {"tool_call_id": "00d449a5-7305-42fa-904b-5a187380c5d4", "tool_name": "google_search", "tool_input": {"q": "European Society of Cardiology carotid artery disease guideline 2024", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868922752}
+
+id: 1770868923433-0
+event: tool_call
+data: {"tool_call_id": "00d449a5-7305-42fa-904b-5a187380c5d4", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"2024 Peripheral Arterial and Aortic Diseases\", \"link\": \"https://www.escardio.org/guidelines/clinical-practice-guidelines/all-esc-practice-guidelines/peripheral-arterial-and-aortic-diseases/\"}, {\"title\": \"[PDF] 2024 ESC Guidelines for the management of peripheral arterial and ...\", \"link\": \"https://www.portailvasculaire.fr/sites/default/files/docs/2024_esc_guidelines_pad_0.pdf\"}, {\"title\": \"Pocket Guidelines on Peripheral Arterial and Aortic Diseases (PAAD)\", \"link\": \"https://www.escardio.org/guidelines/clinical-practice-guidelines/pocket-guidelines/peripheral-arterial-and-aortic-diseases/\"}, {\"title\": \"2024 ESC Guidelines for the management of peripheral arterial and ...\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/39210722/\"}, {\"title\": \"Selective Screening for Asymptomatic Carotid Artery Stenosis\", \"link\": \"https://www.amjmed.com/article/S0002-9343(24)00698-3/fulltext\"}, {\"title\": \"Why Selective Screening for Asymptomatic Carotid Stenosis may ...\", \"link\": \"https://www.escardio.org/communities/councils/stroke/scientific-documents-and-publications/heart-and-stroke-blog/why-selective-screening-for-asymptomatic-carotid-stenosis-may-currently-be-appropriate-an-appraisal-of-the-2024-esc-guidelines-position2/\"}, {\"title\": \"[PDF] 2024 ESC Guidelines for the management of chronic coronary ...\", \"link\": \"https://dailycardiology.com/wp-content/uploads/2025/05/2024-ESC-CCS.pdf\"}, {\"title\": \"[PDF] European Society for Vascular Surgery (ESVS) 2024 Clinical Practice\", \"link\": \"https://guidelines.fmh.ch/downloads/23084190/download-de.pdf\"}, {\"title\": \"ESC 2024: Spotlight on New Guidelines and a Consensus Statement\", \"link\": \"https://reference.medscape.com/cc1/p10/esc-2024-spotlight-new-guidelines-and-consensus-statement-2024a1000ivk\"}, {\"title\": \"2024 ESC Guidelines on Peripheral Arterial and Aortic Diseases\", \"link\": \"https://www.ecrjournal.com/articles/commentary-2024-european-society-cardiology-guidelines-peripheral-arterial-and-aortic?language_content_entity=en\"}]}"}}
+
+id: 1770868923434-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868923783-0
+event: tool_call
+data: {"tool_call_id": "1b468e94-48a6-40b4-bebf-dc006d60a325", "tool_name": "show_text", "delta_input": {"text": "<think>\n让我尝试搜索\"American Stroke Association guideline carotid stenosis 20"}}
+
+id: 1770868923886-0
+event: tool_call
+data: {"tool_call_id": "1b468e94-48a6-40b4-bebf-dc006d60a325", "tool_name": "show_text", "delta_input": {"text": "24\"\n</think>\n\n"}}
+
+id: 1770868924301-0
+event: tool_call
+data: {"tool_call_id": "3a8471a6-f48d-493d-86a3-039ef8dfb474", "tool_name": "google_search", "tool_input": {"q": "American Stroke Association guideline carotid stenosis 2024", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868925303}
+
+id: 1770868926003-0
+event: tool_call
+data: {"tool_call_id": "3a8471a6-f48d-493d-86a3-039ef8dfb474", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"2024 Guideline for the Primary Prevention of Stroke\", \"link\": \"https://www.ahajournals.org/doi/10.1161/STR.0000000000000475\"}, {\"title\": \"2024 Guideline for the Primary Prevention of Stroke\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/39429201/\"}, {\"title\": \"American and European Guideline Comparison for Ischemic Stroke ...\", \"link\": \"https://www.acc.org/Latest-in-Cardiology/ten-points-to-remember/2024/09/18/13/32/comparison-of-american\"}, {\"title\": \"AHA/ASA Primary Stroke Prevention Guidelines 2024\", \"link\": \"https://www.guidelinecentral.com/guideline/7082\"}, {\"title\": \"2024 Guideline for the Primary Prevention of... : Stroke - Ovid\", \"link\": \"https://www.ovid.com/journals/stro/fulltext/10.1161/str.0000000000000475~2024-guideline-for-the-primary-prevention-of-stroke-a\"}, {\"title\": \"Interventions for Carotid Stenosis: Where Do We Stand in 2024?\", \"link\": \"https://www.youtube.com/watch?v=E9ktv4o-U6Y\"}, {\"title\": \"Linking To And Excerpting From \\\"2024 Guideline for the Primary ...\", \"link\": \"http://www.tomwademd.net/linking-to-and-excerpting-from-2024-guideline-for-the-primary-prevention-of-stroke-a-guideline-from-the-american-heart-association-american-stroke-association/\"}, {\"title\": \"What Is the Role for Carotid Artery Stenting in 2024?∗\", \"link\": \"https://www.jacc.org/doi/10.1016/j.jcin.2024.04.002\"}, {\"title\": \"2024 Guideline for the Primary Prevention of Stroke: A ... - Instagram\", \"link\": \"https://www.instagram.com/p/DBY_x0Cxj_w/?hl=en\"}, {\"title\": \"ESC consensus statement on stroke risk management\", \"link\": \"https://academic.oup.com/eurheartj/article/46/41/4150/8266037\"}]}"}}
+
+id: 1770868926004-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868926362-0
+event: tool_call
+data: {"tool_call_id": "339888a0-6ddb-4f10-a0f7-bd8b041413fc", "tool_name": "show_text", "delta_input": {"text": "<think>\n看起来很难直接获得权威的PDF文件内容。让我尝试搜索\"carot"}}
+
+id: 1770868926465-0
+event: tool_call
+data: {"tool_call_id": "339888a0-6ddb-4f10-a0f7-bd8b041413fc", "tool_name": "show_text", "delta_input": {"text": "id artery stenosis best medical therapy 2024 guideline\"\n</think>\n\n"}}
+
+id: 1770868926962-0
+event: tool_call
+data: {"tool_call_id": "f75cb6d4-0b68-49c6-b3eb-a6cd9cbdcef0", "tool_name": "google_search", "tool_input": {"q": "best medical therapy carotid artery stenosis 2024 guideline", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868927964}
+
+id: 1770868928652-0
+event: tool_call
+data: {"tool_call_id": "f75cb6d4-0b68-49c6-b3eb-a6cd9cbdcef0", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"Best Medical Therapy for Asymptomatic Carotid Stenosis - PubMed\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/39353486/\"}, {\"title\": \"Best Medical Therapy for Asymptomatic Carotid Stenosis\", \"link\": \"https://www.annalsofvascularsurgery.com/article/S0890-5096(24)00595-8/fulltext\"}, {\"title\": \"[PDF] Best Medical Therapy for Carotid Artery Disease\", \"link\": \"https://strandness.org/wp-content/uploads/2024/02/08-AM850-Ester-Kim-Strandness-Medical-Therapy-Carotid-Disease-Kim-2-11-24.pdf\"}, {\"title\": \"Systematic Review of the Discrepancies Between Guideline ...\", \"link\": \"https://www.ahajournals.org/doi/10.1161/SVIN.125.001844\"}, {\"title\": \"Carotid endarterectomy 'remains useful and relevant' in era of ...\", \"link\": \"https://neuronewsinternational.com/carotid-endarterectomy-remains-useful-and-relevant-in-era-of-improving-medical-therapy/\"}, {\"title\": \"Best Medical Therapy for Asymptomatic Carotid Stenosis\", \"link\": \"https://www.sciencedirect.com/science/article/abs/pii/S0890509624005958\"}, {\"title\": \"[PDF] Carotid artery stenosis: diagnosis and guidelines for management\", \"link\": \"https://www.jksgn.org/upload/pdf/jksgn-2024-00080.pdf\"}, {\"title\": \"Interventions for Carotid Stenosis: Where Do We Stand in 2024?\", \"link\": \"https://www.youtube.com/watch?v=E9ktv4o-U6Y\"}, {\"title\": \"2-year interim results of a multicentre randomised trial - The Lancet\", \"link\": \"https://www.thelancet.com/journals/laneur/article/PIIS1474-4422(25)00107-3/fulltext\"}, {\"title\": \"\\\" Endarterectomy Combined With Optimal Medical Therapy (OMT) vs ...\", \"link\": \"https://www.clinicaltrials.gov/study/NCT02841098\"}]}"}}
+
+id: 1770868928652-1
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868929012-0
+event: tool_call
+data: {"tool_call_id": "2ee4be9d-3c7f-43a9-9ec1-4f2b2ffd9061", "tool_name": "show_text", "delta_input": {"text": "<think>\n我需要找的是关于颈动脉斑块/狭窄的治疗方法。让我搜索"}}
+
+id: 1770868929116-0
+event: tool_call
+data: {"tool_call_id": "2ee4be9d-3c7f-43a9-9ec1-4f2b2ffd9061", "tool_name": "show_text", "delta_input": {"text": "更具体的\"carotid endarterectomy 2024 guidelines\".\n</think>"}}
+
+id: 1770868929219-0
+event: tool_call
+data: {"tool_call_id": "2ee4be9d-3c7f-43a9-9ec1-4f2b2ffd9061", "tool_name": "show_text", "delta_input": {"text": "\n\n"}}
+
+id: 1770868929608-0
+event: tool_call
+data: {"tool_call_id": "ec284910-f3a8-4360-8779-05c20883428d", "tool_name": "google_search", "tool_input": {"q": "carotid endarterectomy guideline 2024 \"stroke\"", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868930610}
+
+id: 1770868930610-0
+event: heartbeat
+data: {"timestamp": 1770868930.6105587, "workflow_id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10:4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+id: 1770868931369-0
+event: tool_call
+data: {"tool_call_id": "ec284910-f3a8-4360-8779-05c20883428d", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"2024 Guideline for the Primary Prevention of Stroke\", \"link\": \"https://www.ahajournals.org/doi/10.1161/STR.0000000000000475\"}, {\"title\": \"Guidelines for Carotid Endarterectomy | Stroke\", \"link\": \"https://www.ahajournals.org/doi/10.1161/01.STR.26.1.188\"}, {\"title\": \"Carotid endarterectomy (CEA) - stroke-manual\", \"link\": \"https://www.stroke-manual.com/carotid-endarterectomy-cea/\"}, {\"title\": \"Carotid endarterectomy reduces the 5-year stroke and death risk in ...\", \"link\": \"https://www.jvascsurg.org/article/S0741-5214(23)01986-9/fulltext\"}, {\"title\": \"ESC consensus statement on stroke risk management in carotid ...\", \"link\": \"https://academic.oup.com/eurheartj/article/46/41/4150/8266037\"}, {\"title\": \"Carotid Endarterectomy - StatPearls - NCBI Bookshelf - NIH\", \"link\": \"https://www.ncbi.nlm.nih.gov/books/NBK470582/\"}, {\"title\": \"What Is the Role for Carotid Artery Stenting in 2024?∗ | JACC\", \"link\": \"https://www.jacc.org/doi/10.1016/j.jcin.2024.04.002\"}, {\"title\": \"ESO Guideline Directory - European Stroke Organisation\", \"link\": \"https://eso-stroke.org/guidelines/eso-guideline-directory/\"}, {\"title\": \"[PDF] 2024 Guideline for the Primary Prevention of Stroke\", \"link\": \"http://cprv.fr/stroke-aha-2024.pdf\"}, {\"title\": \"Stroke and Death Following Carotid Endarterectomy or Carotid ...\", \"link\": \"https://www.ejves.com/article/S1078-5884(24)00906-7/fulltext\"}]}"}}
+
+id: 1770868931370-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868931727-0
+event: tool_call
+data: {"tool_call_id": "c68e6607-aa29-423f-b4a6-9c5cf672d852", "tool_name": "show_text", "delta_input": {"text": "<think>\n我需要找权威来源。让我尝试搜索\"Primary Stroke Prevention 2024"}}
+
+id: 1770868931831-0
+event: tool_call
+data: {"tool_call_id": "c68e6607-aa29-423f-b4a6-9c5cf672d852", "tool_name": "show_text", "delta_input": {"text": " guidelines carotid stenosis\".\n</think>\n\n"}}
+
+id: 1770868932218-0
+event: tool_call
+data: {"tool_call_id": "8f9f737a-9458-4a6e-ad0b-bb532286d6f4", "tool_name": "google_search", "tool_input": {"q": "2024 primary stroke prevention guidelines carotid stenosis", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868933220}
+
+id: 1770868933859-0
+event: tool_call
+data: {"tool_call_id": "8f9f737a-9458-4a6e-ad0b-bb532286d6f4", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"2024 Guideline for the Primary Prevention of Stroke\", \"link\": \"https://www.ahajournals.org/doi/10.1161/STR.0000000000000475\"}, {\"title\": \"2024 AHA/ASA Guideline for the Primary Prevention of Stroke\", \"link\": \"https://pcmedproject.com/neurology/2024-aha-asa-guideline-for-the-primary-prevention-of-stroke/\"}, {\"title\": \"AHA/ASA Primary Stroke Prevention Guidelines 2024\", \"link\": \"https://www.guidelinecentral.com/guideline/7082\"}, {\"title\": \"2024 Guideline for the Primary Prevention of Stroke - PubMed - NIH\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/39429201/\"}, {\"title\": \"Stroke Primary Prevention: AHA/ASA 2024 Guideline Summary\", \"link\": \"https://reference.medscape.com/cc2/p10/guideline-essentials-2024-aha-asa-recommendations-primary-2025a1000cor\"}, {\"title\": \"Interventions for Carotid Stenosis: Where Do We Stand in 2024?\", \"link\": \"https://www.youtube.com/watch?v=E9ktv4o-U6Y\"}, {\"title\": \"2024 Guideline for the Primary Prevention of... : Stroke - Ovid\", \"link\": \"https://www.ovid.com/journals/stro/fulltext/10.1161/str.0000000000000475~2024-guideline-for-the-primary-prevention-of-stroke-a\"}, {\"title\": \"Hub - 2024 Guideline for the Primary Prevention of Stroke\", \"link\": \"https://professional.heart.org/en/guidelines-statements/2024-guideline-for-the-primary-prevention-of-stroke-a-guideline-from-thestr0000000000000475\"}, {\"title\": \"2024 Guideline for the Primary Prevention of Stroke: A ... - Instagram\", \"link\": \"https://www.instagram.com/p/DBY_x0Cxj_w/?hl=en\"}, {\"title\": \"2024 Guideline for Primary Prevention of Stroke Updated for the ...\", \"link\": \"https://www.grossmanroth.com/p/102jn7t/2024-guideline-for-primary-prevention-of-stroke-updated-for-the-first-time-in-10/\"}]}"}}
+
+id: 1770868933860-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868934234-0
+event: tool_call
+data: {"tool_call_id": "bed4da24-9d24-4b1d-9df9-d328a1ffc5ff", "tool_name": "show_text", "delta_input": {"text": "<think>\n我将尝试搜索\"2023 ESVS carotid artery guidelines\"或\"ES"}}
+
+id: 1770868934335-0
+event: tool_call
+data: {"tool_call_id": "bed4da24-9d24-4b1d-9df9-d328a1ffc5ff", "tool_name": "show_text", "delta_input": {"text": "VS 2023 carotid\"。\n</think>\n\n"}}
+
+id: 1770868934693-0
+event: tool_call
+data: {"tool_call_id": "26df0f53-2961-4472-8c13-974c79e8e2a1", "tool_name": "google_search", "tool_input": {"q": "ESVS carotid guidelines 2023", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868935695}
+
+event: ping
+data: {"timestamp": 1770868936696}
+
+id: 1770868936836-0
+event: tool_call
+data: {"tool_call_id": "26df0f53-2961-4472-8c13-974c79e8e2a1", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"Editor's Choice – European Society for Vascular Surgery (ESVS ...\", \"link\": \"https://www.ejves.com/article/S1078-5884(22)00237-4/fulltext\"}, {\"title\": \"European Society for Vascular Surgery (ESVS) 2023 ... - PubMed\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/35598721/\"}, {\"title\": \"Vascular Surgery Guidelines - ESVS\", \"link\": \"https://esvs.org/guidelines/\"}, {\"title\": \"Editor's Choice – European Society for Vascular Surgery (ESVS ...\", \"link\": \"https://www.sciencedirect.com/science/article/pii/S1078588422002374\"}, {\"title\": \"ESVS publishes 2023 guidelines on management of atherosclerotic ...\", \"link\": \"https://vascularnews.com/esvs-publishes-2023-guidelines-on-management-of-atherosclerotic-carotid-and-vertebral-artery-disease/\"}, {\"title\": \"European Society for Vascular Surgery (ESVS) 2023 Clinical ...\", \"link\": \"https://www.ctsnet.org/jans/european-society-vascular-surgery-esvs-2023-clinical-practice-guidelines-management\"}, {\"title\": \"[PDF] The New 2023 European Society for Vascular Surgery (ESVS ...\", \"link\": \"https://research.rug.nl/files/591400201/PIIS1078588422002891.pdf\"}, {\"title\": \"[PDF] The ESVS 2023 guidelines on the management of atherosclerotic ...\", \"link\": \"https://www.heljves.com/wp-content/uploads/2023/09/vol_5_issue_2_2023-2-11-13-1.pdf\"}, {\"title\": \"The ESVS 2023 guidelines on the management of atherosclerotic ...\", \"link\": \"https://www.researchgate.net/publication/374097249_The_ESVS_2023_guidelines_on_the_management_of_atherosclerotic_carotid_and_vertebral_artery_disease_What_is_new_and_what_remains_to_be_answered\"}, {\"title\": \"European Society for Vascular Surgery (ESVS) 2023 Clinical ...\", \"link\": \"https://europepmc.org/article/med/35598721\"}]}"}}
+
+id: 1770868936837-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868937239-0
+event: tool_call
+data: {"tool_call_id": "5f163f3f-b433-40b5-834b-aeee65cb61ea", "tool_name": "show_text", "delta_input": {"text": "<think>\n我将尝试搜索\"2023 ESVS carotid disease guidelines PDF\".\n</think>\n\n"}}
+
+id: 1770868937636-0
+event: tool_call
+data: {"tool_call_id": "ffd2b2d6-2bcd-4e8e-ad2e-1736db03cb49", "tool_name": "google_search", "tool_input": {"q": "2023 ESVS carotid guidelines PDF", "num": 10, "hl": "en"}}
+
+event: ping
+data: {"timestamp": 1770868938638}
+
+id: 1770868939349-0
+event: tool_call
+data: {"tool_call_id": "ffd2b2d6-2bcd-4e8e-ad2e-1736db03cb49", "tool_name": "google_search", "tool_input": {"result": "{\"organic\": [{\"title\": \"[PDF] European Society for Vascular Surgery (ESVS) 2023 Clinical ...\", \"link\": \"https://uvecd.org.tr/dosyalar/65fabb716e889_European%20Society%20for%20Vascular%20Surgery%20(ESVS)%202023%20Clinical%20Practice%20Guidelines%20on%20the%20Management%20of%20Atherosclerotic%20Carotid%20and%20Vertebral%20Artery%20Disease.pdf\"}, {\"title\": \"The New 2023 ESVS Carotid Guidelines - The European Perspective\", \"link\": \"https://www.ejves.com/article/S1078-5884(22)00289-1/pdf\"}, {\"title\": \"Vascular Surgery Guidelines - ESVS\", \"link\": \"https://esvs.org/guidelines/\"}, {\"title\": \"European Society for Vascular Surgery (ESVS) 2023 ... - PubMed\", \"link\": \"https://pubmed.ncbi.nlm.nih.gov/35598721/\"}, {\"title\": \"(PDF) European Society for Vascular Surgery (ESVS) 2023 Clinical ...\", \"link\": \"https://www.researchgate.net/publication/360728583_European_society_for_vascular_surgery_ESVS_2023_Clinical_practice_guidelines_on_the_management_of_atherosclerotic_carotid_and_vertebral_artery_disease\"}, {\"title\": \"[PDF] European Society for Vascular Surgery (ESVS) 2023 clinical ...\", \"link\": \"https://assets.ctfassets.net/07cwnclyy106/6seQhfiYQAYsMDacCKEWYi/807a10529d52e56159071c0917a30e48/EGT-3128.v1_Download.pdf\"}, {\"title\": \"European Society for Vascular Surgery (ESVS) 2023 Clinical ...\", \"link\": \"https://www.jvascsurg.org/article/S0741-5214(23)01179-5/fulltext\"}, {\"title\": \"[PDF] The ESVS 2023 guidelines on the management of atherosclerotic ...\", \"link\": \"https://www.heljves.com/wp-content/uploads/2023/09/vol_5_issue_2_2023-2-11-13-1.pdf\"}, {\"title\": \"[PDF] The New 2023 European Society for Vascular Surgery (ESVS ...\", \"link\": \"https://research.rug.nl/files/591400201/PIIS1078588422002891.pdf\"}, {\"title\": \"[PDF] Editor's Choice e European Society for Vascular Surgery (ESVS ...\", \"link\": \"https://www.portailvasculaire.fr/sites/default/files/docs/2023_esvs_anti_thrombotiques.pdf\"}]}"}}
+
+id: 1770868939351-0
+event: usage_info
+data: {"agent_name": "main", "scene": "tool_call", "usage": {"tool_name": "google_search"}}
+
+id: 1770868939351-1
+event: end_of_llm
+data: {"agent_name": "main"}
+
+id: 1770868939352-0
+event: end_of_agent
+data: {"agent_name": "main", "agent_id": "38649d10-dee8-4b35-9a85-73c6ac5f15df"}
+
+id: 1770868939352-1
+event: start_of_agent
+data: {"agent_name": "reporter", "display_name": null, "agent_id": "d90f831c-fdd8-4663-bfde-0cb4a5662254"}
+
+id: 1770868939353-0
+event: start_of_llm
+data: {"agent_name": "reporter", "display_name": null}
+
+event: ping
+data: {"timestamp": 1770868940355}
+
+event: ping
+data: {"timestamp": 1770868941356}
+
+event: ping
+data: {"timestamp": 1770868942357}
+
+event: ping
+data: {"timestamp": 1770868943358}
+
+event: ping
+data: {"timestamp": 1770868944362}
+
+id: 1770868944883-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "下面按“"}}
+
+id: 1770868945001-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "从保守到手术”的顺"}}
+
+id: 1770868945113-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "序，系统说一下颈动脉斑块常用"}}
+
+id: 1770868945230-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "、靠谱的治疗思路"}}
+
+id: 1770868945347-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "，方便你跟医生沟通、"}}
+
+id: 1770868945464-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "自己判断大致方向。\n\n"}}
+
+id: 1770868945579-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "---\n\n## 一、总体原则先搞清楚"}}
+
+id: 1770868945680-0
+event: heartbeat
+data: {"timestamp": 1770868945.68018, "workflow_id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10:4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+id: 1770868945692-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "\n\n颈动脉斑块本质"}}
+
+id: 1770868945876-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "是动脉粥"}}
+
+id: 1770868946000-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "样硬化，是“全身血管病"}}
+
+id: 1770868946158-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "”的一个局部表现。治疗目标有三"}}
+
+id: 1770868946279-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "点：\n\n1. **稳定斑块、防止破裂"}}
+
+id: 1770868946398-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "和血栓形成**（预防"}}
+
+id: 1770868946515-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脑梗、中风）  \n2. **减"}}
+
+id: 1770868946641-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "缓甚至部分逆转动脉粥"}}
+
+id: 1770868946808-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "样硬化进展**  \n3. **"}}
+
+id: 1770868946975-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "必要时通过手术/介入"}}
+
+id: 1770868947095-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "改善严重狭窄的血流**\n\n是否需要"}}
+
+id: 1770868947216-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "手术，关键看三点：\n\n"}}
+
+id: 1770868947340-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "- 是否有症"}}
+
+id: 1770868947459-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "状（短暂性脑缺"}}
+
+id: 1770868947577-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "血发作 TIA、脑"}}
+
+id: 1770868947695-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "梗、中风相关症状）\n- 狭"}}
+
+id: 1770868947816-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "窄程度（一般"}}
+
+id: 1770868947944-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "用超声/CTA/MRA报告"}}
+
+id: 1770868948069-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "的百分比）\n- 全"}}
+
+id: 1770868948189-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "身情况和手术风险"}}
+
+id: 1770868948307-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "\n\n---\n\n## 二、所有颈动"}}
+
+id: 1770868948456-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脉斑块患者都应做的"}}
+
+id: 1770868948572-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "：生活方式+危险因素控制\n\n不管斑块"}}
+
+id: 1770868948683-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "大小、要不要手术，下列"}}
+
+id: 1770868948827-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "措施都是“基础治疗”，"}}
+
+id: 1770868948972-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "也是各大指南反复强调的"}}
+
+id: 1770868949091-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "“最佳内科治疗（"}}
+
+id: 1770868949196-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "Best Medical Therapy, BMT）”的一部分[1"}}
+
+id: 1770868949305-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "][2]。\n\n### 1. 生活"}}
+
+id: 1770868949407-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "方式干预\n\n- 饮食：\n"}}
+
+id: 1770868949523-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "  - 低盐、低脂、低胆固"}}
+
+id: 1770868949631-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "醇、低糖\n  - 少"}}
+
+id: 1770868949741-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "吃：肥肉、动物内脏、油炸食品"}}
+
+id: 1770868949882-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "、甜饮料"}}
+
+id: 1770868949988-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "、精加工面"}}
+
+id: 1770868950109-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "点等  \n  - 多"}}
+
+id: 1770868950237-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "吃：蔬菜、水果、全谷物"}}
+
+id: 1770868950344-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "（燕麦、糙米、全麦）、"}}
+
+id: 1770868950445-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "豆类、适量坚果、深海鱼等\n-"}}
+
+id: 1770868950556-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 运动：\n  - 一般建议：每"}}
+
+id: 1770868950662-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "周 ≥150 分钟中等强度有氧运动"}}
+
+id: 1770868950809-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "，如快走、慢跑、骑车、游泳"}}
+
+id: 1770868950946-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "等[1][3]\n  -"}}
+
+id: 1770868951057-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 有严重心脑血管"}}
+
+id: 1770868951157-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "病的人，运动量需"}}
+
+id: 1770868951294-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "让医生评估后确定\n- 体"}}
+
+id: 1770868951430-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "重：\n  - 维持或减重"}}
+
+id: 1770868951570-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "至**BMI < 25 kg/m²**"}}
+
+id: 1770868951678-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "更理想，有助于控制血压、"}}
+
+id: 1770868951783-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "血脂、血糖[1]\n- 戒烟限酒：\n  -"}}
+
+id: 1770868951947-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " **必须戒烟**，任何量"}}
+
+id: 1770868952050-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "的吸烟都会加速斑块形成和"}}
+
+id: 1770868952180-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "不稳定[3][4]\n  - 酒"}}
+
+id: 1770868952282-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "精应严格控制"}}
+
+id: 1770868952483-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "甚至完全避免（尤其是合并高血"}}
+
+id: 1770868952592-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "压、肝病、心"}}
+
+id: 1770868952696-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "衰者）\n\n### 2. 控"}}
+
+id: 1770868952837-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "制“三高”和其他危险因素\n\n通常需要"}}
+
+id: 1770868952943-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "在医生指导下长期用药：\n\n"}}
+
+id: 1770868953050-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "- 高血压：  \n  目标多数"}}
+
+id: 1770868953153-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "情况下尽量 <130/80 mmHg（"}}
+
+id: 1770868953255-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "具体以医生建议为准）["}}
+
+id: 1770868953356-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "1]  \n  常用：氨氯地"}}
+
+id: 1770868953523-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "平、"}}
+
+id: 1770868953695-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "缬沙坦、ACEI"}}
+
+id: 1770868953804-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "/ARB 等\n- 高"}}
+
+id: 1770868953919-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "血脂"}}
+
+id: 1770868954022-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "：\n  - "}}
+
+id: 1770868954129-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "关键指标：LDL-C（“坏胆固醇"}}
+
+id: 1770868954234-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "”）  \n "}}
+
+id: 1770868954361-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " - 有颈动脉斑"}}
+
+id: 1770868954547-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "块一般建议用**中"}}
+
+id: 1770868954653-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "到高强度他汀**，"}}
+
+id: 1770868954761-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "把 LDL-C 降到很低（"}}
+
+id: 1770868954869-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "很多指南建议 <1.4 mmol"}}
+
+id: 1770868954979-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "/L，甚至更低）"}}
+
+id: 1770868955089-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "[1][2][4]\n- 糖尿"}}
+
+id: 1770868955202-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "病/血糖异常：\n  -"}}
+
+id: 1770868955321-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 控制好血糖（常用"}}
+
+id: 1770868955432-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "：二甲双胍等），减少"}}
+
+id: 1770868955536-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "血管内皮损伤\n- 同型半胱"}}
+
+id: 1770868955643-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "氨酸升高、高尿酸、"}}
+
+id: 1770868955751-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "肥胖等，也需要综合管理\n\n这些措施"}}
+
+id: 1770868955861-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "本身就能显著降低脑"}}
+
+id: 1770868955968-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "卒中、中风风险，是整个治疗"}}
+
+id: 1770868956138-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "的“地基”[1][2][3]。\n\n---\n\n##"}}
+
+id: 1770868956300-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 三、药物治疗"}}
+
+id: 1770868956403-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "：大多数患者"}}
+
+id: 1770868956510-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "的“主战场”\n\n### "}}
+
+id: 1770868956725-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "1. 降脂药："}}
+
+id: 1770868956896-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "他汀"}}
+
+id: 1770868957082-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "类为核心\n\n"}}
+
+id: 1770868957199-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "**目的**：  \n- 降低"}}
+
+id: 1770868957363-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " LDL-C"}}
+
+id: 1770868957518-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "，减缓甚至部分逆转粥"}}
+
+id: 1770868957644-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "样硬化  \n- "}}
+
+id: 1770868957760-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "具有抗炎、稳定斑"}}
+
+id: 1770868957873-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "块作用，减少斑块破裂风险[1"}}
+
+id: 1770868957990-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "][2][4]\n\n**常用药物"}}
+
+id: 1770868958135-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "**（需在医生指导下选择"}}
+
+id: 1770868958248-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "和调剂量）：\n\n- 阿"}}
+
+id: 1770868958402-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "托伐他汀\n- 瑞舒伐他汀\n"}}
+
+id: 1770868958512-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "- 辛伐他汀、普伐他汀"}}
+
+id: 1770868958618-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "等\n\n部分高"}}
+
+id: 1770868958729-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "危或他汀达不到"}}
+
+id: 1770868958837-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "目标者，可能"}}
+
+id: 1770868958956-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "会联合：\n\n-"}}
+
+id: 1770868959065-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 依折麦布\n- PC"}}
+
+id: 1770868959289-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "SK9 抑制剂（"}}
+
+id: 1770868959442-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "昂贵，通常用于极高危"}}
+
+id: 1770868959566-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "或顽固高胆固醇人"}}
+
+id: 1770868959734-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "群）[1"}}
+
+id: 1770868959854-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "]\n\n### 2. 抗血小板药"}}
+
+id: 1770868960072-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "物：预防血栓\n\n**用途**：  \n"}}
+
+id: 1770868960225-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "稳定期预防斑块"}}
+
+id: 1770868960339-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "表面血栓形成，降低脑"}}
+
+id: 1770868960458-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "梗风险。\n\n常用方案（交"}}
+
+id: 1770868960628-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "给神经内"}}
+
+id: 1770868960729-0
+event: heartbeat
+data: {"timestamp": 1770868960.729192, "workflow_id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10:4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+id: 1770868960742-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "科/心内"}}
+
+id: 1770868960864-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "科医生决定）：\n\n- 单药：\n  - 阿"}}
+
+id: 1770868960971-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "司匹林（"}}
+
+id: 1770868961088-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "常用 75–100 mg/"}}
+
+id: 1770868961195-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "天肠溶片）\n  - 或 氯吡格雷"}}
+
+id: 1770868961302-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "\n- 双联抗血小板：\n "}}
+
+id: 1770868961444-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " - 某些短期情"}}
+
+id: 1770868961696-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "形（急性"}}
+
+id: 1770868961874-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "缺血"}}
+
+id: 1770868962062-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "事件后"}}
+
+id: 1770868962261-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "、部分"}}
+
+id: 1770868962462-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "介入或手"}}
+
+id: 1770868962669-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "术后"}}
+
+id: 1770868962785-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "）短期联合"}}
+
+id: 1770868962945-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "使用阿司匹林 + 氯吡格雷"}}
+
+id: 1770868963221-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "[2][4]\n\n注意：  \n- 有"}}
+
+id: 1770868963333-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "出血倾向、消化道溃疡"}}
+
+id: 1770868963484-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "、既往颅内出血史等，需要个体"}}
+
+id: 1770868963621-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "化权衡出血风险[2]\n-"}}
+
+id: 1770868963733-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 不要自行加"}}
+
+id: 1770868963886-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "药或停药\n\n### 3. 其他相关药物\n\n-"}}
+
+id: 1770868964003-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 控压药：ARB/ACEI、钙"}}
+
+id: 1770868964121-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "通道阻滞剂、β受体阻滞剂"}}
+
+id: 1770868964229-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "等[1][3]\n- 降"}}
+
+id: 1770868964351-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "糖药：二甲双胍、GLP-1"}}
+
+id: 1770868964499-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 受体激动剂、SGLT2 抑制剂"}}
+
+id: 1770868964649-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "等（由内分泌/心内科"}}
+
+id: 1770868964768-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "综合考虑）\n- 必要时抗凝药"}}
+
+id: 1770868964914-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "：如合并房颤"}}
+
+id: 1770868965026-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "、静脉血栓等特殊情况（例如"}}
+
+id: 1770868965134-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "华法林、新型口服抗"}}
+
+id: 1770868965243-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "凝药），**不等"}}
+
+id: 1770868965346-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "同于一般的颈动脉"}}
+
+id: 1770868965482-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "斑块患者**，必须由专"}}
+
+id: 1770868965746-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "科医师决定[2"}}
+
+id: 1770868965860-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "]\n\n---\n\n## 四、何时需要考虑“"}}
+
+id: 1770868965970-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "动手”（手术/介入"}}
+
+id: 1770868966076-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "治疗）？\n\n动手的"}}
+
+id: 1770868966217-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "目的不是“把所有斑块都刮干净”，"}}
+
+id: 1770868966332-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "而是在**高危、"}}
+
+id: 1770868966435-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "重度狭窄**时，通过重"}}
+
+id: 1770868966540-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "建血流显著降低未来"}}
+
+id: 1770868966643-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脑卒中风险。\n\n### 1. "}}
+
+id: 1770868966770-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "关键判断因素\n\n1. 是否有"}}
+
+id: 1770868966872-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "症状：\n   - **有症状**：近期"}}
+
+id: 1770868967058-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "（一般指半年内）"}}
+
+id: 1770868967184-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "发生与该侧颈动脉相关的 T"}}
+
+id: 1770868967322-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "IA 或脑梗\n   - **"}}
+
+id: 1770868967482-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "无症状**：体检发现斑块"}}
+
+id: 1770868967598-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "或狭窄，但没有相关"}}
+
+id: 1770868967721-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "神经系统症状\n\n2."}}
+
+id: 1770868967830-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 狭窄程度（大致分级"}}
+
+id: 1770868967950-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "）[2][3][4]：\n   - "}}
+
+id: 1770868968060-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "轻度：<50%\n   - 中度"}}
+
+id: 1770868968161-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "：50–69%\n   - 重度：70–99%\n   -"}}
+
+id: 1770868968268-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 完全闭塞：100%\n\n3"}}
+
+id: 1770868968420-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": ". 全身情况：\n   - 预期寿命"}}
+
+id: 1770868968679-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "（一般"}}
+
+id: 1770868968875-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "要求 >"}}
+
+id: 1770868969076-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "3–5 年"}}
+
+id: 1770868969284-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "以上才有手"}}
+
+id: 1770868969491-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "术获"}}
+
+id: 1770868969709-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "益意义"}}
+
+id: 1770868969931-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "）["}}
+
+id: 1770868970049-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "2]["}}
+
+id: 1770868970181-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "3]\n   - 心肺功能、其他合"}}
+
+id: 1770868970307-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "并症、手"}}
+
+id: 1770868970421-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "术麻醉风险等\n\n### 2."}}
+
+id: 1770868970535-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 两大主要手段\n\n#### （"}}
+
+id: 1770868970650-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "1）颈动脉内膜剥脱术（CEA"}}
+
+id: 1770868970812-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "）\n\n- 传统“开"}}
+
+id: 1770868970929-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "刀”手术，打开颈动"}}
+
+id: 1770868971043-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脉血管，把内膜及斑"}}
+
+id: 1770868971158-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "块整体剥除，然后缝"}}
+
+id: 1770868971271-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "合重建血管[2]["}}
+
+id: 1770868971383-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "3][4]\n- **适应证（概念"}}
+
+id: 1770868971497-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "性理解，不是绝对值）**：\n"}}
+
+id: 1770868971604-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "  - 有症状 + 狭窄"}}
+
+id: 1770868971763-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 50–99%，在合适"}}
+
+id: 1770868971867-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "时间窗内接受手术能显著降低"}}
+
+id: 1770868972052-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "再卒中风险[2][3"}}
+
+id: 1770868972162-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "]\n  - 无症状 + 重度狭窄"}}
+
+id: 1770868972280-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "（如 ≥70%），同时手术风险低、"}}
+
+id: 1770868972417-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "预期寿命较长，经个体化"}}
+
+id: 1770868972551-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "评估后可"}}
+
+id: 1770868972687-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "考虑[2][3]\n- 优点：\n  - 证据"}}
+
+id: 1770868972822-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "最充分，长期随访"}}
+
+id: 1770868973155-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "显示可"}}
+
+id: 1770868973415-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "降低卒中风险"}}
+
+id: 1770868973666-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "[2"}}
+
+id: 1770868973780-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "]\n- 风险：\n "}}
+
+id: 1770868973896-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " - 围手术期脑卒中"}}
+
+id: 1770868974003-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "、心梗、"}}
+
+id: 1770868974142-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "颅神经损伤、出血、感染等；"}}
+
+id: 1770868974245-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "要求医院/团队有较低的"}}
+
+id: 1770868974348-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "并发症率（通常"}}
+
+id: 1770868974452-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " <3%–6%"}}
+
+id: 1770868974637-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 的卒中或死亡率）["}}
+
+id: 1770868974784-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "2]\n\n#### （2）颈动脉"}}
+
+id: 1770868974939-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "支架成形术（"}}
+
+id: 1770868975114-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "CAS，包括"}}
+
+id: 1770868975229-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "经股动脉和经颈动"}}
+
+id: 1770868975338-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脉途径）\n\n- 经皮血"}}
+
+id: 1770868975452-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "管内介入，从股动脉"}}
+
+id: 1770868975603-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "或颈部小切口穿刺"}}
+
+id: 1770868975709-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "，把球囊和支架"}}
+
+id: 1770868975810-0
+event: heartbeat
+data: {"timestamp": 1770868975.8102307, "workflow_id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10:4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+id: 1770868975814-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "送到狭窄处扩"}}
+
+id: 1770868975934-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "张并撑开血管，有时结合脑保护装置，"}}
+
+id: 1770868976046-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "减少手术中斑块脱落"}}
+
+id: 1770868976154-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "[3][4]\n- 适"}}
+
+id: 1770868976261-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "用情况：\n  - 解剖条件"}}
+
+id: 1770868976405-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "不适合开刀（"}}
+
+id: 1770868976507-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "高度狭窄的高位病变、以"}}
+
+id: 1770868976672-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "往颈部手术或放疗"}}
+
+id: 1770868976807-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "后疤痕严重、气"}}
+
+id: 1770868976916-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "道或颈椎畸形等）\n"}}
+
+id: 1770868977021-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "  - 开刀手术高风险"}}
+
+id: 1770868977132-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "的患者（严重"}}
+
+id: 1770868977242-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "心肺疾病、年龄特别"}}
+
+id: 1770868977387-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "大等）  \n- 注意：\n  - 与 CEA 相比"}}
+
+id: 1770868977491-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "，部分研究显示 CAS 的围手"}}
+
+id: 1770868977685-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "术期卒中风险略"}}
+
+id: 1770868977866-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "高，而心肌"}}
+
+id: 1770868978235-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "梗死"}}
+
+id: 1770868978435-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "略少"}}
+
+id: 1770868978536-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "，选择上通常"}}
+
+id: 1770868978646-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "由多学科（神经内"}}
+
+id: 1770868978759-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "科、介入、血管外科）"}}
+
+id: 1770868978862-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "综合评估[2][4]\n\n"}}
+
+id: 1770868979051-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "---\n\n## 五、单纯"}}
+
+id: 1770868979170-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "“保守药物治疗”就足够的情况"}}
+
+id: 1770868979278-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "\n\n在现代强化"}}
+
+id: 1770868979380-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "药物和生活方式管理下，"}}
+
+id: 1770868979485-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "**很多无症状、轻中"}}
+
+id: 1770868979621-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "度狭窄的"}}
+
+id: 1770868979732-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "颈动"}}
+
+id: 1770868979855-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脉斑块**，单"}}
+
+id: 1770868979956-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "靠“"}}
+
+id: 1770868980056-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "最佳内"}}
+
+id: 1770868980175-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "科治疗"}}
+
+id: 1770868980294-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "”每年脑卒中风险可降至约 "}}
+
+id: 1770868980426-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "1% 左右[1][2]，收益和手术相比未必有优势。\n\n"}}
+
+id: 1770868980531-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "一般来说（仅作大致印"}}
+
+id: 1770868980647-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "象，非个人医嘱）：\n\n"}}
+
+id: 1770868980974-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "- **"}}
+
+id: 1770868981090-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "轻度狭窄或仅"}}
+
+id: 1770868981201-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "有斑块、无明显狭窄"}}
+
+id: 1770868981322-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "**：\n  - 多数"}}
+
+id: 1770868981479-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "只需生活方式 + 降脂 + 抗血小板"}}
+
+id: 1770868981584-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " ± 控压控糖，按期复查颈动"}}
+
+id: 1770868981704-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脉超声即可\n- **中度狭"}}
+
+id: 1770868981819-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "窄、无症状**：\n  - 大多仍以强化"}}
+
+id: 1770868981935-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "内科治疗为主，由医生综合评估是否存在"}}
+
+id: 1770868982038-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "“易损斑块”等高危"}}
+
+id: 1770868982153-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "特征后再考虑是否需要介入"}}
+
+id: 1770868982261-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "[2]\n- **高龄、"}}
+
+id: 1770868982370-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "合并严重基础病、预期寿命"}}
+
+id: 1770868982577-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "有限的患者**：\n  - 即便狭"}}
+
+id: 1770868982703-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "窄较重，也可能倾向"}}
+
+id: 1770868982819-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "“以药物为主、谨慎"}}
+
+id: 1770868982986-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "对待手术”，避免过"}}
+
+id: 1770868983090-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "度干预[2]\n\n---\n\n## 六、"}}
+
+id: 1770868983205-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "随访与监测\n\n"}}
+
+id: 1770868983317-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "治疗不是“一次"}}
+
+id: 1770868983447-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "性”的，需要长期"}}
+
+id: 1770868983554-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "随访：\n\n- **定期复"}}
+
+id: 1770868983663-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "查项目**：\n  - 颈"}}
+
+id: 1770868983781-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "动脉彩超：了解斑块大小、"}}
+
+id: 1770868983901-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "稳定性、狭窄程度"}}
+
+id: 1770868984042-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "\n    - 通常 6–12 个月复查一次，医生"}}
+
+id: 1770868984150-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "会根据情况调整频率\n  - 血脂、"}}
+
+id: 1770868984308-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "血压、血糖、"}}
+
+id: 1770868984428-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "肝肾功能：评估药物效果和"}}
+
+id: 1770868984529-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "安全性\n- 出现以下情况"}}
+
+id: 1770868984636-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "需尽快就医：\n"}}
+
+id: 1770868984969-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "  - 突发一侧肢体"}}
+
+id: 1770868985073-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "无力或麻木、口角"}}
+
+id: 1770868985220-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "歪斜、说话含糊不清\n  - 突"}}
+
+id: 1770868985331-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "然一侧眼睛视物模"}}
+
+id: 1770868985442-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "糊/黑朦\n "}}
+
+id: 1770868985553-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " - 突然严重眩晕、走"}}
+
+id: 1770868985654-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "路不稳  \n  "}}
+
+id: 1770868985793-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "这些都可能是 TIA 或脑梗的先兆"}}
+
+id: 1770868985895-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "或表现，需要急"}}
+
+id: 1770868985996-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "诊评估和溶栓/血"}}
+
+id: 1770868986110-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "管内治疗时机判断。\n\n---\n\n"}}
+
+id: 1770868986240-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "## 七、关于"}}
+
+id: 1770868986363-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "“保健品”“中药消斑块"}}
+
+id: 1770868986474-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "”等\n\n- 目前**没有任何"}}
+
+id: 1770868986583-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "保健品或口服药**"}}
+
+id: 1770868986707-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "被严格证实可以“快速溶解”"}}
+
+id: 1770868986833-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "或“彻底清除”颈动脉"}}
+
+id: 1770868986941-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "斑块，大多数正规指南"}}
+
+id: 1770868987069-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "的目标是“稳定、减缓"}}
+
+id: 1770868987179-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "进展"}}
+
+id: 1770868987327-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "”，极少数患者在长期强化治疗"}}
+
+id: 1770868987436-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "下会有一定程度的逆转[1][2"}}
+
+id: 1770868987546-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "]。\n- 某些中成药"}}
+
+id: 1770868987675-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "或中药可能"}}
+
+id: 1770868987786-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "在改善症状、血脂等方面有一定辅助"}}
+
+id: 1770868987894-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "作用，但：\n  - 不能替"}}
+
+id: 1770868987994-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "代他汀、抗血小板等“"}}
+
+id: 1770868988102-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "硬指标”治疗\n  - 注意与"}}
+
+id: 1770868988207-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "西药相互作用、出血风险（如含水"}}
+
+id: 1770868988337-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "蛭、三七等活血成分）\n  -"}}
+
+id: 1770868988442-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 一定要在医生（尤其是"}}
+
+id: 1770868988581-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "熟悉"}}
+
+id: 1770868988688-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "中西药联用的医生）"}}
+
+id: 1770868988796-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "指导下使用\n\n---\n\n##"}}
+
+id: 1770868988902-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 八、结合你自己的情况"}}
+
+id: 1770868989048-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "怎么做？\n\n简单"}}
+
+id: 1770868989156-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "给你一个“自查模板”（"}}
+
+id: 1770868989323-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "真正决策要"}}
+
+id: 1770868989432-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "看影像和化验）：\n\n"}}
+
+id: 1770868989583-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "1. 报告上写的是：\n   - 仅"}}
+
+id: 1770868989687-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "“斑块形成”，内"}}
+
+id: 1770868989795-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "膜轻中度增厚，**"}}
+
+id: 1770868989904-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "未见明显狭窄**  \n    "}}
+
+id: 1770868990014-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " → 一般：生活方式 + 降"}}
+
+id: 1770868990127-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脂（他汀）±"}}
+
+id: 1770868990249-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 抗血小板 + 控制“三高"}}
+
+id: 1770868990356-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "” + 定期"}}
+
+id: 1770868990463-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "超声复查\n   - 有**狭窄百分比**（例如"}}
+
+id: 1770868990566-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 30%、50%、70%、80% 等）\n    "}}
+
+id: 1770868990675-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " - <50%：多属轻"}}
+
+id: 1770868990788-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "度，多是内科保守\n     -"}}
+
+id: 1770868990889-0
+event: heartbeat
+data: {"timestamp": 1770868990.8891354, "workflow_id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10:4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+id: 1770868990891-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 50–69%：中度"}}
+
+id: 1770868991044-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "，多数观察+内科治疗，"}}
+
+id: 1770868991166-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "个别高危患者可能进一步讨论介入\n    "}}
+
+id: 1770868991279-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " - ≥70%：重度，"}}
+
+id: 1770868991414-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "尤其是如果有过 TIA/脑梗"}}
+
+id: 1770868991551-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "症状，需要尽快让神经内科/血管外"}}
+
+id: 1770868991718-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "科评估是否手术/支架\n\n2. 你"}}
+
+id: 1770868991824-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "是否有以下病史：\n   - 高血压、高"}}
+
+id: 1770868991951-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脂血症、糖尿病、吸烟"}}
+
+id: 1770868992054-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "、心脏病、房颤等"}}
+
+id: 1770868992162-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "  \n   → 这些都算“"}}
+
+id: 1770868992290-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "卒中高危人群”，更"}}
+
+id: 1770868992400-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "要重视控制。\n\n3. "}}
+
+id: 1770868992507-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "目前是否已经在吃：\n   - 他汀类？"}}
+
+id: 1770868992616-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "剂量达不达标？\n   - 阿司匹"}}
+
+id: 1770868992756-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "林或氯吡格雷？有"}}
+
+id: 1770868992863-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "无胃出血、黑便等问题？\n   -"}}
+
+id: 1770868993017-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 控压、控糖药物是否"}}
+
+id: 1770868993122-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "规律？\n\n如方便"}}
+
+id: 1770868993226-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "，你可以把**颈动"}}
+
+id: 1770868993359-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脉超声报告的原文（隐去"}}
+
+id: 1770868993488-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "个人信息）发给医生**，"}}
+
+id: 1770868993595-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "医生能更准确判断你属于哪"}}
+
+id: 1770868993704-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "一类、是走“"}}
+
+id: 1770868993808-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "纯药物+生活方式”还是要“"}}
+
+id: 1770868993911-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "考虑手术/支架”。\n\n---\n\n如果你"}}
+
+id: 1770868994026-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "愿意，可以补充你的"}}
+
+id: 1770868994158-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "：  \n- 年龄、性别  \n-"}}
+
+id: 1770868994265-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": " 是否有高血压/糖尿病/"}}
+
+id: 1770868994444-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "心脏病  \n- B 超报告中写"}}
+
+id: 1770868994568-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "的“狭窄程度/斑块"}}
+
+id: 1770868994677-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "大小”原文  \n\n我可以帮"}}
+
+id: 1770868994782-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "你把上面的原则，具体到"}}
+
+id: 1770868994907-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "“你大概属于哪一类、下一步和"}}
+
+id: 1770868995049-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "医生重点谈什么”。  \n\n---\n\n### References\n\n[1"}}
+
+id: 1770868995285-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "] Asymptomatic Carotid Artery St"}}
+
+id: 1770868995670-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "enosis - StatPearls"}}
+
+id: 1770868995777-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": ". <https://www.nc"}}
+
+id: 1770868995894-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "bi.nlm.nih.gov/books/NBK615139"}}
+
+id: 1770868996007-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "/>  \n[2] European Society for Vascular Surgery (ESVS"}}
+
+id: 1770868996131-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": ") 2023 Clinical Practice Guidelines on the Management of Atherosclerotic Car"}}
+
+id: 1770868996242-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "otid and Vertebral Artery Disease. <https://uvec"}}
+
+id: 1770868996359-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "d.org.tr/dosyalar/65fabb716e889_European"}}
+
+id: 1770868996467-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "%20Society%20for%20Vascular%20S"}}
+
+id: 1770868996581-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "urgery%20(ESVS)%202023%20Clinical%20Practice"}}
+
+id: 1770868996690-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "%20Guidelines%20on%20the%20Management%20of"}}
+
+id: 1770868996798-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "%20Atherosclerotic%20Carotid%20and"}}
+
+id: 1770868996910-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "%20Vertebral%20Artery%20Disease.pdf>  \n["}}
+
+id: 1770868997030-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "3] 颈部动"}}
+
+id: 1770868997136-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "脉斑块的治疗方法有哪些. <https://m.cndzys"}}
+
+id: 1770868997245-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": ".com/xshcore/quanwei_ztartnew/1es"}}
+
+id: 1770868997354-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "_3549290.html>  \n[4] 颈"}}
+
+id: 1770868997462-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "动脉斑块如何治疗. <https://m.youlai.cn"}}
+
+id: 1770868997611-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": "/a/sjbarticle/E19CEDMFaFA.html>"}}
+
+id: 1770868997618-0
+event: message
+data: {"message_id": "1121b22f-619f-4830-943d-aea4749bb52c", "delta": {"content": ""}}
+
+id: 1770868997620-0
+event: end_of_llm
+data: {"agent_name": "reporter"}
+
+id: 1770868997620-1
+event: end_of_agent
+data: {"agent_name": "reporter", "agent_id": "d90f831c-fdd8-4663-bfde-0cb4a5662254"}
+
+id: 1770868997622-0
+event: usage_info
+data: {"agent_name": "main", "scene": "main_agent_end", "usage": {"provider_class": "MiroThinkerSGLangClient", "model_name": "mirothinker-1.0-30a3b", "total_prompt_tokens": 728143, "total_completion_tokens": 2498, "total_tokens": 730641, "total_cached_tokens": 0, "request_count": 20}}
+
+id: 1770868997622-1
+event: usage_info
+data: {"agent_name": "summary_llm", "scene": "summary_llm_end", "usage": {"provider_class": "MiroThinkerSGLangClient", "model_name": "gpt-5.1", "total_prompt_tokens": 68036, "total_completion_tokens": 3543, "total_tokens": 71579, "total_cached_tokens": 0, "request_count": 1}}
+
+id: 1770868997622-2
+event: end_of_workflow
+data: {"workflow_id": "4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10:4db4234c-0a1c-4c63-bfe4-1d9b2a7b6d10"}
+
+event: share_id
+data: {"share_id": "c98a66fd-d76b-4c16-9fc2-c7a0621289f5"}
+
+id: 1770868997657-0
+event: done
+data: {"message": "task done", "timestamp": 1770868997656}
+

@@ -16,6 +16,7 @@ import (
 	"github.com/router-for-me/CLIProxyAPI/v6/internal/thinking"
 	cliproxyauth "github.com/router-for-me/CLIProxyAPI/v6/sdk/cliproxy/auth"
 	cliproxyexecutor "github.com/router-for-me/CLIProxyAPI/v6/sdk/cliproxy/executor"
+	"github.com/router-for-me/CLIProxyAPI/v6/sdk/cliproxy/usage"
 	"github.com/tidwall/gjson"
 )
 
@@ -320,17 +321,41 @@ func (e *MiroMindExecutor) ExecuteStream(ctx context.Context, auth *cliproxyauth
 		out <- cliproxyexecutor.StreamChunk{Payload: bytes.TrimSpace(buf.Bytes())}
 
 		inThinking := false
+		currentEvent := "" // 跟踪当前 SSE 事件类型
+		var totalPromptTokens, totalCompletionTokens int64
+
 		for scanner.Scan() {
 			line := scanner.Bytes()
 			appendAPIResponseChunk(ctx, e.cfg, line)
 
 			text := string(line)
-			if strings.HasPrefix(text, "data: ") {
-				dataStr := strings.TrimPrefix(text, "data: ")
-				if !gjson.Valid(dataStr) {
-					continue
+
+			// 跟踪 SSE 事件类型（event: 行总是在对应的 data: 行之前）
+			if strings.HasPrefix(text, "event: ") {
+				currentEvent = strings.TrimPrefix(text, "event: ")
+				continue
+			}
+
+			// 跳过非 data 行（id:、空行等）
+			if !strings.HasPrefix(text, "data: ") {
+				continue
+			}
+
+			dataStr := strings.TrimPrefix(text, "data: ")
+			if !gjson.Valid(dataStr) {
+				continue
+			}
+
+			switch currentEvent {
+			case "message":
+				// reporter agent 的正式回复内容
+				content := gjson.Get(dataStr, "delta.content").String()
+				if content != "" {
+					sendChunk(content, "", "")
 				}
-				
+
+			case "tool_call":
+				// 工具调用事件 - 只处理 show_text 中的 <think> 内容
 				toolName := gjson.Get(dataStr, "tool_name").String()
 				if toolName == "show_text" {
 					deltaText := gjson.Get(dataStr, "delta_input.text").String()
@@ -338,9 +363,9 @@ func (e *MiroMindExecutor) ExecuteStream(ctx context.Context, auth *cliproxyauth
 						// State machine for <think> parsing
 						toContent := ""
 						toReasoning := ""
-						
+
 						remaining := deltaText
-						
+
 						// Safety loop to process multiple tags in one chunk
 						for len(remaining) > 0 {
 							if !inThinking {
@@ -379,17 +404,42 @@ func (e *MiroMindExecutor) ExecuteStream(ctx context.Context, auth *cliproxyauth
 								}
 							}
 						}
-						
+
 						if toContent != "" || toReasoning != "" {
 							sendChunk(toContent, toReasoning, "")
 						}
 					}
 				}
+
+			case "usage_info":
+				// 提取 token 用量信息
+				scene := gjson.Get(dataStr, "scene").String()
+				if scene == "main_agent_end" || scene == "summary_llm_end" {
+					pt := gjson.Get(dataStr, "usage.total_prompt_tokens").Int()
+					ct := gjson.Get(dataStr, "usage.total_completion_tokens").Int()
+					totalPromptTokens += pt
+					totalCompletionTokens += ct
+				}
+
+			case "done", "end_of_workflow":
+				// 流结束信号，干净退出
+				goto streamDone
+
+			default:
+				// ping, heartbeat, history, start_of_agent, end_of_agent 等 - 忽略
 			}
 		}
-		
+
+	streamDone:
+		// 上报 token 用量（如果有）
+		if totalPromptTokens > 0 || totalCompletionTokens > 0 {
+			reporter.publish(ctx, usage.Detail{
+				InputTokens:  totalPromptTokens,
+				OutputTokens: totalCompletionTokens,
+				TotalTokens:  totalPromptTokens + totalCompletionTokens,
+			})
+		}
 		sendChunk("", "", "stop")
-		// out <- cliproxyexecutor.StreamChunk{Payload: []byte("data: [DONE]\n\n")} // Handler adds DONE
 	}()
 
 	return stream, nil
