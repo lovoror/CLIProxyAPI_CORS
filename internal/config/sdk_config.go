@@ -26,12 +26,9 @@ type SDKConfig struct {
 	// NonStreamKeepAliveInterval controls how often blank lines are emitted for non-streaming responses.
 	// <= 0 disables keep-alives. Value is in seconds.
 	NonStreamKeepAliveInterval int `yaml:"nonstream-keepalive-interval,omitempty" json:"nonstream-keepalive-interval,omitempty"`
-<<<<<<< HEAD
-=======
 
 	// MiroMindAPIURL optionally overrides the MiroMind API endpoint.
 	MiroMindAPIURL string `yaml:"miromind-api-url,omitempty" json:"miromind-api-url,omitempty"`
->>>>>>> target/main
 }
 
 // StreamingConfig holds server streaming behavior configuration.
