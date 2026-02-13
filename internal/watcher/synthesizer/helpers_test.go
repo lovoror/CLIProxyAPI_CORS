@@ -6,7 +6,10 @@ import (
 	"testing"
 
 	"github.com/router-for-me/CLIProxyAPI/v6/internal/config"
+<<<<<<< HEAD
 	"github.com/router-for-me/CLIProxyAPI/v6/internal/watcher/diff"
+=======
+>>>>>>> target/main
 	coreauth "github.com/router-for-me/CLIProxyAPI/v6/sdk/cliproxy/auth"
 )
 
@@ -201,6 +204,7 @@ func TestApplyAuthExcludedModelsMeta(t *testing.T) {
 	}
 }
 
+<<<<<<< HEAD
 func TestApplyAuthExcludedModelsMeta_OAuthMergeWritesCombinedModels(t *testing.T) {
 	auth := &coreauth.Auth{
 		Provider:   "claude",
@@ -225,6 +229,8 @@ func TestApplyAuthExcludedModelsMeta_OAuthMergeWritesCombinedModels(t *testing.T
 	}
 }
 
+=======
+>>>>>>> target/main
 func TestAddConfigHeadersToAttrs(t *testing.T) {
 	tests := []struct {
 		name    string

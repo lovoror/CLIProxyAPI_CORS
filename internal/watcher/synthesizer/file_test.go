@@ -297,6 +297,7 @@ func TestFileSynthesizer_Synthesize_PrefixValidation(t *testing.T) {
 	}
 }
 
+<<<<<<< HEAD
 func TestFileSynthesizer_Synthesize_PriorityParsing(t *testing.T) {
 	tests := []struct {
 		name     string
@@ -408,6 +409,8 @@ func TestFileSynthesizer_Synthesize_OAuthExcludedModelsMerged(t *testing.T) {
 	}
 }
 
+=======
+>>>>>>> target/main
 func TestSynthesizeGeminiVirtualAuths_NilInputs(t *testing.T) {
 	now := time.Now()
 
@@ -644,7 +647,10 @@ func TestFileSynthesizer_Synthesize_MultiProjectGemini(t *testing.T) {
 		"type":       "gemini",
 		"email":      "multi@example.com",
 		"project_id": "project-a, project-b, project-c",
+<<<<<<< HEAD
 		"priority":   " 10 ",
+=======
+>>>>>>> target/main
 	}
 	data, _ := json.Marshal(authData)
 	err := os.WriteFile(filepath.Join(tempDir, "gemini-multi.json"), data, 0644)
@@ -677,9 +683,12 @@ func TestFileSynthesizer_Synthesize_MultiProjectGemini(t *testing.T) {
 	if primary.Status != coreauth.StatusDisabled {
 		t.Errorf("expected primary status disabled, got %s", primary.Status)
 	}
+<<<<<<< HEAD
 	if gotPriority := primary.Attributes["priority"]; gotPriority != "10" {
 		t.Errorf("expected primary priority 10, got %q", gotPriority)
 	}
+=======
+>>>>>>> target/main
 
 	// Remaining auths should be virtuals
 	for i := 1; i < 4; i++ {
@@ -690,9 +699,12 @@ func TestFileSynthesizer_Synthesize_MultiProjectGemini(t *testing.T) {
 		if v.Attributes["gemini_virtual_parent"] != primary.ID {
 			t.Errorf("expected virtual %d parent to be %s, got %s", i, primary.ID, v.Attributes["gemini_virtual_parent"])
 		}
+<<<<<<< HEAD
 		if gotPriority := v.Attributes["priority"]; gotPriority != "10" {
 			t.Errorf("expected virtual %d priority 10, got %q", i, gotPriority)
 		}
+=======
+>>>>>>> target/main
 	}
 }
 

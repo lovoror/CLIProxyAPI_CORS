@@ -870,6 +870,7 @@ func TestCleanJSONSchemaForAntigravity_BooleanEnumToString(t *testing.T) {
 	}
 }
 
+<<<<<<< HEAD
 func TestCleanJSONSchemaForGemini_RemovesGeminiUnsupportedMetadataFields(t *testing.T) {
 	input := `{
 		"$schema": "http://json-schema.org/draft-07/schema#",
@@ -921,6 +922,8 @@ func TestCleanJSONSchemaForGemini_RemovesGeminiUnsupportedMetadataFields(t *test
 	compareJSON(t, expected, result)
 }
 
+=======
+>>>>>>> target/main
 func TestRemoveExtensionFields(t *testing.T) {
 	tests := []struct {
 		name     string

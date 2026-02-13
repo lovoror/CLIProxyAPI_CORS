@@ -1,0 +1,10 @@
+{
+    "model": "miromind-fast",
+    "messages": [
+        {
+            "role": "user",
+            "content": "短视频是不是改变了人的生理结构"
+        }
+    ],
+    "stream": true
+}
