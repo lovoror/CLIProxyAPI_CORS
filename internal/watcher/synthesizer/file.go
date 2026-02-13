@@ -5,10 +5,7 @@ import (
 	"fmt"
 	"os"
 	"path/filepath"
-<<<<<<< HEAD
 	"strconv"
-=======
->>>>>>> target/main
 	"strings"
 	"time"
 
@@ -96,12 +93,9 @@ func (s *FileSynthesizer) Synthesize(ctx *SynthesisContext) ([]*coreauth.Auth, e
 			status = coreauth.StatusDisabled
 		}
 
-<<<<<<< HEAD
 		// Read per-account excluded models from the OAuth JSON file
 		perAccountExcluded := extractExcludedModelsFromMetadata(metadata)
 
-=======
->>>>>>> target/main
 		a := &coreauth.Auth{
 			ID:       id,
 			Provider: provider,
@@ -118,7 +112,6 @@ func (s *FileSynthesizer) Synthesize(ctx *SynthesisContext) ([]*coreauth.Auth, e
 			CreatedAt: now,
 			UpdatedAt: now,
 		}
-<<<<<<< HEAD
 		// Read priority from auth file
 		if rawPriority, ok := metadata["priority"]; ok {
 			switch v := rawPriority.(type) {
@@ -136,13 +129,6 @@ func (s *FileSynthesizer) Synthesize(ctx *SynthesisContext) ([]*coreauth.Auth, e
 			if virtuals := SynthesizeGeminiVirtualAuths(a, metadata, now); len(virtuals) > 0 {
 				for _, v := range virtuals {
 					ApplyAuthExcludedModelsMeta(v, cfg, perAccountExcluded, "oauth")
-=======
-		ApplyAuthExcludedModelsMeta(a, cfg, nil, "oauth")
-		if provider == "gemini-cli" {
-			if virtuals := SynthesizeGeminiVirtualAuths(a, metadata, now); len(virtuals) > 0 {
-				for _, v := range virtuals {
-					ApplyAuthExcludedModelsMeta(v, cfg, nil, "oauth")
->>>>>>> target/main
 				}
 				out = append(out, a)
 				out = append(out, virtuals...)
@@ -197,13 +183,10 @@ func SynthesizeGeminiVirtualAuths(primary *coreauth.Auth, metadata map[string]an
 		if authPath != "" {
 			attrs["path"] = authPath
 		}
-<<<<<<< HEAD
 		// Propagate priority from primary auth to virtual auths
 		if priorityVal, hasPriority := primary.Attributes["priority"]; hasPriority && priorityVal != "" {
 			attrs["priority"] = priorityVal
 		}
-=======
->>>>>>> target/main
 		metadataCopy := map[string]any{
 			"email":             email,
 			"project_id":        projectID,
@@ -276,7 +259,6 @@ func buildGeminiVirtualID(baseID, projectID string) string {
 	replacer := strings.NewReplacer("/", "_", "\\", "_", " ", "_")
 	return fmt.Sprintf("%s::%s", baseID, replacer.Replace(project))
 }
-<<<<<<< HEAD
 
 // extractExcludedModelsFromMetadata reads per-account excluded models from the OAuth JSON metadata.
 // Supports both "excluded_models" and "excluded-models" keys, and accepts both []string and []interface{}.
@@ -314,5 +296,4 @@ func extractExcludedModelsFromMetadata(metadata map[string]any) []string {
 	}
 	return result
 }
-=======
->>>>>>> target/main
+

@@ -534,13 +534,13 @@ func ensureToolsArray(body []byte) []byte {
 // This is helpful for multi-turn conversations where the model may benefit from seeing
 // its previous reasoning to maintain coherent thought chains.
 //
-// For GLM-4.6/4.7 and MiniMax M2/M2.1, it is recommended to include the full assistant
+// For GLM-4.6/4.7/5 and MiniMax M2/M2.1, it is recommended to include the full assistant
 // response (including reasoning_content) in message history for better context continuity.
 func preserveReasoningContentInMessages(body []byte) []byte {
 	model := strings.ToLower(gjson.GetBytes(body, "model").String())
 
 	// Only apply to models that support thinking with history preservation
-	needsPreservation := strings.HasPrefix(model, "glm-4") || strings.HasPrefix(model, "minimax-m2")
+	needsPreservation := strings.HasPrefix(model, "glm-4") || strings.HasPrefix(model, "glm-5") || strings.HasPrefix(model, "minimax-m2")
 
 	if !needsPreservation {
 		return body

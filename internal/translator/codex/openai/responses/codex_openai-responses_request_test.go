@@ -263,7 +263,6 @@ func TestConvertSystemRoleToDeveloper_AssistantRole(t *testing.T) {
 		t.Errorf("Expected third role 'assistant', got '%s'", thirdRole.String())
 	}
 }
-<<<<<<< HEAD
 
 func TestUserFieldDeletion(t *testing.T) {  
 	inputJSON := []byte(`{  
@@ -281,5 +280,3 @@ func TestUserFieldDeletion(t *testing.T) {
 		t.Errorf("user field should be deleted, but it was found with value: %s", userField.Raw)
 	}
 }
-=======
->>>>>>> target/main
